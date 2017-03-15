@@ -207,19 +207,25 @@ function copyToClipboard(text) {
 $("#box").keyup( function(){
 	inputValue = document.getElementById("box").value;
 
-	if( inputValue == "" ) {alert('a')};
-
   if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
   
   if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
     
   if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
 
+if( inputValue == "" ) {
+	document.getElementById("abjad").innerHTML = "";
+	document.getElementById("letters").innerHTML = "";
+	document.getElementById("words").innerHTML = "";
+
+	mesaj = "";
+}else{
 	document.getElementById("abjad").innerHTML = "EBCED değeri: " + ebced;
 	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
 	document.getElementById("words").innerHTML = "KELİME sayısı: " + kelime;
 
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+};
 
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
