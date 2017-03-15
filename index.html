@@ -7,6 +7,10 @@
 <meta content='Ebced Değeri Hesaplayıcı' property='og:title'/>
 <meta content='Eş zamanlı Ebced/Sayı Değeri Hesaplayıcısı' property='og:description'/>
 <link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
+<script>
+	inputValue = document.getElementById("box").value;
+if(inputValue === ""){alert('boş')};
+</script>
 <style>
 
 body {
@@ -216,8 +220,6 @@ $("#box").on('keyup',function(){
 	document.getElementById("abjad").innerHTML = "EBCED değeri: " + ebced;
 	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
 	document.getElementById("words").innerHTML = "KELİME sayısı: " + kelime;
-
-if(inputValue === ""){alert('boş')};
 
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 
