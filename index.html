@@ -204,11 +204,11 @@ $("#box").on('keyup',function(){
     
   if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
   
-	document.getElementById("abjad").innerHTML = "Ebced Değeri: " + ebced;
-	document.getElementById("letters").innerHTML = "Harf Sayısı: " + harf;
-	document.getElementById("words").innerHTML = "Kelime Sayısı: " + kelime;
+	document.getElementById("abjad").innerHTML = "EBCED değeri: " + ebced;
+	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
+	document.getElementById("words").innerHTML = "KELİME Sayısı: " + kelime;
 	
-	mesaj = "Ebced Değeri: " + ebced + "\n" + "Harf Sayısı: " + harf + "\n" + "Kelime Sayısı: " + kelime;
+	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
