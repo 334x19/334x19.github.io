@@ -1,78 +1,220 @@
-<html>
+<!DOCTYPE html>
+<html onkeydown='startwork(event)'>
 <head>
+<title>Abjad Value Calculator</title>
+<meta name="viewport" content="width=device-width" />
+<meta content='http://abjad.quran114.org/' property='og:url'/>
+<meta content='Abjad Value Calculator' property='og:title'/>
+<meta content='Online Abjad/Gematrical/Numerical Value Calculator' property='og:description'/>
 <link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
-<script src='js/sweetalert.min.js' type='text/javascript'></script>
-<link href='css/sweetalert.css' rel='stylesheet'/>
-<script>
-function copyToClipboard(text) {
-	if (window.clipboardData && window.clipboardData.setData) {
-	return clipboardData.setData("Text", text);
-	}else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-		textarea = document.createElement("textarea");
-  	textarea.textContent = text;
-  	textarea.style.position = "fixed";
-  	document.body.appendChild(textarea); textarea.select();
-  	try {return document.execCommand("copy")}
-  	catch (ex) {console.warn("Copy to clipboard failed.", ex); return false;}
-  	finally {document.body.removeChild(textarea)}
+<style>
+
+body {
+	background-color: azure;
+}
+	
+textarea {
+	background-color: #d4efff;
+	font-size: 12pt;
+	direction: rtl;
+	width: 50%;
+	margin-left: 25%;
+}
+
+#text {
+	margin-left: 25%;
+	margin-left: 25%;
+	background-image: url(pic/abjad.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 0%;
+}
+
+#baslik {
+	font-size: large;
+	text-align: center;
+}
+
+p {font-size: 13pt;}
+button {font-size: 13pt;}
+
+@media only screen and (max-width: 768px) {
+
+textarea {font-size: 14pt;}
+th {font-size: 14pt;}
+p {font-size: 14pt;}
+button {font-size: 14pt;}
+textarea {font-size: 14pt;}
+	
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+
+textarea {
+	width: 80%;
+	margin-left: 10%;
+}
+
+#text {
+	margin-left: 10%;
+	background-position: 80% 0%;
+}
+	
+}
+
+@media only screen and (max-width: 425px) {
+
+textarea {
+	width: 90%;
+	margin-left: 5%;
+}
+
+#text {
+	margin-left: 5%;
+	background-position: 80% 0%;
+}
+
+}
+
+@media only screen and (max-width: 375px) {
+
+#text {
+	background-position: 90% 0%;
+}
+
+}
+</style>
+</head>
+
+<body>
+<p id="baslik">Abjad Value Calculator</p>
+<textarea placeholder="...Start typing" id="box" rows="6" cols="75"></textarea>
+<br>
+<div id="text">
+	<p id="abjad"></p>
+	<p id="letters"></p>
+	<p id="words"></p>
+	<button id="kopyala"> Copy Results </button>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+
+function getSum(total,num){return total + num};
+
+function val(yazı,harf,değer){
+	rgxp = new RegExp(değer,'gim');
+	text = yazı.toLowerCase();
+	if (text.indexOf(harf) > -1){
+		sonuc = text.split(harf).join(değer).match(rgxp).map(Number).reduce(getSum)
+	}else{
+		sonuc = 0
+	};
+	return sonuc;
+}
+
+function letters (string) { return string.match(/[ء-ي]/igm).length }
+function words(string){
+	y = string.split(/\s+/).filter(
+		function(string){
+			word = string.match(/[ء-ي]+/igm);
+			return word && word[0].length > 0;
+		}
+	);
+	return y.length;
+}
+function abjad (string) {
+	ء = val(string,'ء','1');
+	ا = val(string,'ا','1');
+	آ = val(string,'آ','1');
+	ٱ = val(string,'ٱ','1');
+	أ = val(string,'أ','1');
+	إ = val(string,'إ','1');
+	ب = val(string,'ب','2');
+	پ = val(string,'پ','2');
+	ج = val(string,'ج','3');
+	چ = val(string,'چ','3');
+	د = val(string,'د','4');
+	ه = val(string,'ه','5');
+	ة = val(string,'ة','5');
+	و = val(string,'و','6');
+	ؤ = val(string,'ؤ','6');
+	ز = val(string,'ز','7');
+	ژ = val(string,'ژ','7');
+	ح = val(string,'ح','8');
+	ط = val(string,'ط','9');
+	ی = val(string,'ی','10');
+	ي = val(string,'ي','10');
+	ئ = val(string,'ئ','10');
+	ى = val(string,'ى','10');
+	ک = val(string,'ک','20');
+	ك = val(string,'ك','20');
+	گ = val(string,'گ','20');
+	ڭ = val(string,'ڭ','20');
+	ل = val(string,'ل','30');
+	م = val(string,'م','40');
+	ن = val(string,'ن','50');
+	س = val(string,'س','60');
+	ع = val(string,'ع','70');
+	ف = val(string,'ف','80');
+	ڢ = val(string,'ڢ','80');
+	ڤ = val(string,'ڤ','80');
+	ص = val(string,'ص','90');
+	ق = val(string,'ق','100');
+	ڨ = val(string,'ڨ','100');
+	ر = val(string,'ر','200');
+	ش = val(string,'ش','300');
+	ت = val(string,'ت','400');
+	ث = val(string,'ث','500');
+	خ = val(string,'خ','600');
+	ذ = val(string,'ذ','700');
+	ض = val(string,'ض','800');
+	ظ = val(string,'ظ','900');
+	غ = val(string,'غ','1000');
+	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ
+}
+
+function startwork(event){
+	box = document.getElementById("box");
+	if ( box === document.activeElement ){}else{
+		box.focus();
 	}
 }
-function getSum(total,num) {return total + num};
-function val(yazı,harf,değer){ rgxp = new RegExp(değer,'gim'); text = yazı.toLowerCase();
-if (text.indexOf(harf) > -1){ sonuc = text.split(harf).join(değer).match(rgxp).map(Number).reduce(getSum) }else{ sonuc=0 };
-return sonuc;}
 
-function letters (string) { return string.match(/[a-z]/gim).length }
-function words(string) { return string.split(/\s+/).length }
-function abjad (string) { a = val(string,'a','1'); b = val(string,'b','2'); c = val(string,'c','3'); ç = val(string,'ç','4'); d = val(string,'d','5'); e = val(string,'e','6'); f = val(string,'f','7'); g = val(string,'g','8'); ğ = val(string,'ğ','9'); h = val(string,'h','10'); ı = val(string,'ı','11'); i = val(string,'i','12'); j = val(string,'j','13'); k = val(string,'k','14'); l = val(string,'l','15'); m = val(string,'m','16'); n = val(string,'n','17'); o = val(string,'o','18'); ö = val(string,'ö','19'); p = val(string,'p','20'); r = val(string,'r','21'); s = val(string,'s','22'); ş = val(string,'ş','23'); t = val(string,'t','24'); u = val(string,'u','25'); ü = val(string,'ü','26'); v = val(string,'v','27'); y = val(string,'y','28'); z = val(string,'z','29');
-return a+b+c+ç+d+e+f+g+ğ+h+ı+i+j+k+l+m+n+o+ö+p+r+s+ş+t+u+ü+v+y+z }
+function copyToClipboard(text) {
+	if (window.clipboardData && window.clipboardData.setData) {
+		return clipboardData.setData("Text", text);
+	}
+	else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+		textarea = document.createElement("textarea");
+  		textarea.textContent = text;
+  		textarea.style.position = "fixed";
+  		document.body.appendChild(textarea); textarea.select();
+  		try {return document.execCommand("copy")}
+  		catch (ex) {console.warn("Copy to clipboard failed.", ex); return false;}
+		finally {document.body.removeChild(textarea)}
+	}
+}
 
-swal({
-  title: "Abjad Calculator",
-  text: "Enter your text which you want to find gematrical value:",
-  type: "input",
-  showCancelButton: true,
-  confirmButtonColor: "#8bafef",
-  closeOnConfirm: false,
-  animation: "slide-from-top",
-  inputPlaceholder: "Write something"
-},
-function(inputValue){
-  if (inputValue === false) return false;
-  if (inputValue === "") {
-    swal.showInputError("You need to write something!");
-    return false
-  }
+$("#box").on('keyup',function(){
+	inputValue = document.getElementById("box").value;
+	
+  if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
+  
+  if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
+    
+  if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
+  
+	document.getElementById("abjad").innerHTML = "Abjad Value: " + ebced;
+	document.getElementById("letters").innerHTML = "Letters: " + harf;
+	document.getElementById("words").innerHTML = "Words: " + kelime;
+	
+	mesaj = "Abjad Value: " + ebced + "\n" + "Count of letters: " + harf + "\n" + "Count of words: " + kelime;
 
-  mesaj = "Abjad value: " + abjad(inputValue) + "\n" + "Count of words: " + words(inputValue) + "\n" + "Count of letters: " + letters(inputValue)
-
-swal({
-  title: "Calculation Results:",
-  text: mesaj + "\r\n\r\n Copy results?",
-  type: "success",
-  showCancelButton: true,
-  confirmButtonColor: "#8bafef",
-  confirmButtonText: "OK",
-  cancelButtonText: "Cancel",
-  closeOnConfirm: true,
-  closeOnCancel: true
-},
-function(isConfirm){
-  if (isConfirm) {
-    result = copyToClipboard(mesaj);
-    console.log("copied?", result);
-  }
-});
-    document.getElementById("abjad").innerHTML = "The Gematrical value of all letters: " + abjad(inputValue);
-    document.getElementById("words").innerHTML = "Count of words: " + words(inputValue);
-    document.getElementById("letters").innerHTML = "Count of letters: " + letters(inputValue);
+	document.querySelector("#kopyala").onclick = function() {
+		var result = copyToClipboard(mesaj);
+		console.log("copied?", result);
+	};
 });
 </script>
-</head>
-<body>
-  Results:
-  <p id="abjad"></p>
-  <p id="words"></p>
-  <p id="letters"></p>
 </body>
 </html>
