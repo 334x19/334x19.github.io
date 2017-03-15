@@ -215,16 +215,17 @@ if(inputValue) {
 	$("#letters").html("HARF sayısı: " + harf);
 	$("#words").html("KELİME sayısı: " + kelime);
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
-}else{
-	$("#abjad").html("");
-	$("#letters").html("");
-	$("#words").html("");
-	mesaj == " ";
-};
+
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
 		console.log("copied?", result);
 	};
+}else{
+	$("#abjad").html("");
+	$("#letters").html("");
+	$("#words").html("");
+};
+
 });
 </script>
 </body>
