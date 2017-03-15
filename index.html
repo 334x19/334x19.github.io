@@ -207,6 +207,8 @@ function copyToClipboard(text) {
 $("#box").keyup( function(){
 	inputValue = document.getElementById("box").value;
 
+	if( inputValue == "" ) {alert('a')};
+
   if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
   
   if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
