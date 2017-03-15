@@ -12,7 +12,14 @@
 body {
 	background-color: azure;
 }
-	
+
+#back {
+	position: absolute;
+	z-index: -1;
+	opacity: 0.38;
+	background-image: url(pic/abjadback_png.png);
+}
+
 textarea {
 	background-color: #d4efff;
 	font-size: 12pt;
@@ -88,6 +95,7 @@ textarea {
 </head>
 
 <body>
+<div id="back"></div>
 <p id="baslik">Ebced Değeri Hesaplama Aracı</p>
 <textarea placeholder="...Yazmaya başlayın" id="box" rows="6" cols="75"></textarea>
 <br>
