@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html onkeydown='startwork(event)'>
 <head>
-<title>Abjad Value Calculator</title>
+<title>Ebced Değeri Hesaplama Aracı</title>
 <meta name="viewport" content="width=device-width" />
 <meta content='http://abjad.quran114.org/' property='og:url'/>
 <meta content='Ebced Değeri Hesaplayıcı' property='og:title'/>
@@ -205,10 +205,10 @@ $("#box").on('keyup',function(){
   if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
   
 	document.getElementById("abjad").innerHTML = "Ebced Değeri: " + ebced;
-	document.getElementById("letters").innerHTML = harf + "Harf" ;
-	document.getElementById("words").innerHTML = kelime + "Kelime";
+	document.getElementById("letters").innerHTML = "Harf Sayısı: " + harf;
+	document.getElementById("words").innerHTML = "Kelime Sayısı: " + kelime;
 	
-	mesaj = "Ebced Değeri: " + ebced + "\n" + harf + "Harf" + "\n" + kelime + "Kelime";
+	mesaj = "Ebced Değeri: " + ebced + "\n" + "Harf Sayısı: " + harf + "\n" + "Kelime Sayısı: " + kelime;
 
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
