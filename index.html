@@ -206,13 +206,13 @@ function copyToClipboard(text) {
 
 $("#box").on('keyup',function(){
 	inputValue = document.getElementById("box").value;
-	
+	 if{inputValue === "" ){alert('a')};
   if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
   
   if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
     
   if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
-  	if{inputValue === "" ){alert('a')};
+
 	document.getElementById("abjad").innerHTML = "EBCED değeri: " + ebced;
 	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
 	document.getElementById("words").innerHTML = "KELİME sayısı: " + kelime;
