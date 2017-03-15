@@ -203,11 +203,8 @@ function copyToClipboard(text) {
 		finally {document.body.removeChild(textarea)}
 	}
 }
-$("#box").on('keydown',function(){
-if{document.getElementById("box").value === ""){alert('a')};
-});
 
-$("#box").on('keyup',function(){
+$("#box").keyup( function(){
 	inputValue = document.getElementById("box").value;
 
   if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
