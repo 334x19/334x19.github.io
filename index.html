@@ -207,6 +207,10 @@ function copyToClipboard(text) {
 $("#box").keyup( function(){
 	inputValue = $(this).val();
 if(inputValue) {
+	if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
+	if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}  
+	if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
+	
 	document.getElementById("abjad").innerHTML = "EBCED değeri: " + ebced;
 	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
 	document.getElementById("words").innerHTML = "KELİME sayısı: " + kelime;
@@ -217,12 +221,6 @@ if(inputValue) {
 	document.getElementById("words").innerHTML == "";
 	mesaj == "";
 };
-
-  if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
-  
-  if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
-    
-  if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
 
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
