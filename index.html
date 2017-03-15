@@ -4,8 +4,8 @@
 <title>Abjad Value Calculator</title>
 <meta name="viewport" content="width=device-width" />
 <meta content='http://abjad.quran114.org/' property='og:url'/>
-<meta content='Abjad Value Calculator' property='og:title'/>
-<meta content='Online Abjad/Gematrical/Numerical Value Calculator' property='og:description'/>
+<meta content='Ebced Değeri Hesaplayıcı' property='og:title'/>
+<meta content='Eş zamanlı Ebced/Sayı Değeri Hesaplayıcısı' property='og:description'/>
 <link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
 <style>
 
@@ -87,14 +87,14 @@ textarea {
 </head>
 
 <body>
-<p id="baslik">Abjad Value Calculator</p>
-<textarea placeholder="...Start typing" id="box" rows="6" cols="75"></textarea>
+<p id="baslik">Ebced Değeri Hesaplama Aracı</p>
+<textarea placeholder="...Yazmaya başlayın" id="box" rows="6" cols="75"></textarea>
 <br>
 <div id="text">
 	<p id="abjad"></p>
 	<p id="letters"></p>
 	<p id="words"></p>
-	<button id="kopyala"> Copy Results </button>
+	<button id="kopyala"> Sonuçları Kopyala </button>
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
@@ -204,11 +204,11 @@ $("#box").on('keyup',function(){
     
   if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
   
-	document.getElementById("abjad").innerHTML = "Abjad Value: " + ebced;
-	document.getElementById("letters").innerHTML = "Letters: " + harf;
-	document.getElementById("words").innerHTML = "Words: " + kelime;
+	document.getElementById("abjad").innerHTML = "Ebced Değeri: " + ebced;
+	document.getElementById("letters").innerHTML = harf + "Harf" ;
+	document.getElementById("words").innerHTML = kelime + "Kelime";
 	
-	mesaj = "Abjad Value: " + ebced + "\n" + "Count of letters: " + harf + "\n" + "Count of words: " + kelime;
+	mesaj = "Ebced Değeri: " + ebced + "\n" + harf + "Harf" + "\n" + kelime + "Kelime";
 
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
