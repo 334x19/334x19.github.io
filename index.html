@@ -205,9 +205,9 @@ function copyToClipboard(text) {
 }
 
 $("#box").keyup( function(){
-	inputValue = document.getElementById("box").value;
+	inputValue = $(this).val();
 if( inputValue == "" ) {
-	document.getElementById("abjad").innerHTML === "";
+	document.getElementById("abjad").innerHTML == "";
 	document.getElementById("letters").innerHTML == "";
 	document.getElementById("words").innerHTML == "";
 	mesaj == "";
