@@ -216,7 +216,9 @@ $("#box").on('keyup',function(){
 	document.getElementById("abjad").innerHTML = "EBCED değeri: " + ebced;
 	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
 	document.getElementById("words").innerHTML = "KELİME sayısı: " + kelime;
-	
+
+if(inputvalue == ""){alert('boş')};
+
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 
 	document.querySelector("#kopyala").onclick = function() {
