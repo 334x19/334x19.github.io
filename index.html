@@ -7,10 +7,6 @@
 <meta content='Ebced Değeri Hesaplayıcı' property='og:title'/>
 <meta content='Eş zamanlı Ebced/Sayı Değeri Hesaplayıcısı' property='og:description'/>
 <link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
-<script>
-	inputValue = document.getElementById("box").value;
-if(inputValue === ""){alert('boş')};
-</script>
 <style>
 
 body {
@@ -216,7 +212,7 @@ $("#box").on('keyup',function(){
   if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
     
   if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
-  
+  	if{inputValue === "" ){alert('a')};
 	document.getElementById("abjad").innerHTML = "EBCED değeri: " + ebced;
 	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
 	document.getElementById("words").innerHTML = "KELİME sayısı: " + kelime;
