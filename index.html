@@ -1,0 +1,78 @@
+<html>
+<head>
+<link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
+<script src='js/sweetalert.min.js' type='text/javascript'></script>
+<link href='css/sweetalert.css' rel='stylesheet'/>
+<script>
+function copyToClipboard(text) {
+	if (window.clipboardData && window.clipboardData.setData) {
+	return clipboardData.setData("Text", text);
+	}else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+		textarea = document.createElement("textarea");
+  	textarea.textContent = text;
+  	textarea.style.position = "fixed";
+  	document.body.appendChild(textarea); textarea.select();
+  	try {return document.execCommand("copy")}
+  	catch (ex) {console.warn("Copy to clipboard failed.", ex); return false;}
+  	finally {document.body.removeChild(textarea)}
+	}
+}
+function getSum(total,num) {return total + num};
+function val(yazı,harf,değer){ rgxp = new RegExp(değer,'gim'); text = yazı.toLowerCase();
+if (text.indexOf(harf) > -1){ sonuc = text.split(harf).join(değer).match(rgxp).map(Number).reduce(getSum) }else{ sonuc=0 };
+return sonuc;}
+
+function letters (string) { return string.match(/[a-z]/gim).length }
+function words(string) { return string.split(/\s+/).length }
+function abjad (string) { a = val(string,'a','1'); b = val(string,'b','2'); c = val(string,'c','3'); ç = val(string,'ç','4'); d = val(string,'d','5'); e = val(string,'e','6'); f = val(string,'f','7'); g = val(string,'g','8'); ğ = val(string,'ğ','9'); h = val(string,'h','10'); ı = val(string,'ı','11'); i = val(string,'i','12'); j = val(string,'j','13'); k = val(string,'k','14'); l = val(string,'l','15'); m = val(string,'m','16'); n = val(string,'n','17'); o = val(string,'o','18'); ö = val(string,'ö','19'); p = val(string,'p','20'); r = val(string,'r','21'); s = val(string,'s','22'); ş = val(string,'ş','23'); t = val(string,'t','24'); u = val(string,'u','25'); ü = val(string,'ü','26'); v = val(string,'v','27'); y = val(string,'y','28'); z = val(string,'z','29');
+return a+b+c+ç+d+e+f+g+ğ+h+ı+i+j+k+l+m+n+o+ö+p+r+s+ş+t+u+ü+v+y+z }
+
+swal({
+  title: "Abjad Calculator",
+  text: "Enter your text which you want to find gematrical value:",
+  type: "input",
+  showCancelButton: true,
+  confirmButtonColor: "#8bafef",
+  closeOnConfirm: false,
+  animation: "slide-from-top",
+  inputPlaceholder: "Write something"
+},
+function(inputValue){
+  if (inputValue === false) return false;
+  if (inputValue === "") {
+    swal.showInputError("You need to write something!");
+    return false
+  }
+
+  mesaj = "Abjad value: " + abjad(inputValue) + "\n" + "Count of words: " + words(inputValue) + "\n" + "Count of letters: " + letters(inputValue)
+
+swal({
+  title: "Calculation Results:",
+  text: mesaj + "\r\n\r\n Copy results?",
+  type: "success",
+  showCancelButton: true,
+  confirmButtonColor: "#8bafef",
+  confirmButtonText: "OK",
+  cancelButtonText: "Cancel",
+  closeOnConfirm: true,
+  closeOnCancel: true
+},
+function(isConfirm){
+  if (isConfirm) {
+    result = copyToClipboard(mesaj);
+    console.log("copied?", result);
+  }
+});
+    document.getElementById("abjad").innerHTML = "The Gematrical value of all letters: " + abjad(inputValue);
+    document.getElementById("words").innerHTML = "Count of words: " + words(inputValue);
+    document.getElementById("letters").innerHTML = "Count of letters: " + letters(inputValue);
+});
+</script>
+</head>
+<body>
+  Results:
+  <p id="abjad"></p>
+  <p id="words"></p>
+  <p id="letters"></p>
+</body>
+</html>
