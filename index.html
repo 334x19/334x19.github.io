@@ -212,8 +212,8 @@ if(inputValue) {
 	if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
 	
 	$("#abjad").html("EBCED değeri: " + ebced);
-	document.getElementById("letters").innerHTML = "HARF sayısı: " + harf;
-	document.getElementById("words").innerHTML = "KELİME sayısı: " + kelime;
+	$("#letters").html("HARF sayısı: " + harf);
+	$("#words").html("KELİME sayısı: " + kelime);
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 }else{
 	$("#abjad").html("");
@@ -221,7 +221,6 @@ if(inputValue) {
 	$("#words").html("");
 	mesaj == "";
 };
-
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
 		console.log("copied?", result);
