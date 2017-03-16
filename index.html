@@ -8,7 +8,6 @@
 <meta content='Eş zamanlı Ebced/Sayı Değeri Hesaplayıcısı' property='og:description'/>
 <link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
 <style>
-
 body {
 	background-color: azure;
 }
@@ -16,14 +15,19 @@ body {
 #back {
     position: absolute;
     z-index: -1;
-    opacity: 0.07;
+    opacity: 0.19;
     left: 50%;
-    margin-left: -120px;
+    margin-left: -150.68px;
+}
+
+#book {
+	padding-top: 38px;
 }
 
 textarea {
 	background-color: #d4efff;
-	font-size: 12pt;
+	border-radius: 2px;
+	font-size: 14pt;
 	direction: rtl;
 	width: 50%;
 	margin-left: 25%;
@@ -34,7 +38,8 @@ textarea {
 }
 
 textarea:focus {
-	background-image: none;
+	background-image: url(pic/background.png);
+	background-size: cover;
 	background-color: #d4fff3;
 }
 
@@ -52,7 +57,6 @@ button {font-size: 13pt;}
 
 @media only screen and (max-width: 768px) {
 
-textarea {font-size: 14pt;}
 th {font-size: 14pt;}
 p {font-size: 14pt;}
 button {font-size: 14pt;}
@@ -63,6 +67,7 @@ textarea {font-size: 14pt;}
 @media only screen and (min-width: 425px) and (max-width: 768px) {
 
 textarea {
+	font-size: 14pt;
 	width: 80%;
 	margin-left: 10%;
 }
@@ -76,6 +81,7 @@ textarea {
 @media only screen and (max-width: 425px) {
 
 textarea {
+	font-size: 15pt;
 	width: 90%;
 	margin-left: 5%;
 }
@@ -85,12 +91,13 @@ textarea {
 }
 
 }
-
+	
 @media only screen and (max-width: 375px) {
 	
 textarea {background-image: url(pic/abc.png)}
 
 }
+
 </style>
 </head>
 
@@ -98,7 +105,7 @@ textarea {background-image: url(pic/abc.png)}
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <textarea placeholder="...Yazmaya başlayın" id="box" rows="6" cols="75"></textarea>
 <br>
-<div id="back"><img src="pic/abjad_png.png"></img></div>
+<div id="back"><img id="book" src="pic/book arabic.png"></img></div>
 <div id="text">
 	<p id="abjad"></p>
 	<p id="letters"></p>
@@ -121,11 +128,11 @@ function val(yazı,harf,değer){
 	return sonuc;
 }
 
-function letters (string) { return string.match(/[ء-ي]/igm).length }
+function letters (string) { return string.match(/[ء-يﻻﻹﻷﻵ]/igm).length }
 function words(string){
 	y = string.split(/\s+/).filter(
 		function(string){
-			word = string.match(/[ء-ي]+/igm);
+			word = string.match(/[ء-يﻻﻹﻷﻵ]+/igm);
 			return word && word[0].length > 0;
 		}
 	);
@@ -179,7 +186,11 @@ function abjad (string) {
 	ض = val(string,'ض','800');
 	ظ = val(string,'ظ','900');
 	غ = val(string,'غ','1000');
-	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ
+	ﻻ = val(string,'ﻻ','31');
+	ﻹ = val(string,'ﻹ','31');
+	ﻷ = val(string,'ﻷ','31');
+	ﻵ = val(string,'ﻵ','31');
+	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
 }
 
 function startwork(event){
@@ -188,6 +199,10 @@ function startwork(event){
 		box.focus();
 	}
 }
+
+$('#box').on('input', function (event) { 
+    this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵ]/igm, '');
+});
 
 function copyToClipboard(text) {
 	if (window.clipboardData && window.clipboardData.setData) {
@@ -206,9 +221,9 @@ function copyToClipboard(text) {
 
 $("#box").keyup( function(){
 	inputValue = $(this).val();
-if(inputValue) {
+if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
-	if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}  
+	if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
 	if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
 	$("#abjad").html("EBCED değeri: " + ebced);
 	$("#letters").html("HARF sayısı: " + harf);
@@ -218,7 +233,7 @@ if(inputValue) {
 	$("#abjad").html("");
 	$("#letters").html("");
 	$("#words").html("");
-	mesaj = ""
+	mesaj = "";
 };
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
