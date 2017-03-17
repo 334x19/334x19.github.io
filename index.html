@@ -112,6 +112,35 @@ textarea {background-image: url(pic/abc.png)}
 	<p id="words"></p>
 	<button id="kopyala"> Sonuçları Kopyala </button>
 </div>
+	<p id="elif"></p>
+	<p id="be"></p>
+	<p id="cim"></p>
+	<p id="dal"></p>
+	<p id="he"></p>
+	<p id="vav"></p>
+	<p id="ze"></p>
+	<p id="ha"></p>
+	<p id="tı"></p>
+	<p id="ye"></p>
+	<p id="kef"></p>
+	<p id="lam"></p>
+	<p id="mim"></p>
+	<p id="nun"></p>
+	<p id="sin"></p>
+	<p id="ayn"></p>
+	<p id="fe"></p>
+	<p id="sad"></p>
+	<p id="kaf"></p>
+	<p id="rı"></p>
+	<p id="şın"></p>
+	<p id="te"></p>
+	<p id="se"></p>
+	<p id="hı"></p>
+	<p id="zel"></p>
+	<p id="dad"></p>
+	<p id="zı"></p>
+	<p id="gayn"></p>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
 
@@ -129,6 +158,50 @@ function val(yazı,harf,değer){
 }
 
 function letters (string) { return string.match(/[ء-يﻻﻹﻷﻵ]/igm).length }
+
+function elif(string) {
+	la = string.match(/[ﻻ]/igm).length;
+	lla = string.match(/[ﻹ]/igm).length;
+	laa = string.match(/[ﻷ]/igm).length;
+	llaa = string.match(/[ﻵ]/igm).length;
+	elif = string.match(/[ءاآٱأإ]/igm).length;
+	return la + lla + laa + llaa + elif
+}
+function be(string) { return string.match(/[بپ]/igm).length }
+function cim(string) { return string.match(/[جچ]/igm).length }
+function dal(string) { return string.match(/[د]/igm).length }
+function he(string) { return string.match(/[هة]/igm).length }
+function vav(string) { return string.match(/[وؤ]/igm).length }
+function ze(string) { return string.match(/[زژ]/igm).length }
+function ha(string) { return string.match(/[ح]/igm).length }
+function tı(string) { return string.match(/[ط]/igm).length }
+function ye(string) { return string.match(/[یيئى]/igm).length }
+function kef(string) { return string.match(/[کكگڭ]/igm).length }
+function lam(string) { 
+	la = string.match(/[ﻻ]/igm).length;
+	lla = string.match(/[ﻹ]/igm).length;
+	laa = string.match(/[ﻷ]/igm).length;
+	llaa = string.match(/[ﻵ]/igm).length;
+	lam = string.match(/[ل]/igm).length;
+	return la + lla + laa + llaa + lam
+}
+function mim(string) { return string.match(/[م]/igm).length }
+function nun(string) { return string.match(/[ن]/igm).length }
+function sin(string) { return string.match(/[س]/igm).length }
+function ayn(string) { return string.match(/[ع]/igm).length }
+function fe(string) { return string.match(/[فڢڤ]/igm).length }
+function sad(string) { return string.match(/[ص]/igm).length }
+function kaf(string) { return string.match(/[قڨ]/igm).length }
+function rı(string) { return string.match(/[ر]/igm).length }
+function şın(string) { return string.match(/[ش]/igm).length }
+function te(string) { return string.match(/[ت]/igm).length }
+function se(string) { return string.match(/[ث]/igm).length }
+function hı(string) { return string.match(/[خ]/igm).length }
+function zel(string) { return string.match(/[ذ]/igm).length }
+function dad(string) { return string.match(/[ض]/igm).length }
+function zı(string) { return string.match(/[ظ]/igm).length }
+function gayn(string) { return string.match(/[غ]/igm).length }
+
 function words(string){
 	y = string.split(/\s+/).filter(
 		function(string){
@@ -225,10 +298,70 @@ if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{ebced = abjad(inputValue);}
 	if (letters(inputValue) % 19 === 0) {harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{harf = letters(inputValue);}
 	if (words(inputValue) % 19 === 0) {kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{kelime = words(inputValue);}
+
 	$("#abjad").html("EBCED değeri: " + ebced);
 	$("#letters").html("HARF sayısı: " + harf);
 	$("#words").html("KELİME sayısı: " + kelime);
+
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+
+	if (elif(inputValue) % 19 === 0) {elif = elif(inputValue) + " = 19 × " + elif(inputValue)/19}else{elif = elif(inputValue)}
+	if (be(inputValue) % 19 === 0) {be = be(inputValue) + " = 19 × " + be(inputValue)/19}else{be = be(inputValue)}
+	if (cim(inputValue) % 19 === 0) {cim = cim(inputValue) + " = 19 × " + cim(inputValue)/19}else{cim = cim(inputValue)}
+	if (dal(inputValue) % 19 === 0) {dal = dal(inputValue) + " = 19 × " + dal(inputValue)/19}else{dal = dal(inputValue)}
+	if (he(inputValue) % 19 === 0) {he = he(inputValue) + " = 19 × " + he(inputValue)/19}else{he = he(inputValue)}
+	if (vav(inputValue) % 19 === 0) {vav = vav(inputValue) + " = 19 × " + vav(inputValue)/19}else{vav = vav(inputValue)}
+	if (ze(inputValue) % 19 === 0) {ze = ze(inputValue) + " = 19 × " + ze(inputValue)/19}else{ze = ze(inputValue)}
+	if (ha(inputValue) % 19 === 0) {ha = ha(inputValue) + " = 19 × " + ha(inputValue)/19}else{ha = ha(inputValue)}
+	if (tı(inputValue) % 19 === 0) {tı = tı(inputValue) + " = 19 × " + tı(inputValue)/19}else{tı = tı(inputValue)}
+	if (ye(inputValue) % 19 === 0) {ye = ye(inputValue) + " = 19 × " + ye(inputValue)/19}else{ye = ye(inputValue)}
+	if (kef(inputValue) % 19 === 0) {kef = kef(inputValue) + " = 19 × " + kef(inputValue)/19}else{kef = kef(inputValue)}
+	if (lam(inputValue) % 19 === 0) {lam = lam(inputValue) + " = 19 × " + lam(inputValue)/19}else{lam = lam(inputValue)}
+	if (mim(inputValue) % 19 === 0) {mim = mim(inputValue) + " = 19 × " + mim(inputValue)/19}else{mim = mim(inputValue)}
+	if (nun(inputValue) % 19 === 0) {nun = nun(inputValue) + " = 19 × " + nun(inputValue)/19}else{nun = nun(inputValue)}
+	if (sin(inputValue) % 19 === 0) {sin = sin(inputValue) + " = 19 × " + sin(inputValue)/19}else{sin = sin(inputValue)}
+	if (ayn(inputValue) % 19 === 0) {ayn = ayn(inputValue) + " = 19 × " + ayn(inputValue)/19}else{ayn = ayn(inputValue)}
+	if (fe(inputValue) % 19 === 0) {fe = fe(inputValue) + " = 19 × " + fe(inputValue)/19}else{fe = fe(inputValue)}
+	if (sad(inputValue) % 19 === 0) {sad = sad(inputValue) + " = 19 × " + sad(inputValue)/19}else{sad = sad(inputValue)}
+	if (kaf(inputValue) % 19 === 0) {kaf = kaf(inputValue) + " = 19 × " + kaf(inputValue)/19}else{kaf = kaf(inputValue)}
+	if (rı(inputValue) % 19 === 0) {rı = rı(inputValue) + " = 19 × " + rı(inputValue)/19}else{rı = rı(inputValue)}
+	if (şın(inputValue) % 19 === 0) {şın = şın(inputValue) + " = 19 × " + şın(inputValue)/19}else{şın = şın(inputValue)}
+	if (te(inputValue) % 19 === 0) {te = te(inputValue) + " = 19 × " + te(inputValue)/19}else{te = te(inputValue)}
+	if (se(inputValue) % 19 === 0) {se = se(inputValue) + " = 19 × " + se(inputValue)/19}else{se = se(inputValue)}
+	if (hı(inputValue) % 19 === 0) {hı = hı(inputValue) + " = 19 × " + hı(inputValue)/19}else{hı = hı(inputValue)}
+	if (zel(inputValue) % 19 === 0) {zel = zel(inputValue) + " = 19 × " + zel(inputValue)/19}else{zel = zel(inputValue)}
+	if (dad(inputValue) % 19 === 0) {dad = dad(inputValue) + " = 19 × " + dad(inputValue)/19}else{dad = dad(inputValue)}
+	if (zı(inputValue) % 19 === 0) {zı = zı(inputValue) + " = 19 × " + zı(inputValue)/19}else{zı = zı(inputValue)}
+	if (gayn(inputValue) % 19 === 0) {gayn = gayn(inputValue) + " = 19 × " + gayn(inputValue)/19}else{gayn = gayn(inputValue)}
+
+	$("#elif").html("ELİF sayısı: " + elif);
+	$("#be").html("BE sayısı: " + be);
+	$("#cim").html("CİM sayısı: " + cim);
+	$("#dal").html("DAL sayısı: " + dal);
+	$("#he").html("HE sayısı: " + he);
+	$("#vav").html("VAV sayısı: " + vav);
+	$("#ze").html("ZE sayısı: " + ze);
+	$("#ha").html("HA sayısı: " + ha);
+	$("#tı").html("TI sayısı: " + tı);
+	$("#ye").html("YE sayısı: " + ye);
+	$("#kef").html("KEF sayısı: " + kef);
+	$("#lam").html("LAM sayısı: " + lam);
+	$("#mim").html("MİM sayısı: " + mim);
+	$("#nun").html("NUN sayısı: " + nun);
+	$("#sin").html("SİN sayısı: " + sin);
+	$("#ayn").html("AYN sayısı: " + ayn);
+	$("#fe").html("FE sayısı: " + fe);
+	$("#sad").html("SAD sayısı: " + sad);
+	$("#kaf").html("KAF sayısı: " + kaf);
+	$("#rı").html("RI sayısı: " + rı);
+	$("#şın").html("ŞIN sayısı: " + şın);
+	$("#te").html("TE sayısı: " + te);
+	$("#se").html("SE sayısı: " + se);
+	$("#hı").html("HI sayısı: " + hı);
+	$("#zel").html("ZEL sayısı: " + zel);
+	$("#dad").html("DAD sayısı: " + dad);
+	$("#zı").html("ZI sayısı: " + zı);
+	$("#gayn").html("GAYN sayısı: " + gayn);
 }else{
 	$("#abjad").html("");
 	$("#letters").html("");
