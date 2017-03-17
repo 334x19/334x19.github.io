@@ -301,12 +301,6 @@ if( abjad(inputValue) ) {
 	if (letters(inputValue) % 19 === 0) {harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{harf = letters(inputValue);}
 	if (words(inputValue) % 19 === 0) {kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{kelime = words(inputValue);}
 
-	$("#abjad").html("EBCED değeri: " + ebced);
-	$("#letters").html("HARF sayısı: " + harf);
-	$("#words").html("KELİME sayısı: " + kelime);
-
-	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
-
 	if (elif19(inputValue) % 19 === 0) {elif = elif19(inputValue) + " = 19 × " + elif19(inputValue)/19}else{elif = elif19(inputValue)}
 	if (be19(inputValue) % 19 === 0) {be = be19(inputValue) + " = 19 × " + be19(inputValue)/19}else{be = be19(inputValue)}
 	if (cim19(inputValue) % 19 === 0) {cim = cim19(inputValue) + " = 19 × " + cim19(inputValue)/19}else{cim = cim19(inputValue)}
@@ -364,6 +358,12 @@ if( abjad(inputValue) ) {
 	$("#dad").html("DAD sayısı: " + dad);
 	$("#zı").html("ZI sayısı: " + zı);
 	$("#gayn").html("GAYN sayısı: " + gayn);
+
+	$("#abjad").html("EBCED değeri: " + ebced);
+	$("#letters").html("HARF sayısı: " + harf);
+	$("#words").html("KELİME sayısı: " + kelime);
+
+	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 }else{
 	$("#abjad").html("");
 	$("#letters").html("");
