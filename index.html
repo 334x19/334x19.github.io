@@ -291,8 +291,9 @@ function copyToClipboard(text) {
 	}
 }
 
+	inputValue = $("#box").val();
+
 $("#box").keyup( function(){
-	inputValue = $(this).val();
 if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{ebced = abjad(inputValue);}
 	if (letters(inputValue) % 19 === 0) {harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{harf = letters(inputValue);}
@@ -314,7 +315,6 @@ if( abjad(inputValue) ) {
 });
 
 $("#box").keyup( function(){
-	inputValue = $(this).val();
 if( abjad(inputValue) ) {
 	if (dal19(inputValue) % 19 === 0) {dal = dal19(inputValue) + " = 19 × " + dal19(inputValue)/19;}else{dal = dal19(inputValue);}
 	$("#dal_H").html("DAL sayısı: " + dal);
@@ -324,7 +324,6 @@ if( abjad(inputValue) ) {
 });
 
 $("#box").keyup( function(){
-	inputValue = $(this).val();
 if( abjad(inputValue) ) {
 	//if (elif19(inputValue) % 19 === 0) {elif = elif19(inputValue) + " = 19 × " + elif19(inputValue)/19;}else{elif = elif19(inputValue);}
 	//if (be19(inputValue) % 19 === 0) {be = be19(inputValue) + " = 19 × " + be19(inputValue)/19;}else{be = be19(inputValue);}
