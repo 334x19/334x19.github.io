@@ -161,14 +161,6 @@ function val(yazı,harf,değer){
 
 function letters (string) { return string.match(/[ء-يﻻﻹﻷﻵ]/igm).length }
 
-function elif19 (string) {
-	la = string.match(/[ﻻ]/igm).length;
-	lla = string.match(/[ﻹ]/igm).length;
-	laa = string.match(/[ﻷ]/igm).length;
-	llaa = string.match(/[ﻵ]/igm).length;
-	elif = string.match(/[ءاآٱأإ]/igm).length;
-	return la + lla + laa + llaa + elif
-}
 function be19 (string) { return string.match(/[بپ]/igm).length }
 function cim19 (string) { return string.match(/[جچ]/igm).length }
 function dal19 (string) { return string.match(/[د]/igm).length }
@@ -179,14 +171,6 @@ function ha19 (string) { return string.match(/[ح]/igm).length }
 function tı19 (string) { return string.match(/[ط]/igm).length }
 function ye19 (string) { return string.match(/[یيئى]/igm).length }
 function kef19 (string) { return string.match(/[کكگڭ]/igm).length }
-function lam19 (string) { 
-	la = string.match(/[ﻻ]/igm).length;
-	lla = string.match(/[ﻹ]/igm).length;
-	laa = string.match(/[ﻷ]/igm).length;
-	llaa = string.match(/[ﻵ]/igm).length;
-	lam = string.match(/[ل]/igm).length;
-	return la + lla + laa + llaa + lam
-}
 function mim19 (string) { return string.match(/[م]/igm).length }
 function nun19 (string) { return string.match(/[ن]/igm).length }
 function sin19 (string) { return string.match(/[س]/igm).length }
@@ -301,7 +285,6 @@ if( abjad(inputValue) ) {
 	if (letters(inputValue) % 19 === 0) {harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{harf = letters(inputValue);}
 	if (words(inputValue) % 19 === 0) {kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{kelime = words(inputValue);}
 
-	if (elif19(inputValue) % 19 === 0) {elif = elif19(inputValue) + " = 19 × " + elif19(inputValue)/19}else{elif = elif19(inputValue)}
 	if (be19(inputValue) % 19 === 0) {be = be19(inputValue) + " = 19 × " + be19(inputValue)/19}else{be = be19(inputValue)}
 	if (cim19(inputValue) % 19 === 0) {cim = cim19(inputValue) + " = 19 × " + cim19(inputValue)/19}else{cim = cim19(inputValue)}
 	if (dal19(inputValue) % 19 === 0) {dal = dal19(inputValue) + " = 19 × " + dal19(inputValue)/19}else{dal = dal19(inputValue)}
@@ -312,7 +295,7 @@ if( abjad(inputValue) ) {
 	if (tı19(inputValue) % 19 === 0) {tı = tı19(inputValue) + " = 19 × " + tı19(inputValue)/19}else{tı = tı19(inputValue)}
 	if (ye19(inputValue) % 19 === 0) {ye = ye19(inputValue) + " = 19 × " + ye19(inputValue)/19}else{ye = ye19(inputValue)}
 	if (kef19(inputValue) % 19 === 0) {kef = kef19(inputValue) + " = 19 × " + kef19(inputValue)/19}else{kef = kef19(inputValue)}
-	if (lam19(inputValue) % 19 === 0) {lam = lam19(inputValue) + " = 19 × " + lam19(inputValue)/19}else{lam = lam19(inputValue)}
+
 	if (mim19(inputValue) % 19 === 0) {mim = mim19(inputValue) + " = 19 × " + mim19(inputValue)/19}else{mim = mim19(inputValue)}
 	if (nun19(inputValue) % 19 === 0) {nun = nun19(inputValue) + " = 19 × " + nun19(inputValue)/19}else{nun = nun19(inputValue)}
 	if (sin19(inputValue) % 19 === 0) {sin = sin19(inputValue) + " = 19 × " + sin19(inputValue)/19}else{sin = sin19(inputValue)}
@@ -330,7 +313,7 @@ if( abjad(inputValue) ) {
 	if (zı19(inputValue) % 19 === 0) {zı = zı19(inputValue) + " = 19 × " + zı19(inputValue)/19}else{zı = zı19(inputValue)}
 	if (gayn19(inputValue) % 19 === 0) {gayn = gayn19(inputValue) + " = 19 × " + gayn19(inputValue)/19}else{gayn = gayn19(inputValue)}
 
-	$("#elif").html("ELİF sayısı: " + elif);
+
 	$("#be").html("BE sayısı: " + be);
 	$("#cim").html("CİM sayısı: " + cim);
 	$("#dal").html("DAL sayısı: " + dal);
@@ -341,7 +324,7 @@ if( abjad(inputValue) ) {
 	$("#tı").html("TI sayısı: " + tı);
 	$("#ye").html("YE sayısı: " + ye);
 	$("#kef").html("KEF sayısı: " + kef);
-	$("#lam").html("LAM sayısı: " + lam);
+
 	$("#mim").html("MİM sayısı: " + mim);
 	$("#nun").html("NUN sayısı: " + nun);
 	$("#sin").html("SİN sayısı: " + sin);
