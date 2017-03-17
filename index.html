@@ -222,9 +222,9 @@ function copyToClipboard(text) {
 $("#box").keyup( function(){
 	inputValue = $(this).val();
 if( abjad(inputValue) ) {
-	if (abjad(inputValue) % 19 === 0) {var ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{var ebced = abjad(inputValue);}
-	if (letters(inputValue) % 19 === 0) {var harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{var harf = letters(inputValue);}
-	if (words(inputValue) % 19 === 0) {var kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{var kelime = words(inputValue);}
+	if (abjad(inputValue) % 19 === 0) {ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{ebced = abjad(inputValue);}
+	if (letters(inputValue) % 19 === 0) {harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{harf = letters(inputValue);}
+	if (words(inputValue) % 19 === 0) {kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{kelime = words(inputValue);}
 	$("#abjad").html("EBCED değeri: " + ebced);
 	$("#letters").html("HARF sayısı: " + harf);
 	$("#words").html("KELİME sayısı: " + kelime);
