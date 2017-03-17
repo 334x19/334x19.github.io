@@ -158,7 +158,14 @@ function val(yazı,harf,değer){
 }
 
 function letters (string) { return string.match(/[ء-يﻻﻹﻷﻵ]/igm).length }
-
+function elif19 (string) {
+	la = string.match(/[ﻻ]/igm).length;
+	lla = string.match(/[ﻹ]/igm).length;
+	laa = string.match(/[ﻷ]/igm).length;
+	llaa = string.match(/[ﻵ]/igm).length;
+	elif = string.match(/[ءاآٱأإ]/igm).length;
+	return la + lla + laa + llaa + elif
+}
 function be19 (string) { return string.match(/[بپ]/igm).length }
 function cim19 (string) { return string.match(/[جچ]/igm).length }
 function dal19 (string) { return string.match(/[د]/igm).length }
@@ -169,6 +176,14 @@ function ha19 (string) { return string.match(/[ح]/igm).length }
 function tı19 (string) { return string.match(/[ط]/igm).length }
 function ye19 (string) { return string.match(/[یيئى]/igm).length }
 function kef19 (string) { return string.match(/[کكگڭ]/igm).length }
+function lam19 (string) { 
+	la = string.match(/[ﻻ]/igm).length;
+	lla = string.match(/[ﻹ]/igm).length;
+	laa = string.match(/[ﻷ]/igm).length;
+	llaa = string.match(/[ﻵ]/igm).length;
+	lam = string.match(/[ل]/igm).length;
+	return la + lla + laa + llaa + lam
+}
 function mim19 (string) { return string.match(/[م]/igm).length }
 function nun19 (string) { return string.match(/[ن]/igm).length }
 function sin19 (string) { return string.match(/[س]/igm).length }
@@ -282,66 +297,65 @@ if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{ebced = abjad(inputValue);}
 	if (letters(inputValue) % 19 === 0) {harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{harf = letters(inputValue);}
 	if (words(inputValue) % 19 === 0) {kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{kelime = words(inputValue);}
-
-	if (be19(inputValue) % 19 === 0) {be = be19(inputValue) + " = 19 × " + be19(inputValue)/19;}else{be = be19(inputValue);;}
-	if (cim19(inputValue) % 19 === 0) {cim = cim19(inputValue) + " = 19 × " + cim19(inputValue)/19;}else{cim = cim19(inputValue);}
-	if (dal19(inputValue) % 19 === 0) {dal = dal19(inputValue) + " = 19 × " + dal19(inputValue)/19;}else{dal = dal19(inputValue);}
-	if (he19(inputValue) % 19 === 0) {he = he19(inputValue) + " = 19 × " + he19(inputValue)/19;}else{he = he19(inputValue);}
-	if (vav19(inputValue) % 19 === 0) {vav = vav19(inputValue) + " = 19 × " + vav19(inputValue)/19;}else{vav = vav19(inputValue);}
-	if (ze19(inputValue) % 19 === 0) {ze = ze19(inputValue) + " = 19 × " + ze19(inputValue)/19;}else{ze = ze19(inputValue);}
-	if (ha19(inputValue) % 19 === 0) {ha = ha19(inputValue) + " = 19 × " + ha19(inputValue)/19;}else{ha = ha19(inputValue);}
-	if (tı19(inputValue) % 19 === 0) {tı = tı19(inputValue) + " = 19 × " + tı19(inputValue)/19;}else{tı = tı19(inputValue);}
-	if (ye19(inputValue) % 19 === 0) {ye = ye19(inputValue) + " = 19 × " + ye19(inputValue)/19;}else{ye = ye19(inputValue);}
-	if (kef19(inputValue) % 19 === 0) {kef = kef19(inputValue) + " = 19 × " + kef19(inputValue)/19;}else{kef = kef19(inputValue);}
-
+	//if (elif19(inputValue) % 19 === 0) {elif = elif19(inputValue) + " = 19 × " + elif19(inputValue)/19;}else{elif = elif19(inputValue);}
+	//if (be19(inputValue) % 19 === 0) {be = be19(inputValue) + " = 19 × " + be19(inputValue)/19;}else{be = be19(inputValue);}
+	//if (cim19(inputValue) % 19 === 0) {cim = cim19(inputValue) + " = 19 × " + cim19(inputValue)/19;}else{cim = cim19(inputValue);}
+	//if (dal19(inputValue) % 19 === 0) {dal = dal19(inputValue) + " = 19 × " + dal19(inputValue)/19;}else{dal = dal19(inputValue);}
+	//if (he19(inputValue) % 19 === 0) {he = he19(inputValue) + " = 19 × " + he19(inputValue)/19;}else{he = he19(inputValue);}
+	//if (vav19(inputValue) % 19 === 0) {vav = vav19(inputValue) + " = 19 × " + vav19(inputValue)/19;}else{vav = vav19(inputValue);}
+	//if (ze19(inputValue) % 19 === 0) {ze = ze19(inputValue) + " = 19 × " + ze19(inputValue)/19;}else{ze = ze19(inputValue);}
+	//if (ha19(inputValue) % 19 === 0) {ha = ha19(inputValue) + " = 19 × " + ha19(inputValue)/19;}else{ha = ha19(inputValue);}
+	//if (tı19(inputValue) % 19 === 0) {tı = tı19(inputValue) + " = 19 × " + tı19(inputValue)/19;}else{tı = tı19(inputValue);}
+	//if (ye19(inputValue) % 19 === 0) {ye = ye19(inputValue) + " = 19 × " + ye19(inputValue)/19;}else{ye = ye19(inputValue);}
+	//if (kef19(inputValue) % 19 === 0) {kef = kef19(inputValue) + " = 19 × " + kef19(inputValue)/19;}else{kef = kef19(inputValue);}
+	//if (lam19(inputValue) % 19 === 0) {lam = lam19(inputValue) + " = 19 × " + lam19(inputValue)/19;}else{lam = lam19(inputValue);}
 	if (mim19(inputValue) % 19 === 0) {mim = mim19(inputValue) + " = 19 × " + mim19(inputValue)/19;}else{mim = mim19(inputValue);}
-	if (nun19(inputValue) % 19 === 0) {nun = nun19(inputValue) + " = 19 × " + nun19(inputValue)/19;}else{nun = nun19(inputValue);}
-	if (sin19(inputValue) % 19 === 0) {sin = sin19(inputValue) + " = 19 × " + sin19(inputValue)/19;}else{sin = sin19(inputValue);}
-	if (ayn19(inputValue) % 19 === 0) {ayn = ayn19(inputValue) + " = 19 × " + ayn19(inputValue)/19;}else{ayn = ayn19(inputValue);}
-	if (fe19(inputValue) % 19 === 0) {fe = fe19(inputValue) + " = 19 × " + fe19(inputValue)/19;}else{fe = fe19(inputValue);}
-	if (sad19(inputValue) % 19 === 0) {sad = sad19(inputValue) + " = 19 × " + sad19(inputValue)/19;}else{sad = sad19(inputValue);}
-	if (kaf19(inputValue) % 19 === 0) {kaf = kaf19(inputValue) + " = 19 × " + kaf19(inputValue)/19;}else{kaf = kaf19(inputValue);}
-	if (rı19(inputValue) % 19 === 0) {rı = rı19(inputValue) + " = 19 × " + rı19(inputValue)/19;}else{rı = rı19(inputValue);}
-	if (şın19(inputValue) % 19 === 0) {şın = şın19(inputValue) + " = 19 × " + şın19(inputValue)/19;}else{şın = şın19(inputValue);}
-	if (te19(inputValue) % 19 === 0) {te = te19(inputValue) + " = 19 × " + te19(inputValue)/19;}else{te = te19(inputValue);}
-	if (se19(inputValue) % 19 === 0) {se = se19(inputValue) + " = 19 × " + se19(inputValue)/19;}else{se = se19(inputValue);}
-	if (hı19(inputValue) % 19 === 0) {hı = hı19(inputValue) + " = 19 × " + hı19(inputValue)/19;}else{hı = hı19(inputValue);}
-	if (zel19(inputValue) % 19 === 0) {zel = zel19(inputValue) + " = 19 × " + zel19(inputValue)/19;}else{zel = zel19(inputValue);}
-	if (dad19(inputValue) % 19 === 0) {dad = dad19(inputValue) + " = 19 × " + dad19(inputValue)/19;}else{dad = dad19(inputValue);}
-	if (zı19(inputValue) % 19 === 0) {zı = zı19(inputValue) + " = 19 × " + zı19(inputValue)/19;}else{zı = zı19(inputValue);}
-	if (gayn19(inputValue) % 19 === 0) {gayn = gayn19(inputValue) + " = 19 × " + gayn19(inputValue)/19;}else{gayn = gayn19(inputValue);}	
-
+	//if (nun19(inputValue) % 19 === 0) {nun = nun19(inputValue) + " = 19 × " + nun19(inputValue)/19;}else{nun = nun19(inputValue);}
+	//if (sin19(inputValue) % 19 === 0) {sin = sin19(inputValue) + " = 19 × " + sin19(inputValue)/19;}else{sin = sin19(inputValue);}
+	//if (ayn19(inputValue) % 19 === 0) {ayn = ayn19(inputValue) + " = 19 × " + ayn19(inputValue)/19;}else{ayn = ayn19(inputValue);}
+	//if (fe19(inputValue) % 19 === 0) {fe = fe19(inputValue) + " = 19 × " + fe19(inputValue)/19;}else{fe = fe19(inputValue);}
+	//if (sad19(inputValue) % 19 === 0) {sad = sad19(inputValue) + " = 19 × " + sad19(inputValue)/19;}else{sad = sad19(inputValue);}
+	//if (kaf19(inputValue) % 19 === 0) {kaf = kaf19(inputValue) + " = 19 × " + kaf19(inputValue)/19;}else{kaf = kaf19(inputValue);}
+	//if (rı19(inputValue) % 19 === 0) {rı = rı19(inputValue) + " = 19 × " + rı19(inputValue)/19;}else{rı = rı19(inputValue);}
+	//if (şın19(inputValue) % 19 === 0) {şın = şın19(inputValue) + " = 19 × " + şın19(inputValue)/19;}else{şın = şın19(inputValue);}
+	//if (te19(inputValue) % 19 === 0) {te = te19(inputValue) + " = 19 × " + te19(inputValue)/19;}else{te = te19(inputValue);}
+	//if (se19(inputValue) % 19 === 0) {se = se19(inputValue) + " = 19 × " + se19(inputValue)/19;}else{se = se19(inputValue);}
+	//if (hı19(inputValue) % 19 === 0) {hı = hı19(inputValue) + " = 19 × " + hı19(inputValue)/19;}else{hı = hı19(inputValue);}
+	//if (zel19(inputValue) % 19 === 0) {zel = zel19(inputValue) + " = 19 × " + zel19(inputValue)/19;}else{zel = zel19(inputValue);}
+	//if (dad19(inputValue) % 19 === 0) {dad = dad19(inputValue) + " = 19 × " + dad19(inputValue)/19;}else{dad = dad19(inputValue);}
+	//if (zı19(inputValue) % 19 === 0) {zı = zı19(inputValue) + " = 19 × " + zı19(inputValue)/19;}else{zı = zı19(inputValue);}
+	//if (gayn19(inputValue) % 19 === 0) {gayn = gayn19(inputValue) + " = 19 × " + gayn19(inputValue)/19;}else{gayn = gayn19(inputValue);}	
 	$("#abjad").html("EBCED değeri: " + ebced);
 	$("#letters").html("HARF sayısı: " + harf);
 	$("#words").html("KELİME sayısı: " + kelime);
-	$("#be_H").html("BE sayısı: " + be);
-	$("#cim_H").html("CİM sayısı: " + cim);
-	$("#dal_H").html("DAL sayısı: " + dal);
-	$("#he_H").html("HE sayısı: " + he);
-	$("#vav_H").html("VAV sayısı: " + vav);
-	$("#ze_H").html("ZE sayısı: " + ze);
-	$("#ha_H").html("HA sayısı: " + ha);
-	$("#tı_H").html("TI sayısı: " + tı);
-	$("#ye_H").html("YE sayısı: " + ye);
-	$("#kef_H").html("KEF sayısı: " + kef);
-
+	//$("#elif_H").html("ELİF sayısı: " + elif);
+	//$("#be_H").html("BE sayısı: " + be);
+	//$("#cim_H").html("CİM sayısı: " + cim);
+	//$("#dal_H").html("DAL sayısı: " + dal);
+	//$("#he_H").html("HE sayısı: " + he);
+	//$("#vav_H").html("VAV sayısı: " + vav);
+	//$("#ze_H").html("ZE sayısı: " + ze);
+	//$("#ha_H").html("HA sayısı: " + ha);
+	//$("#tı_H").html("TI sayısı: " + tı);
+	//$("#ye_H").html("YE sayısı: " + ye);
+	//$("#kef_H").html("KEF sayısı: " + kef);
+	//$("#lam_H").html("LAM sayısı: " + lam);
 	$("#mim_H").html("MİM sayısı: " + mim);
-	$("#nun_H").html("NUN sayısı: " + nun);
-	$("#sin_H").html("SİN sayısı: " + sin);
-	$("#ayn_H").html("AYN sayısı: " + ayn);
-	$("#fe_H").html("FE sayısı: " + fe);
-	$("#sad_H").html("SAD sayısı: " + sad);
-	$("#kaf_H").html("KAF sayısı: " + kaf);
-	$("#rı_H").html("RI sayısı: " + rı);
-	$("#şın_H").html("ŞIN sayısı: " + şın);
-	$("#te_H").html("TE sayısı: " + te);
-	$("#se_H").html("SE sayısı: " + se);
-	$("#hı_H").html("HI sayısı: " + hı);
-	$("#zel_H").html("ZEL sayısı: " + zel);
-	$("#dad_H").html("DAD sayısı: " + dad);
-	$("#zı_H").html("ZI sayısı: " + zı);
-	$("#gayn_H").html("GAYN sayısı: " + gayn);
-
+	//$("#nun_H").html("NUN sayısı: " + nun);
+	//$("#sin_H").html("SİN sayısı: " + sin);
+	//$("#ayn_H").html("AYN sayısı: " + ayn);
+	//$("#fe_H").html("FE sayısı: " + fe);
+	//$("#sad_H").html("SAD sayısı: " + sad);
+	//$("#kaf_H").html("KAF sayısı: " + kaf);
+	//$("#rı_H").html("RI sayısı: " + rı);
+	//$("#şın_H").html("ŞIN sayısı: " + şın);
+	//$("#te_H").html("TE sayısı: " + te);
+	//$("#se_H").html("SE sayısı: " + se);
+	//$("#hı_H").html("HI sayısı: " + hı);
+	//$("#zel_H").html("ZEL sayısı: " + zel);
+	//$("#dad_H").html("DAD sayısı: " + dad);
+	//$("#zı_H").html("ZI sayısı: " + zı);
+	//$("#gayn_H").html("GAYN sayısı: " + gayn);
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 }else{
 	$("#abjad").html("");
