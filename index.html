@@ -297,6 +297,22 @@ if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;}else{ebced = abjad(inputValue);}
 	if (letters(inputValue) % 19 === 0) {harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;}else{harf = letters(inputValue);}
 	if (words(inputValue) % 19 === 0) {kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;}else{kelime = words(inputValue);}
+	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+}else{
+	$("#abjad").html("");
+	$("#letters").html("");
+	$("#words").html("");
+	mesaj = "";
+};
+	document.querySelector("#kopyala").onclick = function() {
+		var result = copyToClipboard(mesaj);
+		console.log("copied?", result);
+	};
+});
+
+$("#box").keyup( function(){
+	inputValue = $(this).val();
+if( abjad(inputValue) ) {
 	//if (elif19(inputValue) % 19 === 0) {elif = elif19(inputValue) + " = 19 × " + elif19(inputValue)/19;}else{elif = elif19(inputValue);}
 	//if (be19(inputValue) % 19 === 0) {be = be19(inputValue) + " = 19 × " + be19(inputValue)/19;}else{be = be19(inputValue);}
 	//if (cim19(inputValue) % 19 === 0) {cim = cim19(inputValue) + " = 19 × " + cim19(inputValue)/19;}else{cim = cim19(inputValue);}
@@ -325,9 +341,7 @@ if( abjad(inputValue) ) {
 	//if (dad19(inputValue) % 19 === 0) {dad = dad19(inputValue) + " = 19 × " + dad19(inputValue)/19;}else{dad = dad19(inputValue);}
 	//if (zı19(inputValue) % 19 === 0) {zı = zı19(inputValue) + " = 19 × " + zı19(inputValue)/19;}else{zı = zı19(inputValue);}
 	//if (gayn19(inputValue) % 19 === 0) {gayn = gayn19(inputValue) + " = 19 × " + gayn19(inputValue)/19;}else{gayn = gayn19(inputValue);}	
-	$("#abjad").html("EBCED değeri: " + ebced);
-	$("#letters").html("HARF sayısı: " + harf);
-	$("#words").html("KELİME sayısı: " + kelime);
+	
 	//$("#elif_H").html("ELİF sayısı: " + elif);
 	//$("#be_H").html("BE sayısı: " + be);
 	//$("#cim_H").html("CİM sayısı: " + cim);
@@ -356,7 +370,6 @@ if( abjad(inputValue) ) {
 	//$("#dad_H").html("DAD sayısı: " + dad);
 	//$("#zı_H").html("ZI sayısı: " + zı);
 	//$("#gayn_H").html("GAYN sayısı: " + gayn);
-	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 }else{
 	$("#abjad").html("");
 	$("#letters").html("");
@@ -391,10 +404,7 @@ if( abjad(inputValue) ) {
 	$("#gayn_H").html("");
 	mesaj = "";
 };
-	document.querySelector("#kopyala").onclick = function() {
-		var result = copyToClipboard(mesaj);
-		console.log("copied?", result);
-	};
+
 });
 </script>
 </body>
