@@ -112,34 +112,34 @@ textarea {background-image: url(pic/abc.png)}
 	<p id="words"></p>
 	<button id="kopyala"> Sonuçları Kopyala </button>
 	<p id="harfler"></p>
-	<p id="elif_H"></p>
-	<p id="be_H"></p>
-	<p id="cim_H"></p>
-	<p id="dal_H"></p>
-	<p id="he_H"></p>
-	<p id="vav_H"></p>
-	<p id="ze_H"></p>
-	<p id="ha_H"></p>
-	<p id="tı_H"></p>
-	<p id="ye_H"></p>
-	<p id="kef_H"></p>
-	<p id="lam_H"></p>
-	<p id="mim_H"></p>
-	<p id="nun_H"></p>
-	<p id="sin_H"></p>
-	<p id="ayn_H"></p>
-	<p id="fe_H"></p>
-	<p id="sad_H"></p>
-	<p id="kaf_H"></p>
-	<p id="rı_H"></p>
-	<p id="şın_H"></p>
-	<p id="te_H"></p>
-	<p id="se_H"></p>
-	<p id="hı_H"></p>
-	<p id="zel_H"></p>
-	<p id="dad_H"></p>
-	<p id="zı_H"></p>
-	<p id="gayn_H"></p>
+	<p id="ا"></p>
+	<p id="ب"></p>
+	<p id="ج"></p>
+	<p id="د"></p>
+	<p id="ه"></p>
+	<p id="و"></p>
+	<p id="ز"></p>
+	<p id="ح"></p>
+	<p id="ط"></p>
+	<p id="ی"></p>
+	<p id="ک"></p>
+	<p id="ل"></p>
+	<p id="م"></p>
+	<p id="ن"></p>
+	<p id="س"></p>
+	<p id="ع"></p>
+	<p id="ف"></p>
+	<p id="ص"></p>
+	<p id="ق"></p>
+	<p id="ر"></p>
+	<p id="ش"></p>
+	<p id="ت"></p>
+	<p id="ث"></p>
+	<p id="خ"></p>
+	<p id="ذ"></p>
+	<p id="ض"></p>
+	<p id="ظ"></p>
+	<p id="غ"></p>
 </div>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -318,7 +318,6 @@ if( abjad(inputValue) ) {
 	}
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 	
-	var txt = "";
 	var counts = {};
 	var ch, index, len, count;
 	for (index = 0, len = inputValue.length; index < len; ++index) {
@@ -326,11 +325,12 @@ if( abjad(inputValue) ) {
 	    count = counts[ch];
 	    counts[ch] = count ? count + 1 : 1;
 	}
-
-	for (ch in counts) {
-	    txt += ch + " sayısı: " + counts[ch] + "<br>";
-	}
-	document.getElementById("harfler").innerHTML = txt;
+  
+  	for (ch in counts) {
+  		$("p[id$=" + ch + "]").html(
+      			ch + ' harfi: ' + counts[ch]
+      		)
+  	}
 	
 }else{
 	$("#abjad").html("");
@@ -345,107 +345,6 @@ if( abjad(inputValue) ) {
 	};
 });
 
-/*
-$("#box").keyup( function(){	inputValue = $(this).val();
-if( abjad(inputValue) ) {
-	if (dal19(inputValue) % 19 === 0) {dal = dal19(inputValue) + " = 19 × " + dal19(inputValue)/19;}else{dal = dal19(inputValue);}
-	$("#dal_H").html("DAL sayısı: " + dal);
-}else{
-	$("#dal_H").html("");
-};
-});
-
-$("#box").keyup( function(){	inputValue = $(this).val();
-if( abjad(inputValue) ) {
-	//if (elif19(inputValue) % 19 === 0) {elif = elif19(inputValue) + " = 19 × " + elif19(inputValue)/19;}else{elif = elif19(inputValue);}
-	//if (be19(inputValue) % 19 === 0) {be = be19(inputValue) + " = 19 × " + be19(inputValue)/19;}else{be = be19(inputValue);}
-	//if (cim19(inputValue) % 19 === 0) {cim = cim19(inputValue) + " = 19 × " + cim19(inputValue)/19;}else{cim = cim19(inputValue);}
-
-	//if (he19(inputValue) % 19 === 0) {he = he19(inputValue) + " = 19 × " + he19(inputValue)/19;}else{he = he19(inputValue);}
-	//if (vav19(inputValue) % 19 === 0) {vav = vav19(inputValue) + " = 19 × " + vav19(inputValue)/19;}else{vav = vav19(inputValue);}
-	//if (ze19(inputValue) % 19 === 0) {ze = ze19(inputValue) + " = 19 × " + ze19(inputValue)/19;}else{ze = ze19(inputValue);}
-	//if (ha19(inputValue) % 19 === 0) {ha = ha19(inputValue) + " = 19 × " + ha19(inputValue)/19;}else{ha = ha19(inputValue);}
-	//if (tı19(inputValue) % 19 === 0) {tı = tı19(inputValue) + " = 19 × " + tı19(inputValue)/19;}else{tı = tı19(inputValue);}
-	//if (ye19(inputValue) % 19 === 0) {ye = ye19(inputValue) + " = 19 × " + ye19(inputValue)/19;}else{ye = ye19(inputValue);}
-	//if (kef19(inputValue) % 19 === 0) {kef = kef19(inputValue) + " = 19 × " + kef19(inputValue)/19;}else{kef = kef19(inputValue);}
-	//if (lam19(inputValue) % 19 === 0) {lam = lam19(inputValue) + " = 19 × " + lam19(inputValue)/19;}else{lam = lam19(inputValue);}
-	if (mim19(inputValue) % 19 == 0) {mim = mim19(inputValue) + " = 19 × " + mim19(inputValue)/19;}else{mim = mim19(inputValue);}
-	//if (nun19(inputValue) % 19 === 0) {nun = nun19(inputValue) + " = 19 × " + nun19(inputValue)/19;}else{nun = nun19(inputValue);}
-	//if (sin19(inputValue) % 19 === 0) {sin = sin19(inputValue) + " = 19 × " + sin19(inputValue)/19;}else{sin = sin19(inputValue);}
-	//if (ayn19(inputValue) % 19 === 0) {ayn = ayn19(inputValue) + " = 19 × " + ayn19(inputValue)/19;}else{ayn = ayn19(inputValue);}
-	//if (fe19(inputValue) % 19 === 0) {fe = fe19(inputValue) + " = 19 × " + fe19(inputValue)/19;}else{fe = fe19(inputValue);}
-	//if (sad19(inputValue) % 19 === 0) {sad = sad19(inputValue) + " = 19 × " + sad19(inputValue)/19;}else{sad = sad19(inputValue);}
-	//if (kaf19(inputValue) % 19 === 0) {kaf = kaf19(inputValue) + " = 19 × " + kaf19(inputValue)/19;}else{kaf = kaf19(inputValue);}
-	//if (rı19(inputValue) % 19 === 0) {rı = rı19(inputValue) + " = 19 × " + rı19(inputValue)/19;}else{rı = rı19(inputValue);}
-	//if (şın19(inputValue) % 19 === 0) {şın = şın19(inputValue) + " = 19 × " + şın19(inputValue)/19;}else{şın = şın19(inputValue);}
-	//if (te19(inputValue) % 19 === 0) {te = te19(inputValue) + " = 19 × " + te19(inputValue)/19;}else{te = te19(inputValue);}
-	//if (se19(inputValue) % 19 === 0) {se = se19(inputValue) + " = 19 × " + se19(inputValue)/19;}else{se = se19(inputValue);}
-	//if (hı19(inputValue) % 19 === 0) {hı = hı19(inputValue) + " = 19 × " + hı19(inputValue)/19;}else{hı = hı19(inputValue);}
-	//if (zel19(inputValue) % 19 === 0) {zel = zel19(inputValue) + " = 19 × " + zel19(inputValue)/19;}else{zel = zel19(inputValue);}
-	//if (dad19(inputValue) % 19 === 0) {dad = dad19(inputValue) + " = 19 × " + dad19(inputValue)/19;}else{dad = dad19(inputValue);}
-	//if (zı19(inputValue) % 19 === 0) {zı = zı19(inputValue) + " = 19 × " + zı19(inputValue)/19;}else{zı = zı19(inputValue);}
-	//if (gayn19(inputValue) % 19 === 0) {gayn = gayn19(inputValue) + " = 19 × " + gayn19(inputValue)/19;}else{gayn = gayn19(inputValue);}	
-	
-	//$("#elif_H").html("ELİF sayısı: " + elif);
-	//$("#be_H").html("BE sayısı: " + be);
-	//$("#cim_H").html("CİM sayısı: " + cim);
-
-	//$("#he_H").html("HE sayısı: " + he);
-	//$("#vav_H").html("VAV sayısı: " + vav);
-	//$("#ze_H").html("ZE sayısı: " + ze);
-	//$("#ha_H").html("HA sayısı: " + ha);
-	//$("#tı_H").html("TI sayısı: " + tı);
-	//$("#ye_H").html("YE sayısı: " + ye);
-	//$("#kef_H").html("KEF sayısı: " + kef);
-	//$("#lam_H").html("LAM sayısı: " + lam);
-	$("#mim_H").html("MİM sayısı: " + mim)
-	//$("#nun_H").html("NUN sayısı: " + nun);
-	//$("#sin_H").html("SİN sayısı: " + sin);
-	//$("#ayn_H").html("AYN sayısı: " + ayn);
-	//$("#fe_H").html("FE sayısı: " + fe);
-	//$("#sad_H").html("SAD sayısı: " + sad);
-	//$("#kaf_H").html("KAF sayısı: " + kaf);
-	//$("#rı_H").html("RI sayısı: " + rı);
-	//$("#şın_H").html("ŞIN sayısı: " + şın);
-	//$("#te_H").html("TE sayısı: " + te);
-	//$("#se_H").html("SE sayısı: " + se);
-	//$("#hı_H").html("HI sayısı: " + hı);
-	//$("#zel_H").html("ZEL sayısı: " + zel);
-	//$("#dad_H").html("DAD sayısı: " + dad);
-	//$("#zı_H").html("ZI sayısı: " + zı);
-	//$("#gayn_H").html("GAYN sayısı: " + gayn);
-}else{
-	//$("#elif_H").html("");
-	//$("#be_H").html("");
-	//$("#cim_H").html("");
-
-	//$("#he_H").html("");
-	//$("#vav_H").html("");
-	//$("#ze_H").html("");
-	//$("#ha_H").html("");
-	//$("#tı_H").html("");
-	//$("#ye_H").html("");
-	//$("#kef_H").html("");
-	//$("#lam_H").html("");
-	$("#mim_H").html("");
-	//$("#nun_H").html("");
-	//$("#sin_H").html("");
-	//$("#ayn_H").html("");
-	//$("#fe_H").html("");
-	//$("#sad_H").html("");
-	//$("#kaf_H").html("");
-	//$("#rı_H").html("");
-	//$("#şın_H").html("");
-	//$("#te_H").html("");
-	//$("#se_H").html("");
-	//$("#hı_H").html("");
-	//$("#zel_H").html("");
-	//$("#dad_H").html("");
-	//$("#zı_H").html("");
-	//$("#gayn_H").html("");
-};
-
-}); */
 </script>
 </body>
 </html>
