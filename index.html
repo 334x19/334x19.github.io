@@ -111,7 +111,6 @@ textarea {background-image: url(pic/abc.png)}
 	<p id="letters"></p>
 	<p id="words"></p>
 	<button id="kopyala"> Sonuçları Kopyala </button>
-	<p id="harfler"></p>
 	<p id="ا"></p>
 	<p id="ب"></p>
 	<p id="ج"></p>
@@ -332,7 +331,7 @@ if( abjad(inputValue) ) {
       				ch + ' harfi: ' + counts[ch]
       			)
   		}else{
-        		$("p[id$=" + ch + "]").html('')
+        		$("p[id$=" + ch + "]").html(" ")
       		}
   	}
 
@@ -340,7 +339,34 @@ if( abjad(inputValue) ) {
 	$("#abjad").html("");
 	$("#letters").html("");
 	$("#words").html("");
-	$("#harfler").html("");
+	$("#ا").html("");
+	$("#ب").html("");
+	$("#ج").html("");
+	$("#د").html("");
+	$("#ه").html("");
+	$("#و").html("");
+	$("#ز").html("");
+	$("#ح").html("");
+	$("#ط").html("");
+	$("#ی").html("");
+	$("#ک").html("");
+	$("#ل").html("");
+	$("#م").html("");
+	$("#ن").html("");
+	$("#س").html("");
+	$("#ع").html("");
+	$("#ف").html("");
+	$("#ص").html("");
+	$("#ق").html("");
+	$("#ر").html("");
+	$("#ش").html("");
+	$("#ت").html("");
+	$("#ث").html("");
+	$("#خ").html("");
+	$("#ذ").html("");
+	$("#ض").html("");
+	$("#ظ").html("");
+	$("#غ").html("");
 	mesaj = "";
 };
 	document.querySelector("#kopyala").onclick = function() {
