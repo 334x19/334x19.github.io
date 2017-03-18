@@ -321,7 +321,7 @@ if( abjad(inputValue) ) {
 	var txt = "";
 	var counts = {};
 	var ch, index, len, count;
-	input = inputValue.match(/[ء-يﻻﻹﻷﻵ]/igm)
+	input = inputValue.match(/[ء-يﻻﻹﻷﻵ]+/igm)
 	for (index = 0, len = input.length; index < len; ++index) {
 	    ch = input.charAt(index);
 	    count = counts[ch];
