@@ -326,12 +326,12 @@ if( abjad(inputValue) ) {
 	}
   
 	for (ch in counts) {
-  		if(counts[ch] >= 1){
+  		if(counts[ch] >== 1){
   			$("p[id$=" + ch + "]").html(
       				ch + ' harfi: ' + counts[ch]
       			)
   		}else{
-        		$("p[id$=" + ch + "]").html(" ")
+        		$("p[id$=" + ch + "]").html("0")
       		}
   	}
 
