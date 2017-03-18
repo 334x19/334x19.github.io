@@ -327,9 +327,10 @@ if( abjad(inputValue) ) {
   
 	for (ch in counts) {
 		var test = parseInt( counts[ch] );
-  		if(test > 0){
+  		if(test > '0'){
       			$("p[id$=" + ch + "]").html( ch + ' harfi: ' + counts[ch] )
-		}else{
+		}
+		else{
 		        $("p[id$=" + ch + "]").html("")
 		}
   	}
