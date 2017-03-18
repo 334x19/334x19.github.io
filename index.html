@@ -111,6 +111,7 @@ textarea {background-image: url(pic/abc.png)}
 	<p id="letters"></p>
 	<p id="words"></p>
 	<button id="kopyala"> Sonuçları Kopyala </button>
+	<p id="harfler"></p>
 	<p id="elif_H"></p>
 	<p id="be_H"></p>
 	<p id="cim_H"></p>
@@ -316,6 +317,22 @@ if( abjad(inputValue) ) {
 		$("#words").html("KELİME sayısı: " + kelime);
 	}
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+	
+	var txt = "";
+	var counts = {};
+	var ch, index, len, count;
+
+	for (index = 0, len = inputValue.length; index < len; ++index) {
+	    ch = inputValue.charAt(index);
+	    count = counts[ch];
+	    counts[ch] = count ? count + 1 : 1;
+	}
+
+	for (ch in counts) {
+	    txt += ch + " sayısı: " + counts[ch] + "<br>";
+	}
+	document.getElementById("harfler").innerHTML = txt;
+	
 }else{
 	$("#abjad").html("");
 	$("#letters").html("");
@@ -328,6 +345,7 @@ if( abjad(inputValue) ) {
 	};
 });
 
+/*
 $("#box").keyup( function(){	inputValue = $(this).val();
 if( abjad(inputValue) ) {
 	if (dal19(inputValue) % 19 === 0) {dal = dal19(inputValue) + " = 19 × " + dal19(inputValue)/19;}else{dal = dal19(inputValue);}
@@ -427,7 +445,7 @@ if( abjad(inputValue) ) {
 	//$("#gayn_H").html("");
 };
 
-});
+}); */
 </script>
 </body>
 </html>
