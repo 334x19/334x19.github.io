@@ -326,8 +326,8 @@ if( abjad(inputValue) ) {
 	}
   
 	for (ch in counts) {
-  		if(counts[ch] < 1){
-        		$("p[id$=" + ch + "]").html("0")
+  		if(counts[ch] == null){
+        		$("p[id$=" + ch + "]").html("")
 		}else{
       			$("p[id$=" + ch + "]").html( ch + ' harfi: ' + counts[ch] )
 		}
