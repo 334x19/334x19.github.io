@@ -158,6 +158,8 @@ function val(yazı,harf,değer){
 }
 
 function letters(str) {
+	var lamelif = 0;
+	var other = 0;
 	var lamelif = str.match(/[ﻻﻹﻷﻵ]/igm).length;
 	var other = str.match(/[ء-ي]/igm).length;
 	var lamelif_T = 2 * parseInt(lamelif);
