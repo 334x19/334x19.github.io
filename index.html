@@ -160,18 +160,18 @@ function val(yazı,harf,değer){
 function letters(str) {
 	var lamelif = str.match(/[ﻻﻹﻷﻵ]/igm);
 	var other = str.match(/[ء-ي]/igm);
+	if(other!==null && other.length!==0 && lamelif!==null && lamelif.length!==0){
+		var others = parseInt(other.length);
+		var lamelif_T = 2 * parseInt(lamelif.length);
+		return others + lamelif_T
+	}
 	if(lamelif!==null && lamelif.length!==0){
 		var lamelif_T = 2 * parseInt(lamelif.length);
 		return lamelif_T
 	}
-	else if(other!==null && other.length!==0){
+	if(other!==null && other.length!==0){
 		var others = parseInt(other.length);
 		return others
-	}
-	else if(other!==null && other.length!==0 && lamelif!==null && lamelif.length!==0){
-		var others = parseInt(other.length);
-		var lamelif_T = 2 * parseInt(lamelif.length);
-		return others + lamelif_T
 	}
 }
 function words(string){
