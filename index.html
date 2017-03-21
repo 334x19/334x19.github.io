@@ -251,6 +251,41 @@ function copyToClipboard(text) {
 $("#box").keyup( function(){
 	var inputValue = $(this).val();
 if( abjad(inputValue) ) {
+	function harf1_s(h1){
+  if(ch == h1){
+    return counts[h1]
+  }
+}
+
+function harf2_s(h1, h2){
+  if(ch == h1 || ch == h2){
+    return counts[h1] + counts[h2]
+  }
+}
+
+function harf3_s(h1, h2, h3){
+  if(ch == h1 || ch == h2 || ch == h3){
+    return counts[h1] + counts[h2] + counts[h3]
+  }
+}
+
+function harf4_s(h1, h2, h3, h4){
+  if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
+    return counts[h1] + counts[h2] + counts[h3] + counts[h4]
+  }
+}
+
+function harf5_s(h1, h2, h3, h4, h5){
+  if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
+    return counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
+  }
+}
+
+function harf10_s(h1, h2, h3, h4, h5, h6, h7, h8, h9, h10){
+if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
+  return counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
+}
+}
 	function harf1(h1){
 		if(ch == h1){
 			sonuc = counts[h1]
@@ -353,7 +388,36 @@ if( abjad(inputValue) ) {
 		var kef = harf4('ک','ك','گ','ڭ');
 		var lam = harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
 		var elif = harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
-		var T_harf = parseInt(elif);
+		
+var dal_s = harf1_s('د');
+var ha_s = harf1_s('ح');
+var tı_s = harf1_s('ط');
+var mim_s = harf1_s('م');
+var nun_s = harf1_s('ن');
+var sin_s = harf1_s('س');
+var ayn_s = harf1_s('ع');
+var sad_s = harf1_s('ص');
+var ra_s = harf1_s('ر');
+var şın_s = harf1_s('ش');
+var te_s = harf1_s('ت');
+var se_s = harf1_s('ث');
+var hı_s = harf1_s('خ');
+var zel_s = harf1_s('ذ');
+var dad_s = harf1_s('ض');
+var zı_s = harf1_s('ظ');
+var gayn_s = harf1_s('غ');
+var be_s = harf2_s('ب','پ');
+var cim_s = harf2_s('ج','چ');
+var he_s = harf2_s('ه','ة');
+var vav_s = harf2_s('و','ؤ');
+var ze_s = harf2_s('ز','ژ');
+var kaf_s = harf2_s('ق','ڨ');
+var fe_s = harf3_s('ف','ڢ','ڤ');
+var ye_s = harf4_s('ی','ي','ئ','ى');
+var kef_s = harf4_s('ک','ك','گ','ڭ');
+var lam_s = harf5_s('ل','ﻻ','ﻹ','ﻷ','ﻵ');
+var elif_s = harf10_s('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
+		var T_harf = dal_s+ha_s+tı_s+mim_s+nun_s+sin_s+ayn_s+sad_s+ra_s+şın_s+te_s+se_s+hı_s+zel_s+dad_s+zı_s+gayn_s+be_s+cim_s+he_s+vav_s+ze_s+kaf_s+fe_s+ye_s+kef_s+lam_s+elif_s;
 // dal+ha+tı+mim+nun+sin+ayn+sad+ra+şın+te+se+hı+zel+dad+zı+gayn+be+cim+he+vav+ze+kaf+fe+ye+kef+lam+elif;
 		if (T_harf) {
 			harf = T_harf + " = 19 × " + T_harf/19;
