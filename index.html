@@ -157,6 +157,7 @@ function val(yazı,harf,değer){
 	return sonuc;
 }
 
+function letters (string) { return string.match(/[ء-يﻻﻹﻷﻵ]/igm).length }
 function words(string){
 	y = string.split(/\s+/).filter(
 		function(string){
@@ -166,7 +167,6 @@ function words(string){
 	);
 	return y.length;
 }
-
 function abjad (string) {
 	ء = val(string,'ء','1');
 	ا = val(string,'ا','1');
@@ -251,42 +251,29 @@ function copyToClipboard(text) {
 $("#box").keyup( function(){
 	var inputValue = $(this).val();
 if( abjad(inputValue) ) {
-
-function harf1_s(h1){
-  if(ch == h1){
-    return counts[h1]
-  }
-}
-
-function harf2_s(h1, h2){
-  if(ch == h1 || ch == h2){
-    return counts[h1] + counts[h2]
-  }
-}
-
-function harf3_s(h1, h2, h3){
-  if(ch == h1 || ch == h2 || ch == h3){
-    return counts[h1] + counts[h2] + counts[h3]
-  }
-}
-
-function harf4_s(h1, h2, h3, h4){
-  if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
-    return counts[h1] + counts[h2] + counts[h3] + counts[h4]
-  }
-}
-
-function harf5_s(h1, h2, h3, h4, h5){
-  if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
-    return counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
-  }
-}
-
-function harf10_s(h1, h2, h3, h4, h5, h6, h7, h8, h9, h10){
-if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
-  return counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
-}
-}
+	if (abjad(inputValue) % 19 === 0) {
+		ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;
+		$("#abjad").html("<span style=\"color: blue;\">" + "EBCED değeri: " + ebced + "</span>");
+	}else{
+		ebced = abjad(inputValue);
+		$("#abjad").html("EBCED değeri: " + ebced);
+	}
+	if (letters(inputValue) % 19 === 0) {
+		harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;
+		$("#letters").html("<span style=\"color: blue;\">" + "HARF sayısı: " + harf + "</span>");
+	}else{
+		harf = letters(inputValue);
+		$("#letters").html("HARF sayısı: " + harf);
+	}
+	if (words(inputValue) % 19 === 0) {
+		kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;
+		$("#words").html("<span style=\"color: blue;\">" + "KELİME sayısı: " + kelime + "</span>");
+	}else{
+		kelime = words(inputValue);
+		$("#words").html("KELİME sayısı: " + kelime);
+	}
+	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+	
 	function harf1(h1){
 		if(ch == h1){
 			sonuc = counts[h1]
@@ -360,76 +347,35 @@ if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch ==
 		count = counts[ch];
 		counts[ch] = count ? count + 1 : 1;
 	}
-
-for (ch in counts) {
-
-var dal_s = harf1_s('د');
-var ha_s = harf1_s('ح');
-var tı_s = harf1_s('ط');
-var mim_s = harf1_s('م');
-var nun_s = harf1_s('ن');
-var sin_s = harf1_s('س');
-var ayn_s = harf1_s('ع');
-var sad_s = harf1_s('ص');
-var ra_s = harf1_s('ر');
-var şın_s = harf1_s('ش');
-var te_s = harf1_s('ت');
-var se_s = harf1_s('ث');
-var hı_s = harf1_s('خ');
-var zel_s = harf1_s('ذ');
-var dad_s = harf1_s('ض');
-var zı_s = harf1_s('ظ');
-var gayn_s = harf1_s('غ');
-var be_s = harf2_s('ب','پ');
-var cim_s = harf2_s('ج','چ');
-var he_s = harf2_s('ه','ة');
-var vav_s = harf2_s('و','ؤ');
-var ze_s = harf2_s('ز','ژ');
-var kaf_s = harf2_s('ق','ڨ');
-var fe_s = harf3_s('ف','ڢ','ڤ');
-var ye_s = harf4_s('ی','ي','ئ','ى');
-var kef_s = harf4_s('ک','ك','گ','ڭ');
-var lam_s = harf5_s('ل','ﻻ','ﻹ','ﻷ','ﻵ');
-var elif_s = harf10_s('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
-		var T_harf = parseInt(dal_s); //+ha_s+tı_s+mim_s+nun_s+sin_s+ayn_s+sad_s+ra_s+şın_s+te_s+se_s+hı_s+zel_s+dad_s+zı_s+gayn_s+be_s+cim_s+he_s+vav_s+ze_s+kaf_s+fe_s+ye_s+kef_s+lam_s+elif_s;
-// dal+ha+tı+mim+nun+sin+ayn+sad+ra+şın+te+se+hı+zel+dad+zı+gayn+be+cim+he+vav+ze+kaf+fe+ye+kef+lam+elif;
-		if (T_harf) {
-			harf = T_harf + " = 19 × " + T_harf/19;
-			$("#letters").html("<span style=\"color: blue;\">" + "HARF sayısı: " + harf + "</span>");
-		}else{
-			harf = T_harf;
-			$("#letters").html("HARF sayısı: " + harf);
-		}
-}
 	for (ch in counts) {
-		var dal = harf1('د');
-		var ha = harf1('ح');
-		var tı = harf1('ط');
-		var mim = harf1('م');
-		var nun = harf1('ن');
-		var sin = harf1('س');
-		var ayn = harf1('ع');
-		var sad = harf1('ص');
-		var ra = harf1('ر');
-		var şın = harf1('ش');
-		var te = harf1('ت');
-		var se = harf1('ث');
-		var hı = harf1('خ');
-		var zel = harf1('ذ');
-		var dad = harf1('ض');
-		var zı = harf1('ظ');
-		var gayn = harf1('غ');
-		var be = harf2('ب','پ');
-		var cim = harf2('ج','چ');
-		var he = harf2('ه','ة');
-		var vav = harf2('و','ؤ');
-		var ze = harf2('ز','ژ');
-		var kaf = harf2('ق','ڨ');
-		var fe = harf3('ف','ڢ','ڤ');
-		var ye = harf4('ی','ي','ئ','ى');
-		var kef = harf4('ک','ك','گ','ڭ');
-		var lam = harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
-		var elif = harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
+		harf1('د');
+		harf1('ح');
+		harf1('ط');
+		harf1('م');
+		harf1('ن');
+		harf1('س');
+		harf1('ع');
+		harf1('ص');
+		harf1('ر');
+		harf1('ش');
+		harf1('ت');
+		harf1('ث');
+		harf1('خ');
+		harf1('ذ');
+		harf1('ض');
+		harf1('ظ');
+		harf1('غ');
+		harf2('ب','پ');
+		harf2('ج','چ');
+		harf2('ه','ة');
+		harf2('و','ؤ');
+		harf2('ز','ژ');
+		harf2('ق','ڨ');
+		harf3('ف','ڢ','ڤ');
+		harf4('ی','ي','ئ','ى');
+		harf4('ک','ك','گ','ڭ');
+		harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
+		harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
 	}
 	
 	if (counts.hasOwnProperty('ا')) {}else{ $("p[id=ا]").html("") }
@@ -459,24 +405,7 @@ var elif_s = harf10_s('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
 	if (counts.hasOwnProperty('ذ')) {}else{ $("p[id=ذ]").html("") }
 	if (counts.hasOwnProperty('ض')) {}else{ $("p[id=ض]").html("") }
 	if (counts.hasOwnProperty('ظ')) {}else{ $("p[id=ظ]").html("") }
-	if (counts.hasOwnProperty('غ')) {}else{ $("p[id=غ]").html("") }
-	
-	if (abjad(inputValue) % 19 === 0) {
-		ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;
-		$("#abjad").html("<span style=\"color: blue;\">" + "EBCED değeri: " + ebced + "</span>");
-	}else{
-		ebced = abjad(inputValue);
-		$("#abjad").html("EBCED değeri: " + ebced);
-	}
-	
-	if (words(inputValue) % 19 === 0) {
-		kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;
-		$("#words").html("<span style=\"color: blue;\">" + "KELİME sayısı: " + kelime + "</span>");
-	}else{
-		kelime = words(inputValue);
-		$("#words").html("KELİME sayısı: " + kelime);
-	}
-	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+	if (counts.hasOwnProperty('غ')) {}else{ $("p[id=غ]").html("") }	
 }else{
 	$("#abjad").html("");
 	$("#letters").html("");
