@@ -298,10 +298,10 @@ if( abjad(inputValue) ) {
 			}else{
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
-					$("#letters").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
 				}else{
 					harf = sonuc;
-					$("#letters").html(h1 + ' harfi: ' + sonuc);
+					return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc);
 				}
 			}
 		}
