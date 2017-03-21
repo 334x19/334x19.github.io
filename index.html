@@ -278,9 +278,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1){
 			sonuc = counts[h1]
 			if(sonuc == 0) {
-				$("p[id=" + h1 + "]").html('')
+				return $("p[id=" + h1 + "]").html('')
 			}else{
-				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
 			}
 		}
 	}
@@ -289,9 +289,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2){
 			sonuc = counts[h1] + counts[h2]
 			if(sonuc == 0) {
-				$("p[id=" + h1 + "]").html('')
+				return $("p[id=" + h1 + "]").html('')
 			}else{
-				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
 			}
 		}
 	}
@@ -300,9 +300,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2 || ch == h3){
 			sonuc = counts[h1] + counts[h2] + counts[h3]
 			if(sonuc == 0){
-				$("p[id=" + h1 + "]").html('')
+				return $("p[id=" + h1 + "]").html('')
 			}else{
-				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
 			}
 		}
 	}
@@ -311,9 +311,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4]
 			if(sonuc == 0){
-				$("p[id=" + h1 + "]").html('')
+				return $("p[id=" + h1 + "]").html('')
 			}else{
-				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
 			}
 		}
 	}
@@ -322,9 +322,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
 			if(sonuc == 0){
-				$("p[id=" + h1 + "]").html('')
+				return $("p[id=" + h1 + "]").html('')
 			}else{
-				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
 			}
 		}
 	}
@@ -333,14 +333,18 @@ if( abjad(inputValue) ) {
 	if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
 		sonuc = counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
 		if(sonuc == 0){
-			$("p[id=" + h1 + "]").html('')
+			return $("p[id=" + h1 + "]").html('')
 		}else{
-			$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+			return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
 		}
 	}
 	}
-	
-	var counts = {ا:0,ب:0,ج:0,د:0,ه:0,و:0,ز:0,ح:0,ط:0,ی:0,ک:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ص:0,ق:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0};
+
+var counts = {ا:0,ب:0,ج:0,د:0,ه:0,و:0,ز:0,ح:0,ط:0,ی:0,ک:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ص:0,ق:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0};
+
+
+counts = {0:ء:0,ا:0,آ:0,ٱ:0,أ:0,إ:0,ب:0,پ:0,ج:0,چ:0,د:0,ه:0,ة:0,و:0,ؤ:0,ز:0,ژ:0,ح:0,ط:0,ی:0,ي:0,ئ:0,ى:0,ک:0,ك:0,گ:0,ڭ:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ڢ:0,ڤ:0,ص:0,ق:0,ڨ:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0,ﻻ:0,ﻹ:0,ﻷ:0,ﻵ};
+
 	var ch, index, len, count;
 	for (index = 0, len = inputValue.length; index < len; ++index) {
 		ch = inputValue.charAt(index);
