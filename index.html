@@ -360,35 +360,6 @@ if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch ==
 		counts[ch] = count ? count + 1 : 1;
 	}
 	for (ch in counts) {
-		var dal = harf1('د');
-		var ha = harf1('ح');
-		var tı = harf1('ط');
-		var mim = harf1('م');
-		var nun = harf1('ن');
-		var sin = harf1('س');
-		var ayn = harf1('ع');
-		var sad = harf1('ص');
-		var ra = harf1('ر');
-		var şın = harf1('ش');
-		var te = harf1('ت');
-		var se = harf1('ث');
-		var hı = harf1('خ');
-		var zel = harf1('ذ');
-		var dad = harf1('ض');
-		var zı = harf1('ظ');
-		var gayn = harf1('غ');
-		var be = harf2('ب','پ');
-		var cim = harf2('ج','چ');
-		var he = harf2('ه','ة');
-		var vav = harf2('و','ؤ');
-		var ze = harf2('ز','ژ');
-		var kaf = harf2('ق','ڨ');
-		var fe = harf3('ف','ڢ','ڤ');
-		var ye = harf4('ی','ي','ئ','ى');
-		var kef = harf4('ک','ك','گ','ڭ');
-		var lam = harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
-		var elif = harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
-		
 var dal_s = harf1_s('د');
 var ha_s = harf1_s('ح');
 var tı_s = harf1_s('ط');
@@ -426,6 +397,36 @@ var elif_s = harf10_s('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
 			harf = T_harf;
 			$("#letters").html("HARF sayısı: " + harf);
 		}
+}
+	for (ch in counts) {
+		var dal = harf1('د');
+		var ha = harf1('ح');
+		var tı = harf1('ط');
+		var mim = harf1('م');
+		var nun = harf1('ن');
+		var sin = harf1('س');
+		var ayn = harf1('ع');
+		var sad = harf1('ص');
+		var ra = harf1('ر');
+		var şın = harf1('ش');
+		var te = harf1('ت');
+		var se = harf1('ث');
+		var hı = harf1('خ');
+		var zel = harf1('ذ');
+		var dad = harf1('ض');
+		var zı = harf1('ظ');
+		var gayn = harf1('غ');
+		var be = harf2('ب','پ');
+		var cim = harf2('ج','چ');
+		var he = harf2('ه','ة');
+		var vav = harf2('و','ؤ');
+		var ze = harf2('ز','ژ');
+		var kaf = harf2('ق','ڨ');
+		var fe = harf3('ف','ڢ','ڤ');
+		var ye = harf4('ی','ي','ئ','ى');
+		var kef = harf4('ک','ك','گ','ڭ');
+		var lam = harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
+		var elif = harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
 	}
 	
 	if (counts.hasOwnProperty('ا')) {}else{ $("p[id=ا]").html("") }
