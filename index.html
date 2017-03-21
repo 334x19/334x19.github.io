@@ -353,12 +353,12 @@ if( abjad(inputValue) ) {
 		var kef = harf4('ک','ك','گ','ڭ');
 		var lam = harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
 		var elif = harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
-		function letters() { return dal+ha+tı+mim+nun+sin+ayn+sad+ra+şın+te+se+hı+zel+dad+zı+gayn+be+cim+he+vav+ze+kaf+fe+ye+kef+lam+elif; }
-		if (letters() % 19 === 0) {
-			harf = letters() + " = 19 × " + letters()/19;
+		var T_harf = dal+ha+tı+mim+nun+sin+ayn+sad+ra+şın+te+se+hı+zel+dad+zı+gayn+be+cim+he+vav+ze+kaf+fe+ye+kef+lam+elif;
+		if (T_harf % 19 === 0) {
+			harf = T_harf + " = 19 × " + T_harf/19;
 			$("#letters").html("<span style=\"color: blue;\">" + "HARF sayısı: " + harf + "</span>");
 		}else{
-			harf = letters();
+			harf = T_harf;
 			$("#letters").html("HARF sayısı: " + harf);
 		}
 	}
