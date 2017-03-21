@@ -158,49 +158,6 @@ function val(yazı,harf,değer){
 }
 
 function letters (string) { return string.match(/[ء-يﻻﻹﻷﻵ]/igm).length }
-function elif19 (string) {
-	la = string.match(/[ﻻ]/igm).length;
-	lla = string.match(/[ﻹ]/igm).length;
-	laa = string.match(/[ﻷ]/igm).length;
-	llaa = string.match(/[ﻵ]/igm).length;
-	elif = string.match(/[ءاآٱأإ]/igm).length;
-	return la + lla + laa + llaa + elif
-}
-function be19 (string) { return string.match(/[بپ]/igm).length }
-function cim19 (string) { return string.match(/[جچ]/igm).length }
-function dal19 (string) { return string.match(/[د]/igm).length }
-function he19 (string) { return string.match(/[هة]/igm).length }
-function vav19 (string) { return string.match(/[وؤ]/igm).length }
-function ze19 (string) { return string.match(/[زژ]/igm).length }
-function ha19 (string) { return string.match(/[ح]/igm).length }
-function tı19 (string) { return string.match(/[ط]/igm).length }
-function ye19 (string) { return string.match(/[یيئى]/igm).length }
-function kef19 (string) { return string.match(/[کكگڭ]/igm).length }
-function lam19 (string) { 
-	la = string.match(/[ﻻ]/igm).length;
-	lla = string.match(/[ﻹ]/igm).length;
-	laa = string.match(/[ﻷ]/igm).length;
-	llaa = string.match(/[ﻵ]/igm).length;
-	lam = string.match(/[ل]/igm).length;
-	return la + lla + laa + llaa + lam
-}
-function mim19 (string) { return string.match(/[م]/igm).length }
-function nun19 (string) { return string.match(/[ن]/igm).length }
-function sin19 (string) { return string.match(/[س]/igm).length }
-function ayn19 (string) { return string.match(/[ع]/igm).length }
-function fe19 (string) { return string.match(/[فڢڤ]/igm).length }
-function sad19 (string) { return string.match(/[ص]/igm).length }
-function kaf19 (string) { return string.match(/[قڨ]/igm).length }
-function rı19 (string) { return string.match(/[ر]/igm).length }
-function şın19 (string) { return string.match(/[ش]/igm).length }
-function te19 (string) { return string.match(/[ت]/igm).length }
-function se19 (string) { return string.match(/[ث]/igm).length }
-function hı19 (string) { return string.match(/[خ]/igm).length }
-function zel19 (string) { return string.match(/[ذ]/igm).length }
-function dad19 (string) { return string.match(/[ض]/igm).length }
-function zı19 (string) { return string.match(/[ظ]/igm).length }
-function gayn19 (string) { return string.match(/[غ]/igm).length }
-
 function words(string){
 	y = string.split(/\s+/).filter(
 		function(string){
@@ -292,7 +249,7 @@ function copyToClipboard(text) {
 }
 
 $("#box").keyup( function(){
-	inputValue = $(this).val();
+	var inputValue = $(this).val();
 if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {
 		ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;
@@ -317,17 +274,88 @@ if( abjad(inputValue) ) {
 	}
 	mesaj = "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 	
-	var counts = {};
-	var ch, index, len, count;
-	for (index = 0, len = inputValue.length; index < len; ++index) {
-	    ch = inputValue.charAt(index);
-	    count = counts[ch];
-	    counts[ch] = count ? count + 1 : 1;
+	function harf1(h1){
+		if(ch == h1){
+			sonuc = counts[h1]
+			if(sonuc == 0) {
+				$("p[id=" + h1 + "]").html('')
+			}else{
+				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+			}
+		}
+	}
+  
+	function harf2(h1, h2){
+		if(ch == h1 || ch == h2){
+			sonuc = counts[h1] + counts[h2]
+			if(sonuc == 0) {
+				$("p[id=" + h1 + "]").html('')
+			}else{
+				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+			}
+		}
+	}
+
+	function harf3(h1, h2, h3){
+		if(ch == h1 || ch == h2 || ch == h3){
+			sonuc = counts[h1] + counts[h2] + counts[h3]
+			if(sonuc == 0){
+				$("p[id=" + h1 + "]").html('')
+			}else{
+				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+			}
+		}
+	}
+
+	function harf4(h1, h2, h3, h4){
+		if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
+			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4]
+			if(sonuc == 0){
+				$("p[id=" + h1 + "]").html('')
+			}else{
+				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+			}
+		}
+	}
+  
+	function harf5(h1, h2, h3, h4, h5){
+		if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
+			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
+			if(sonuc == 0){
+				$("p[id=" + h1 + "]").html('')
+			}else{
+				$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+			}
+		}
 	}
 	
+	function harf10(h1, h2, h3, h4, h5, h6, h7, h8, h9, h10){
+	if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
+		sonuc = counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
+		if(sonuc == 0){
+			$("p[id=" + h1 + "]").html('')
+		}else{
+			$("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+		}
+	}
+	}
+	
+	var counts = {ا:0,ب:0,ج:0,د:0,ه:0,و:0,ز:0,ح:0,ط:0,ی:0,ک:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ص:0,ق:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0};
+	var ch, index, len, count;
+	for (index = 0, len = inputValue.length; index < len; ++index) {
+		ch = inputValue.charAt(index);
+		count = counts[ch];
+		counts[ch] = count ? count + 1 : 1;
+	}
 	for (ch in counts) {
-      		$("p[id=" + ch + "]").html( ch + ' harfi: ' + counts[ch] )
-  	}
+		harf1('د'); harf1('ح'); harf1('ط'); harf1('م'); harf1('ن'); harf1('س'); harf1('ع'); harf1('ص'); harf1('ر');
+		harf1('ش'); harf1('ت'); harf1('ث'); harf1('خ'); harf1('ذ'); harf1('ض'); harf1('ظ'); harf1('غ');
+		harf2('ب','پ'); harf2('ج','چ'); harf2('ه','ة'); harf2('و','ؤ'); harf2('ز','ژ'); harf2('ق','ڨ');
+		harf3('ف','ڢ','ڤ');
+		harf4('ی','ي','ئ','ى'); harf4('ک','ك','گ','ڭ');
+		harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
+		harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
+	}
 	
 	if (counts.hasOwnProperty('ا')) {}else{ $("p[id=ا]").html("") }
 	if (counts.hasOwnProperty('ب')) {}else{ $("p[id=ب]").html("") }
