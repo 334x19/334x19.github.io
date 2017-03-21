@@ -353,7 +353,8 @@ if( abjad(inputValue) ) {
 		var kef = harf4('ک','ك','گ','ڭ');
 		var lam = harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
 		var elif = harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
-		var T_harf = dal+ha+tı+mim+nun+sin+ayn+sad+ra+şın+te+se+hı+zel+dad+zı+gayn+be+cim+he+vav+ze+kaf+fe+ye+kef+lam+elif;
+		var T_harf = parseInt(elif);
+// dal+ha+tı+mim+nun+sin+ayn+sad+ra+şın+te+se+hı+zel+dad+zı+gayn+be+cim+he+vav+ze+kaf+fe+ye+kef+lam+elif;
 		if (T_harf) {
 			harf = T_harf + " = 19 × " + T_harf/19;
 			$("#letters").html("<span style=\"color: blue;\">" + "HARF sayısı: " + harf + "</span>");
