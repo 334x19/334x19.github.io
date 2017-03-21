@@ -313,7 +313,13 @@ if( abjad(inputValue) ) {
 			if(sonuc == 0) {
 				return $("p[id=" + h1 + "]").html('')
 			}else{
-				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc);
+				}
 			}
 		}
 	}
@@ -321,10 +327,16 @@ if( abjad(inputValue) ) {
 	function harf3(h1, h2, h3){
 		if(ch == h1 || ch == h2 || ch == h3){
 			sonuc = counts[h1] + counts[h2] + counts[h3]
-			if(sonuc == 0){
+			if(sonuc == 0) {
 				return $("p[id=" + h1 + "]").html('')
 			}else{
-				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc);
+				}
 			}
 		}
 	}
@@ -332,10 +344,16 @@ if( abjad(inputValue) ) {
 	function harf4(h1, h2, h3, h4){
 		if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4]
-			if(sonuc == 0){
+			if(sonuc == 0) {
 				return $("p[id=" + h1 + "]").html('')
 			}else{
-				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc);
+				}
 			}
 		}
 	}
@@ -343,10 +361,16 @@ if( abjad(inputValue) ) {
 	function harf5(h1, h2, h3, h4, h5){
 		if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
-			if(sonuc == 0){
+			if(sonuc == 0) {
 				return $("p[id=" + h1 + "]").html('')
 			}else{
-				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc);
+				}
 			}
 		}
 	}
@@ -354,10 +378,16 @@ if( abjad(inputValue) ) {
 	function harf10(h1, h2, h3, h4, h5, h6, h7, h8, h9, h10){
 	if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
 		sonuc = counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
-		if(sonuc == 0){
+		if(sonuc == 0) {
 			return $("p[id=" + h1 + "]").html('')
 		}else{
-			return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc)
+			if (sonuc % 19 === 0) {
+				harf = sonuc + " = 19 × " + sonuc/19;
+				return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+			}else{
+				harf = sonuc;
+				return $("p[id=" + h1 + "]").html(h1 + ' harfi: ' + sonuc);
+			}
 		}
 	}
 	}
