@@ -158,7 +158,12 @@ function val(yazı,harf,değer){
 }
 
 function letters (string) {
-	return 2*parseInt(string.match(/[ﻻﻹﻷﻵ]/igm).length) + parseInt(string.match(/[ء-ي]/igm).length);
+	var lamelif = string.match(/[ﻻﻹﻷﻵ]/igm).length;
+	var lamelif_T = 2 * parseInt(lamelif);
+	var other = string.match(/[ء-ي]/igm).length;
+	var others = parseInt(other);
+	var result = others + lamelif_T;
+	return result;
 }
 function words(string){
 	y = string.split(/\s+/).filter(
