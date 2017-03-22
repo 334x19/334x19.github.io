@@ -202,7 +202,7 @@ function copyToClipboard(text) {
 
 $(window).load( function(){
 
-	var hashParams = window.location.hash.substr(1).replace('_',' ').split('&');
+	var hashParams = window.location.hash.substr(1).replace(/[_]+/gim, " ").split('&');
 	for(var i = 0; i < hashParams.length; i++){
 		var p = hashParams[i].split('=');
 		document.getElementById(p[0]).value = decodeURIComponent(p[1]);
