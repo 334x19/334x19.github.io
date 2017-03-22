@@ -235,7 +235,7 @@ if( abjad(inputValue) ) {
 		kelime = words(inputValue);
 		$("#words").html("KELİME sayısı: " + kelime);
 	}
-	mesaj = "ebced.kuran114.org/#ifade=" +  inputValue.replace(/ /gim, "_") + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+	mesaj = "ebced.kuran114.org/#ifade=" +  inputValue.replace(/[ \n]+/gim, "_") + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 	
 	function harf1(h1){
 		if(ch == h1){
