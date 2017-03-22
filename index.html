@@ -211,7 +211,7 @@ $(window).load( function(){
 });
 
 $('#ifade').on('input', function (event) { 
-    this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵ\n0-9]/igm, '');
+    this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵ\n0-9:#]/igm, '');
 });
 
 $("#ifade").keyup( function(){
