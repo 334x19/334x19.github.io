@@ -199,7 +199,7 @@ function copyToClipboard(text) {
 }
 
 $(window).load( function(){
-	var hashParams = window.location.href.substr(17);
+	var hashParams = window.location.hash.substr(1);
 	document.getElementById('box').value = hashParams;
 	$('#box').keyup();
 });
