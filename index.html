@@ -20,6 +20,15 @@ body {
     margin-left: -150.68px;
 }
 
+#main {
+	font-size: 14pt;
+}
+
+#text {
+	margin-left: 25%;
+	font-size: 15pt;
+}
+
 #book {
 	padding-top: 38px;
 }
@@ -43,23 +52,19 @@ textarea:focus {
 	background-color: #d4fff3;
 }
 
-#text {
-	margin-left: 25%;
-}
-
 #baslik {
 	font-size: large;
 	text-align: center;
 }
 
-p {font-size: 13pt;}
-button {font-size: 13pt;}
+button {font-size: 14pt;}
 
 @media only screen and (max-width: 768px) {
 
 th {font-size: 14pt;}
-p {font-size: 14pt;}
-button {font-size: 14pt;}
+#main {font-size: 15pt;}
+#text {font-size: 16pt;}
+button {font-size: 15pt;}
 textarea {font-size: 14pt;}
 	
 }
@@ -107,10 +112,12 @@ textarea {background-image: url(pic/abc.png)}
 <br>
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
 <div id="text">
-	<p id="abjad"></p>
-	<p id="letters"></p>
-	<p id="words"></p>
-	<button id="kopyala"> Sonuçları Kopyala </button>
+	<div id="main">
+		<p id="abjad"></p>
+		<p id="letters"></p>
+		<p id="words"></p>
+		<button id="kopyala"> Sonuçları Kopyala </button>
+	</div>
 	<p id="ا"></p>
 	<p id="ب"></p>
 	<p id="ج"></p>
