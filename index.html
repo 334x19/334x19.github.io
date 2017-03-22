@@ -201,6 +201,7 @@ function copyToClipboard(text) {
 $(window).load( function(){
 	var hashParams = window.location.hash.substr(1);
 	document.getElementById('box').value = hashParams;
+	$('#box').keyup();
 });
 	
 $("#box").keyup( function(){
