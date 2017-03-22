@@ -63,7 +63,7 @@ button {font-size: 14pt;}
 
 <body>
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
-<textarea placeholder="...Yazmaya başlayın" id="box" rows="6" cols="75"></textarea>
+<textarea placeholder="...Yazmaya başlayın" id="ebced" rows="6" cols="75"></textarea>
 <br>
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
 <div id="text">
@@ -177,7 +177,7 @@ function abjad (string) {
 }
 
 function startwork(event){
-	box = document.getElementById("box");
+	box = document.getElementById("ebced");
 	if ( box === document.activeElement ){}else{
 		box.focus();
 	}
@@ -199,12 +199,17 @@ function copyToClipboard(text) {
 }
 
 $(window).load( function(){
-	var hashParams = window.location.hash.substr(1);
-	document.getElementById('box').value = hashParams;
-	$('#box').keyup();
+
+	var hashParams = window.location.hash.substr(1).replace('_',' ').split('&');
+	for(var i = 0; i < hashParams.length; i++){
+		var p = hashParams[i].split('=');
+		document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+	}
+
+	$('#ebced').keyup();
 });
 	
-$("#box").keyup( function(){
+$("#ebced").keyup( function(){
 	var inputValue = $(this).val();
 if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {
