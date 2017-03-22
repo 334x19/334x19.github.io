@@ -198,6 +198,11 @@ function copyToClipboard(text) {
 	}
 }
 
+$(window).load( function(){
+	var hashParams = window.location.hash.substr(1);
+	document.getElementById('box').value = hashParams;
+});
+	
 $("#box").keyup( function(){
 	var inputValue = $(this).val();
 if( abjad(inputValue) ) {
