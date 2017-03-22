@@ -63,7 +63,7 @@ button {font-size: 14pt;}
 
 <body>
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
-<textarea placeholder="...Yazmaya başlayın" id="ebced" rows="6" cols="75"></textarea>
+<textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
 <br>
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
 <div id="text">
@@ -177,7 +177,7 @@ function abjad (string) {
 }
 
 function startwork(event){
-	box = document.getElementById("ebced");
+	box = document.getElementById("ifade");
 	if ( box === document.activeElement ){}else{
 		box.focus();
 	}
@@ -205,11 +205,10 @@ $(window).load( function(){
 		var p = hashParams[i].split('=');
 		document.getElementById(p[0]).value = decodeURIComponent(p[1]);
 	}
-
-	$('#ebced').keyup();
+	$('#ifade').keyup();
 });
 	
-$("#ebced").keyup( function(){
+$("#ifade").keyup( function(){
 	var inputValue = $(this).val();
 if( abjad(inputValue) ) {
 	if (abjad(inputValue) % 19 === 0) {
@@ -233,7 +232,7 @@ if( abjad(inputValue) ) {
 		kelime = words(inputValue);
 		$("#words").html("KELİME sayısı: " + kelime);
 	}
-	mesaj = "ebced.kuran114.org/#ebced=" +  inputValue.replace(' ','_') + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+	mesaj = "ebced.kuran114.org/#ifade=" +  inputValue.replace(' ','_') + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 	
 	function harf1(h1){
 		if(ch == h1){
