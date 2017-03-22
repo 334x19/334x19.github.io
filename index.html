@@ -8,30 +8,14 @@
 <meta content='Eş zamanlı Ebced/Sayı Değeri Hesaplayıcısı' property='og:description'/>
 <link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
 <style>
-body {
-	background-color: azure;
-}
+body {background-color: azure;}
 
-#back {
-    position: fixed;
-    z-index: -1;
-    opacity: 0.19;
-    left: 50%;
-    margin-left: -150.68px;
-}
+#back {position: fixed; z-index: -1; opacity: 0.19; left: 50%; margin-left: -150.68px;}
 
-#main {
-	font-size: 14pt;
-}
+#main {font-size: 14pt;}
+#text {margin-left: 25%; font-size: 15pt;}
 
-#text {
-	margin-left: 25%;
-	font-size: 15pt;
-}
-
-#book {
-	padding-top: 38px;
-}
+#book {padding-top: 38px;}
 
 textarea {
 	background-color: #d4efff;
@@ -46,61 +30,32 @@ textarea {
 	background-position: 50% 0%;
 }
 
-textarea:focus {
-	background-image: url(pic/background.png);
-	background-size: cover;
-	background-color: #d4fff3;
-}
+textarea:focus {background-image: url(pic/background.png); background-size: cover; background-color: #d4fff3;}
 
-#baslik {
-	font-size: large;
-	text-align: center;
-}
+#baslik {font-size: large; text-align: center;}
 
 button {font-size: 14pt;}
 
 @media only screen and (max-width: 768px) {
-
-th {font-size: 14pt;}
-#main {font-size: 15pt;}
-#text {font-size: 16pt;}
-button {font-size: 15pt;}
-textarea {font-size: 14pt;}
-	
+	th {font-size: 14pt;}
+	#main {font-size: 15pt;}
+	#text {font-size: 16pt;}
+	button {font-size: 14pt; padding: 6px;}
+	textarea {font-size: 14pt;}
 }
 
 @media only screen and (min-width: 425px) and (max-width: 768px) {
-
-textarea {
-	font-size: 14pt;
-	width: 80%;
-	margin-left: 10%;
-}
-
-#text {
-	margin-left: 10%;
-}
-	
+	textarea {font-size: 14pt; width: 80%; margin-left: 10%;}
+	#text {margin-left: 10%;}	
 }
 
 @media only screen and (max-width: 425px) {
-
-textarea {
-	font-size: 15pt;
-	width: 90%;
-	margin-left: 5%;
-}
-
-#text {
-	margin-left: 5%;
-}
-
+	textarea {font-size: 15pt; width: 90%; margin-left: 5%;}
+	#text {margin-left: 5%;}
 }
 	
 @media only screen and (max-width: 375px) {
-	
-textarea {background-image: url(pic/abc.png)}
-
+	textarea {background-image: url(pic/abc.png)}
 }
 
 </style>
@@ -118,34 +73,10 @@ textarea {background-image: url(pic/abc.png)}
 		<p id="words"></p>
 		<button id="kopyala"> Sonuçları Kopyala </button>
 	</div>
-	<p id="ا"></p>
-	<p id="ب"></p>
-	<p id="ج"></p>
-	<p id="د"></p>
-	<p id="ه"></p>
-	<p id="و"></p>
-	<p id="ز"></p>
-	<p id="ح"></p>
-	<p id="ط"></p>
-	<p id="ي"></p>
-	<p id="ك"></p>
-	<p id="ل"></p>
-	<p id="م"></p>
-	<p id="ن"></p>
-	<p id="س"></p>
-	<p id="ع"></p>
-	<p id="ف"></p>
-	<p id="ص"></p>
-	<p id="ق"></p>
-	<p id="ر"></p>
-	<p id="ش"></p>
-	<p id="ت"></p>
-	<p id="ث"></p>
-	<p id="خ"></p>
-	<p id="ذ"></p>
-	<p id="ض"></p>
-	<p id="ظ"></p>
-	<p id="غ"></p>
+	<p id="ا"></p><p id="ب"></p><p id="ج"></p><p id="د"></p><p id="ه"></p><p id="و"></p><p id="ز"></p><p id="ح"></p>
+	<p id="ط"></p><p id="ي"></p><p id="ك"></p><p id="ل"></p><p id="م"></p><p id="ن"></p><p id="س"></p><p id="ع"></p>
+	<p id="ف"></p><p id="ص"></p><p id="ق"></p><p id="ر"></p><p id="ش"></p><p id="ت"></p><p id="ث"></p><p id="خ"></p>
+	<p id="ذ"></p><p id="ض"></p><p id="ظ"></p><p id="غ"></p>
 </div>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -252,8 +183,9 @@ function startwork(event){
 	}
 }
 
-$('#box').on('input', function (event) { 
-    this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵ]/igm, '');
+$('#box').on('input', function (event) {
+    this.value = this.value.replace(/[^ء-ي
+				    ﻻﻹﻷﻵ]/igm, '');
 });
 
 function copyToClipboard(text) {
