@@ -34,7 +34,8 @@ textarea:focus {background-image: url(pic/background.png); background-size: cove
 
 #baslik {font-size: large; text-align: center;}
 
-button {font-size: 14pt;}
+
+button {display: none; font-size: 14pt;}
 
 @media only screen and (max-width: 768px) {
 	th {font-size: 14pt;}
@@ -211,6 +212,7 @@ $(window).load( function(){
 $("#ifade").keyup( function(){
 	var inputValue = $(this).val();
 if( abjad(inputValue) ) {
+	document.querySelector("#kopyala").style.display = "block";
 	if (abjad(inputValue) % 19 === 0) {
 		ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;
 		$("#abjad").html("<span style=\"color: blue;\">" + "EBCED değeri: " + ebced + "</span>");
@@ -407,6 +409,7 @@ if( abjad(inputValue) ) {
 	$("#letters").html("");
 	$("#words").html("");
 	mesaj = "";
+	document.querySelector("#kopyala").style.display = "none";
 	$("#ا").html("");
 	$("#ب").html("");
 	$("#ج").html("");
