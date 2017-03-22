@@ -85,10 +85,10 @@ button {font-size: 14pt;}
 function getSum(total,num){return total + num};
 
 function val(yazı,harf,değer){
-	var rgxp = new RegExp(değer,'gim');
-	var text = yazı.match(/[^0-9]/igm);
+	var rgxp = new RegExp(harf,'gim');
+	var text = yazı, //.match(/[^0-9]/igm);
 	if (text.indexOf(harf) > -1){
-		sonuc = text.split(harf).join(değer).match(rgxp).map(Number).reduce(getSum)
+		sonuc = text.match(rgxp).split(harf).join(değer).map(Number).reduce(getSum)
 	}else{
 		sonuc = 0
 	};
