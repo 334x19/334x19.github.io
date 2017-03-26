@@ -114,8 +114,8 @@ function loadXMLDoc() {
 function myFunction(xml) {
   var ayet = document.getElementById("ayet").value;
   var dizi = ayet.split("-");
-  var ayet1 = parseInt(dizi[0]) - 1;
-  var ayet2 = parseInt(dizi[1]) - 1;
+  var ayet1 = parseInt(dizi[0]);
+  var ayet2 = parseInt(dizi[1]);
 
   var x, i, xmlDoc, txt;
   xmlDoc = xml.responseXML;
