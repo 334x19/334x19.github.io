@@ -13,7 +13,7 @@ body {background-color: azure;}
 #back {position: fixed; z-index: -1; opacity: 0.19; left: 50%; margin-left: -150.68px;}
 
 #main {font-size: 14pt;}
-#text {margin-left: 25%; font-size: 15pt;}
+#text, #sv {margin-left: 25%; font-size: 15pt;}
 
 #book {padding-top: 38px;}
 
@@ -44,19 +44,19 @@ textarea:focus {
 @media only screen and (max-width: 768px) {
 	th {font-size: 14pt;}
 	#main {font-size: 15pt;}
-	#text {font-size: 16pt;}
+	#text, #sv {font-size: 16pt;}
 	#kopyala {font-size: 14pt; padding: 6px;}
 	textarea {font-size: 14pt;}
 }
 
 @media only screen and (min-width: 425px) and (max-width: 768px) {
 	textarea {font-size: 14pt; width: 80%; margin-left: 10%;}
-	#text {margin-left: 10%;}	
+	#text, #sv {margin-left: 10%;}	
 }
 
 @media only screen and (max-width: 425px) {
 	textarea {font-size: 15pt; width: 90%; margin-left: 5%;}
-	#text {margin-left: 5%;}
+	#text, #sv {margin-left: 5%;}
 }
 </style>
 <link rel="stylesheet" type="text/css" href="css/sweetalert.min.css">
@@ -64,11 +64,13 @@ textarea:focus {
 
 <body>
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
-	
+<br>
+<div id="sv">
 <input id="sure" placeholder="sure no" size="3"></input>
 <input id="ayet" placeholder="ayet no1-no2 || ayet no" size="15"></input>
 <button id="buton" onclick="loadXMLDoc()">Ayet Metnini Getir</button>
-<br>
+</div>
+<br><br>
 <textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
 <br>
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
@@ -135,6 +137,7 @@ function myFunction(xml) {
   	      }
       }
       document.getElementById("ifade").innerHTML = txt;
+      $('#ifade').keyup();
 }
 </script>
 <script type="text/javascript">
