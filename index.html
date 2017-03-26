@@ -64,6 +64,12 @@ button {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
 
 <body>
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
+	
+<input id="sure" placeholder="sure no" size="3"></input>
+<input id="ayet" placeholder="ayet no1-no2 || ayet no" size="15"></input>
+
+<button id="buton" onclick="loadXMLDoc()">Ayet Metnini Getir</button>
+<br>
 <textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
 <br>
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
@@ -79,6 +85,58 @@ button {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
 	<p id="ف"></p><p id="ص"></p><p id="ق"></p><p id="ر"></p><p id="ش"></p><p id="ت"></p><p id="ث"></p><p id="خ"></p>
 	<p id="ذ"></p><p id="ض"></p><p id="ظ"></p><p id="غ"></p>
 </div>
+
+<script>
+$('#sure').on('input', function (event) { 
+    this.value = this.value.replace(/[^0-9]/igm, '');
+});
+
+$('#ayet').on('input', function (event) { 
+    this.value = this.value.replace(/[^0-9-]/igm, '');
+});
+
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  var sure = document.getElementById("sure").value;
+  if(sure){
+  	xmlhttp.open("GET", "sure/" + sure + ".xml", true);
+  	xmlhttp.send();
+  }else{
+  	alert("En azından sure numarasını girmelisin.");
+  }
+}
+
+function myFunction(xml) {
+  var ayet = document.getElementById("ayet").value;
+  var dizi = ayet.split("-");
+  var ayet1 = parseInt(dizi[0]) - 1;
+  var ayet2 = parseInt(dizi[1]) - 1;
+
+  var x, i, xmlDoc, txt;
+  xmlDoc = xml.responseXML;
+  txt = "";
+  x = xmlDoc.getElementsByTagName("ARTIST");
+      if(ayet){
+  	      if (ayet2){
+  	          for (i = ayet1; i < ayet2+1; i++) {
+  	  	          txt += x[i].childNodes[0].nodeValue + "\n";
+  	          }
+          }else{
+  	          txt = x[ayet1].childNodes[0].nodeValue;
+          }
+      }else{
+  	      for (i = 0; i< x.length; i++) {
+      	      txt += x[i].childNodes[0].nodeValue + "\n";
+  	      }
+      }
+      document.getElementById("ifade").innerHTML = txt;
+}
+</script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src='js/sweetalert.min.js'></script>
