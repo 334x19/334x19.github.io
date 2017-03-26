@@ -39,13 +39,13 @@ textarea:focus {
 #baslik {font-size: large; text-align: center;}
 
 
-button {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
+#kopyala {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
 
 @media only screen and (max-width: 768px) {
 	th {font-size: 14pt;}
 	#main {font-size: 15pt;}
 	#text {font-size: 16pt;}
-	button {font-size: 14pt; padding: 6px;}
+	#kopyala {font-size: 14pt; padding: 6px;}
 	textarea {font-size: 14pt;}
 }
 
@@ -67,7 +67,6 @@ button {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
 	
 <input id="sure" placeholder="sure no" size="3"></input>
 <input id="ayet" placeholder="ayet no1-no2 || ayet no" size="15"></input>
-
 <button id="buton" onclick="loadXMLDoc()">Ayet Metnini Getir</button>
 <br>
 <textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
