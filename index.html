@@ -84,7 +84,8 @@ textarea:focus {
 	<p id="ف"></p><p id="ص"></p><p id="ق"></p><p id="ر"></p><p id="ش"></p><p id="ت"></p><p id="ث"></p><p id="خ"></p>
 	<p id="ذ"></p><p id="ض"></p><p id="ظ"></p><p id="غ"></p>
 </div>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src='js/sweetalert.min.js'></script>
 <script>
 $('#sure').on('input', function (event) { 
     this.value = this.value.replace(/[^0-9]/igm, '');
@@ -136,9 +137,6 @@ function myFunction(xml) {
       document.getElementById("ifade").innerHTML = txt;
 }
 </script>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src='js/sweetalert.min.js'></script>
 <script type="text/javascript">
 
 function getSum(total,num){return total + num};
