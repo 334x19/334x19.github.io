@@ -151,16 +151,22 @@ function myFunction(xml) {
       document.getElementById("ifade").innerHTML = txt;
       $('#ifade').keyup();
 }
-</script>
-<script>
+
 function sonraki3(event){ var keys = event.keyCode;	if (keys == 13) { loadXMLDoc() };    else if (keys == 9) { loadXMLDoc() }; };
 function maxuzunluk(x) { if (x.value.length > x.maxLength) { x.value = x.value.slice(0, x.maxLength) }; };
 function bckgrndclrchanger(x) { document.getElementById(x).style.background = "#ffffff"; };
 function bckgrndclrchangr(x) { document.getElementById(x).style.background = "#99ffff"; };
-	
+function sonraki(event) {
+	var key = event.keyCode;
+	if (key == 13) { document.getElementById("ayet").focus(); }
+	if ($("#sure").val().substr(0, 1) >= "1" && $("#sure").val().substr(1, 1) > "1"){ document.getElementById("ayet").focus() }
+	if ($("#sure").val().substr(0, 1) >= "2" && $("#sure").val().substr(1, 1) >= "0"){ document.getElementById("ayet").focus() }
+	if ($("#sure").val().length >= 3) { document.getElementById("ayet").focus() }
+}
+</script>
+<script>
 function maxayet(x) {
-	var surenumber;
-	surenumber = document.getElementById("sure").value;
+	var surenumber = document.getElementById("sure").value;
 	if (surenumber) {
 if (document.getElementById("sure").value == 1){if (x.value < "1" && x.value !== "") {x.value = 1} if (x.value > 7) {x.value = 7}}
 if (document.getElementById("sure").value == 2){if (x.value < 0) {x.value = 0} if (x.value > 286) {x.value = 286}}
@@ -278,18 +284,9 @@ if (document.getElementById("sure").value == 113){if (x.value < 0) {x.value = 0}
 if (document.getElementById("sure").value == 114){if (x.value < 0) {x.value = 0} if (x.value > 6) {x.value = 6}}
     }
 }
-function sonraki(event) {
-	var key = event.keyCode;
-	if (key == 13) { document.getElementById("ayet").focus(); }
-	if ($("#sure").val().substr(0, 1) >= "1" && $("#sure").val().substr(1, 1) > "1"){ document.getElementById("ayet").focus() }
-	if ($("#sure").val().substr(0, 1) >= "2" && $("#sure").val().substr(1, 1) >= "0"){ document.getElementById("ayet").focus() }
-	if ($("#sure").val().length >= 3) { document.getElementById("ayet").focus() }
-}
 function sonraki2() {
-	var suranumber;
-	suranumber = document.getElementById("sure").value;
+	var suranumber = document.getElementById("sure").value;
 	if (suranumber) {
-
 if ($("#sure").val() === '1') {if ($("#ayet").val().substr(0, 1) >= "1") {loadXMLDoc()}}
 else if ($("#sure").val() === '2') {if ($("#ayet").val().substr(0, 1) >= "2" && $("#ayet").val().substr(1, 1) > "8") {loadXMLDoc()}
 else if ($("#ayet").val().substr(0, 1) > "2" && $("#ayet").val().substr(1, 1) >= "0"){loadXMLDoc()}
