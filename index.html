@@ -98,29 +98,6 @@ textarea:focus {
 </head>
 
 <body>
-<p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
-<br>
-<div id="sv">
-<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" pattern="\d*" placeholder="Sure" required="" size="3" title="Sure No" type="number"> : 
-<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" pattern="\d*" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no" type="number">
-<button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
-</div>
-<br><br>
-<textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
-<br>
-<div id="back"><img id="book" src="pic/book arabic.png"></img></div>
-<div id="text">
-	<div id="main">
-		<p id="abjad"></p>
-		<p id="letters"></p>
-		<p id="words"></p>
-		<button id="kopyala"> Sonuçları Kopyala </button>
-	</div>
-	<p id="ا"></p><p id="ب"></p><p id="ج"></p><p id="د"></p><p id="ه"></p><p id="و"></p><p id="ز"></p><p id="ح"></p>
-	<p id="ط"></p><p id="ي"></p><p id="ك"></p><p id="ل"></p><p id="م"></p><p id="ن"></p><p id="س"></p><p id="ع"></p>
-	<p id="ف"></p><p id="ص"></p><p id="ق"></p><p id="ر"></p><p id="ش"></p><p id="ت"></p><p id="ث"></p><p id="خ"></p>
-	<p id="ذ"></p><p id="ض"></p><p id="ظ"></p><p id="غ"></p>
-</div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src='js/sweetalert.min.js'></script>
 <script>
@@ -635,6 +612,31 @@ function myFunction(xml) {
       $('#ifade').keyup();
 }
 </script>
+	
+<p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
+<br>
+<div id="sv">
+<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" pattern="\d*" placeholder="Sure" required="" size="3" title="Sure No" type="number"> : 
+<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" pattern="\d*" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no" type="number">
+<button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
+</div>
+<br><br>
+<textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
+<br>
+<div id="back"><img id="book" src="pic/book arabic.png"></img></div>
+<div id="text">
+	<div id="main">
+		<p id="abjad"></p>
+		<p id="letters"></p>
+		<p id="words"></p>
+		<button id="kopyala"> Sonuçları Kopyala </button>
+	</div>
+	<p id="ا"></p><p id="ب"></p><p id="ج"></p><p id="د"></p><p id="ه"></p><p id="و"></p><p id="ز"></p><p id="ح"></p>
+	<p id="ط"></p><p id="ي"></p><p id="ك"></p><p id="ل"></p><p id="م"></p><p id="ن"></p><p id="س"></p><p id="ع"></p>
+	<p id="ف"></p><p id="ص"></p><p id="ق"></p><p id="ر"></p><p id="ش"></p><p id="ت"></p><p id="ث"></p><p id="خ"></p>
+	<p id="ذ"></p><p id="ض"></p><p id="ظ"></p><p id="غ"></p>
+</div>	
+	
 <script type="text/javascript">
 
 function getSum(total,num){return total + num};
