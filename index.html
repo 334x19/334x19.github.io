@@ -163,6 +163,10 @@ function sonraki(event) {
 	if ($("#sure").val().substr(0, 1) >= "2" && $("#sure").val().substr(1, 1) >= "0"){ document.getElementById("ayet").focus() }
 	if ($("#sure").val().length >= 3) { document.getElementById("ayet").focus() }
 }
+function maxsure(x){
+if (x.value > 114) {x.value = 114};
+if (x.value < "1" && x.value !== "") {x.value = 1}
+}
 </script>
 <script>
 function maxayet(x) {
