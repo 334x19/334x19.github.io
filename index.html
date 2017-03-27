@@ -619,12 +619,12 @@ else if ($("#sure").val() === '114') {if ($("#ayet").val().substr(0, 1) >= "0") 
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <br>
 <div id="sv">
-<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
-<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no">
+<input class="intro" id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
+<input class="intro" id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no">
 <button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
 </div>
 <br><br>
-<textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
+<textarea class="intro" placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
 <br>
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
 <div id="text">
@@ -736,7 +736,7 @@ function abjad (string) {
 	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
 }
 
-$(document).one("keypress", function startwork(event) {
+$("p:not(.intro)").keypress( function startwork(event) {
 	box = document.getElementById("ifade");
 	sure = document.getElementById("sure");
 	var yazı = String.fromCharCode(event.keyCode)
