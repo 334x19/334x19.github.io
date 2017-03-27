@@ -736,17 +736,15 @@ function abjad (string) {
 	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
 }
 
-$("p:not(.intro)").keypress( function startwork(event) {
+$(document).keypress( function() {
 	box = document.getElementById("ifade");
 	sure = document.getElementById("sure");
+    	ayet = document.getElementById("ayet");
 	var yazı = String.fromCharCode(event.keyCode)
-	
-	if(yazı.match(/[\d]/gim)) {
-		if ( sure === document.activeElement ){}else{
+	if ( sure !== document.activeElement && ayet !== document.activeElement && box !== document.activeElement ){
+		if(yazı.match(/[\d]/gim)) {
 			sure.focus();
-		}		
-	}else{
-		if ( box === document.activeElement ){}else{
+		}else{
 			box.focus();
 		}
 	}
