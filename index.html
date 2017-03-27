@@ -101,6 +101,62 @@ textarea:focus {
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src='js/sweetalert.min.js'></script>
 <script>
+$('#sure').on('input', function (event) { 
+    this.value = this.value.replace(/[^0-9]/igm, '');
+});
+
+$('#ayet').on('input', function (event) { 
+    this.value = this.value.replace(/[^0-9-]/igm, '');
+});
+
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  var sure = document.getElementById("sure").value;
+  if(sure){
+  	xmlhttp.open("GET", "sure/" + sure + ".xml", true);
+  	xmlhttp.send();
+  }else{
+  	alert("En azından sure numarasını girmelisin.");
+  }
+}
+
+function myFunction(xml) {
+  var ayet = document.getElementById("ayet").value;
+  var dizi = ayet.split("-");
+  var ayet1 = parseInt(dizi[0]);
+  var ayet2 = parseInt(dizi[1]);
+
+  var x, i, xmlDoc, txt;
+  xmlDoc = xml.responseXML;
+  txt = "";
+  x = xmlDoc.getElementsByTagName("a");
+      if(ayet){
+  	      if (ayet2){
+  	          for (i = ayet1; i < ayet2+1; i++) {
+  	  	          txt += x[i].childNodes[0].nodeValue + "\n";
+  	          }
+          }else{
+  	          txt = x[ayet1].childNodes[0].nodeValue;
+          }
+      }else{
+  	      for (i = 0; i< x.length; i++) {
+      	      txt += x[i].childNodes[0].nodeValue + "\n";
+  	      }
+      }
+      document.getElementById("ifade").innerHTML = txt;
+      $('#ifade').keyup();
+}
+	
+function sonraki3(event){ var keys = event.keyCode;	if (keys == 13) { loadXMLDoc() };    else if (keys == 9) { loadXMLDoc() }; };
+function maxuzunluk(x) { if (x.value.length > x.maxLength) { x.value = x.value.slice(0, x.maxLength) }; };
+function bckgrndclrchanger(x) { document.getElementById(x).style.background = "#ffffff"; };
+function bckgrndclrchangr(x) { document.getElementById(x).style.background = "#99ffff"; };
+	
 function maxayet(x) {
 	var surenumber;
 	surenumber = document.getElementById("sure").value;
@@ -555,61 +611,6 @@ else if ($("#sure").val() === '112') {if ($("#ayet").val().substr(0, 1) >= "0") 
 else if ($("#sure").val() === '113') {if ($("#ayet").val().substr(0, 1) >= "0") {loadXMLDoc()}}
 else if ($("#sure").val() === '114') {if ($("#ayet").val().substr(0, 1) >= "0") {loadXMLDoc()}}
     }
-}
-function sonraki3(event){ var keys = event.keyCode;	if (keys == 13) { loadXMLDoc() };    else if (keys == 9) { loadXMLDoc() }; };
-function maxuzunluk(x) { if (x.value.length > x.maxLength) { x.value = x.value.slice(0, x.maxLength) }; };
-function bckgrndclrchanger(x) { document.getElementById(x).style.background = "#ffffff"; };
-function bckgrndclrchangr(x) { document.getElementById(x).style.background = "#99ffff"; };
-	
-$('#sure').on('input', function (event) { 
-    this.value = this.value.replace(/[^0-9]/igm, '');
-});
-
-$('#ayet').on('input', function (event) { 
-    this.value = this.value.replace(/[^0-9-]/igm, '');
-});
-
-function loadXMLDoc() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      myFunction(this);
-    }
-  };
-  var sure = document.getElementById("sure").value;
-  if(sure){
-  	xmlhttp.open("GET", "sure/" + sure + ".xml", true);
-  	xmlhttp.send();
-  }else{
-  	alert("En azından sure numarasını girmelisin.");
-  }
-}
-
-function myFunction(xml) {
-  var ayet = document.getElementById("ayet").value;
-  var dizi = ayet.split("-");
-  var ayet1 = parseInt(dizi[0]);
-  var ayet2 = parseInt(dizi[1]);
-
-  var x, i, xmlDoc, txt;
-  xmlDoc = xml.responseXML;
-  txt = "";
-  x = xmlDoc.getElementsByTagName("a");
-      if(ayet){
-  	      if (ayet2){
-  	          for (i = ayet1; i < ayet2+1; i++) {
-  	  	          txt += x[i].childNodes[0].nodeValue + "\n";
-  	          }
-          }else{
-  	          txt = x[ayet1].childNodes[0].nodeValue;
-          }
-      }else{
-  	      for (i = 0; i< x.length; i++) {
-      	      txt += x[i].childNodes[0].nodeValue + "\n";
-  	      }
-      }
-      document.getElementById("ifade").innerHTML = txt;
-      $('#ifade').keyup();
 }
 </script>
 	
