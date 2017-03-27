@@ -47,6 +47,24 @@ textarea:focus {
 	#text, #sv {font-size: 16pt;}
 	#kopyala {font-size: 14pt; padding: 6px;}
 	textarea {font-size: 14pt;}
+	
+	#ayet{	width: 74px;	height: 36px;	box-sizing: border-box;
+		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;	font-size: 19px;
+		padding: 5px 5px 5px 5px;	font-size: 16px;	text-align: center;
+		letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
+	}
+
+	#sure{	width: 74px;	height: 36px;	box-sizing: border-box;
+		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
+		font-size: 19px;	padding: 5px 5px 5px 5px;	font-size: 16px;
+    		text-align: center;	letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
+	}
+
+	#buton{	width: 55px;	height: 36px;	box-sizing: border-box;
+		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
+		font: 100 1.9rem 'Merriweather', serif;	padding: 5px 5px 5px 5px;
+	}
+	
 }
 
 @media only screen and (min-width: 425px) and (max-width: 768px) {
@@ -83,11 +101,9 @@ textarea:focus {
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <br>
 <div id="sv">
-<form _lpchecked="1" autocomplete="off" lpformnum="1" method="post">
-<input id="sure" maxlength="3" name="sure" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" pattern="\d*" placeholder="Sure" required="" size="3" title="Sure No" type="number"> :
+<input id="sure" maxlength="3" name="sure" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" pattern="\d*" placeholder="Sure" required="" size="3" title="Sure No" type="number"> : 
 <input class="ayet" id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" pattern="\d*" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no" type="number">
-&nbsp;<button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
-</form>
+<button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
 </div>
 <br><br>
 <textarea placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
