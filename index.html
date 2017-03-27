@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html onload="startwork(event)">
 <head>
 <title>Ebced Değeri Hesaplama Aracı</title>
 <meta name="viewport" content="width=device-width" />
@@ -13,8 +13,8 @@ body {background-color: azure;}
 #back {position: fixed; z-index: -1; opacity: 0.19; left: 50%; margin-left: -150.68px;}
 
 #main {font-size: 14pt;}
-#text, #sv {margin-left: 25%; font-size: 15pt;}
-
+#text {margin-left: 25%; font-size: 15pt;}
+#sv {margin-left: 25%; padding: 0px 0px 25px 0px;}
 #book {padding-top: 38px;}
 
 textarea {
@@ -739,7 +739,9 @@ function abjad (string) {
 function startwork(event){
 	box = document.getElementById("ifade");
 	sure = document.getElementById("sure");
-	if(/\d/.test(box.value)){
+	var yazı = String.fromCharCode(event.keyCode)
+	
+	if(yazı.match(/[\d]/gim)) {
 		if ( sure === document.activeElement ){}else{
 			sure.focus();
 		}		
