@@ -101,8 +101,8 @@ textarea:focus {
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <br>
 <div id="sv">
-<input id="sure" maxlength="3" name="sure" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" pattern="\d*" placeholder="Sure" required="" size="3" title="Sure No" type="number"> : 
-<input class="ayet" id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" pattern="\d*" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no" type="number">
+<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" pattern="\d*" placeholder="Sure" required="" size="3" title="Sure No" type="number"> : 
+<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" pattern="\d*" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no" type="number">
 <button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
 </div>
 <br><br>
