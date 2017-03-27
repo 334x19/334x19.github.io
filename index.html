@@ -60,7 +60,7 @@ textarea:focus {
     		text-align: center;	letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
 	}
 
-	#buton{	width: 55px;	height: 36px;	box-sizing: border-box;
+	#buton{	width: 55px;	box-sizing: border-box;
 		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
 		font: 100 1.9rem 'Merriweather', serif;	padding: 5px 5px 5px 5px;
 	}
@@ -89,7 +89,7 @@ textarea:focus {
 	padding: 0px 4px 0px 4px;	background: rgb(255, 255, 255);
 }
 
-#buton{	width:44px;	height: 31px;	box-sizing: border-box;
+#buton{	height: 31px;	box-sizing: border-box;
 	border: 1px solid rgba(17, 147, 153, 0.19);
 	border-radius: 4px;	font-size: 17px;	padding: 4px 4px 4px 4px;
 }
@@ -618,8 +618,8 @@ else if ($("#sure").val() === '114') {if ($("#ayet").val().substr(0, 1) >= "0") 
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <br>
 <div id="sv">
-<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" pattern="\d*" placeholder="Sure" required="" size="3" title="Sure No" type="number"> : 
-<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" pattern="\d*" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no" type="number">
+<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
+<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no">
 <button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
 </div>
 <br><br>
