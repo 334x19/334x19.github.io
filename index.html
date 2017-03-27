@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html onkeypress="startwork(event)">
+<html>
 <head>
 <title>Ebced Değeri Hesaplama Aracı</title>
 <meta name="viewport" content="width=device-width" />
@@ -736,7 +736,7 @@ function abjad (string) {
 	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
 }
 
-function startwork(event){
+$(html).one("keypress", function startwork(event) {
 	box = document.getElementById("ifade");
 	sure = document.getElementById("sure");
 	var yazı = String.fromCharCode(event.keyCode)
@@ -750,7 +750,7 @@ function startwork(event){
 			box.focus();
 		}
 	}
-}
+});
 
 function copyToClipboard(text) {
 	if (window.clipboardData && window.clipboardData.setData) {
