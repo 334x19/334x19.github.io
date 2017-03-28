@@ -24,6 +24,13 @@ body {background-color: azure;}
 	height: 30px;
 	border: 1px solid black;
 }
+.sonuc {
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	max-width: 287px;
+	height: 30px;
+}
 
 textarea {
 	background-color: rgba(0, 255, 255, 0.38);
@@ -637,9 +644,7 @@ else if ($("#sure").val() === '114') {if ($("#ayet").val().substr(0, 1) >= "0") 
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
 <div id="text">
 	<div id="main">
-		<p id="abjad"></p>
-		<p id="letters"></p>
-		<p id="words"></p>
+		<p id="abjad" class="sonuc"></p><p id="letters" class="sonuc"></p><p id="words" class="sonuc"></p>
 		<button id="kopyala"> Sonuçları Kopyala </button>
 	</div>
 	<p id="ا" class="harf"></p><p id="ب" class="harf"></p><p id="ج" class="harf"></p><p id="د" class="harf"></p>
