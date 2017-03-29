@@ -1,3 +1,28 @@
+@media (hover:hover) {
+    /* Primary Input responds to hover fully, such as a mouse or a Nintendo Wii controller */
+	.huruf:hover{background-color: coral;}
+	.harf:hover{background-color: cornflowerblue;}
+}
+.harf {
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	max-width: 287px;
+	height: 30px;
+	border: 1px solid black;
+	border-radius: 4%;
+}
+
+.huruf {
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	max-width: 287px;
+	height: 30px;
+	border: 1px solid black;
+	border-radius: 4%;
+}
+
 #analiz {
 	width: 100%;
 	margin: 15px 0px 0px -10px;
@@ -21,19 +46,6 @@ body {background-color: azure;}
 }
 #sv {padding: 0px 0px 25px 0px;}
 #book {padding-top: 38px;}
-.harf {
-	float: left;
-	margin: 10px;
-	padding: 10px;
-	max-width: 287px;
-	height: 30px;
-	border: 1px solid black;
-	border-radius: 4%;
-}
-
-.harf:hover{
-	background-color: cornflowerblue;	
-}
 #text{
 	width: 50%;
 	margin-left: 25%;
@@ -115,19 +127,4 @@ textarea:focus {
 #buton{	height: 31px;	box-sizing: border-box;
 	border: 1px solid rgba(17, 147, 153, 0.19);
 	border-radius: 4px;	font-size: 17px;	padding: 4px 4px 4px 4px;
-}
-
-
-.huruf {
-	float: left;
-	margin: 10px;
-	padding: 10px;
-	max-width: 287px;
-	height: 30px;
-	border: 1px solid black;
-	border-radius: 4%;
-}
-
-.huruf:hover{
-	background-color: coral;	
 }
