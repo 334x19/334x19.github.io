@@ -1,0 +1,133 @@
+#analiz {
+	width: 100%;
+	margin: 15px 0px 0px -10px;
+}
+
+input[type=checkbox]{display:none}
+
+.hselected{background-color: coral}
+.selected{background-color: cornflowerblue}
+.not-selected{background-color: rgba(255, 255, 255, 0.57)}
+
+body {background-color: azure;}
+
+#back {position: fixed; z-index: -1; opacity: 0.19; left: 50%; margin-left: -150.68px;}
+
+#primary {font-size: 14pt;}
+#text {
+	margin-left: 25%;
+	font-size: 15pt;
+	width: 50%;
+}
+#sv {padding: 0px 0px 25px 0px;}
+#book {padding-top: 38px;}
+.harf {
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	max-width: 287px;
+	height: 30px;
+	border: 1px solid black;
+	border-radius: 4%;
+}
+
+.harf:hover{
+	background-color: cornflowerblue;	
+}
+#text{
+	width: 50%;
+	margin-left: 25%;
+}
+textarea {
+	width: 100%;
+	background-color: rgba(0, 255, 255, 0.38);
+	border-radius: 2px;
+	font-size: 14pt;
+	direction: rtl;
+	background-image: url(pic/flower.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50% 0%;
+}
+
+textarea:focus {
+	background-image: url(pic/background.png);
+	background-size: cover;
+	background-color: #d4fff3;
+}
+
+#baslik {font-size: large; text-align: center;}
+
+
+#kopyala {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
+
+@media only screen and (max-width: 768px) {
+	th {font-size: 14pt;}
+	#primary {font-size: 15pt;}
+	#text {font-size: 16pt;}
+	#sv {font-size: 16pt;}
+	#kopyala {font-size: 14pt; padding: 6px;}
+	textarea {font-size: 14pt;}
+	
+	#ayet{	width: 74px;	height: 36px;	box-sizing: border-box;
+		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;	font-size: 19px;
+		padding: 5px 5px 5px 5px;	font-size: 16px;	text-align: center;
+		letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
+	}
+
+	#sure{	width: 74px;	height: 36px;	box-sizing: border-box;
+		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
+		font-size: 19px;	padding: 5px 5px 5px 5px;	font-size: 16px;
+    		text-align: center;	letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
+	}
+
+	#buton{	box-sizing: border-box;
+		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
+		font: 100 1.9rem 'Merriweather', serif;	padding: 5px 5px 5px 5px;
+	}
+	
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+	#text{width: 80%; margin-left: 10%;}
+	textarea {font-size: 14pt;}
+	#text{margin-left: 10%;}	
+}
+
+@media only screen and (max-width: 425px) {
+	#text{width: 90%; margin-left: 5%;}
+	textarea {font-size: 15pt;}
+	#text{margin-left: 5%;}
+}
+	
+#ayet{	width: 57px;	height: 32px;	box-sizing: border-box;
+	border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 4px;
+	font-size: 17px;	text-align: center;
+	letter-spacing: 1.7px;	padding: 0px 4px 0px 4px;
+}
+
+#sure{	width: 57px;	height: 32px;	box-sizing: border-box;
+	border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 4px;
+	font-size: 17px;	text-align: center;	letter-spacing: 1.7px;
+	padding: 0px 4px 0px 4px;	background: rgb(255, 255, 255);
+}
+
+#buton{	height: 31px;	box-sizing: border-box;
+	border: 1px solid rgba(17, 147, 153, 0.19);
+	border-radius: 4px;	font-size: 17px;	padding: 4px 4px 4px 4px;
+}
+
+
+.huruf {
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	max-width: 287px;
+	height: 30px;
+	border: 1px solid black;
+	border-radius: 4%;
+}
+
+.huruf:hover{
+	background-color: coral;	
+}

@@ -7,101 +7,7 @@
 <meta content='Ebced Değeri Hesaplayıcı' property='og:title'/>
 <meta content='Eş zamanlı Ebced/Sayı Değeri Hesaplayıcısı' property='og:description'/>
 <link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
-<style>
-body {background-color: azure;}
-
-#back {position: fixed; z-index: -1; opacity: 0.19; left: 50%; margin-left: -150.68px;}
-
-#main {font-size: 14pt;}
-#text {margin-left: 25%; font-size: 15pt;}
-#sv {margin-left: 25%; padding: 0px 0px 25px 0px;}
-#book {padding-top: 38px;}
-.harf {
-	float: left;
-	margin: 10px;
-	padding: 10px;
-	max-width: 287px;
-	height: 30px;
-	border: 1px solid black;
-}
-
-textarea {
-	background-color: rgba(0, 255, 255, 0.38);
-	border-radius: 2px;
-	font-size: 14pt;
-	direction: rtl;
-	width: 50%;
-	margin-left: 25%;
-	background-image: url(pic/flower.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: 50% 0%;
-}
-
-textarea:focus {
-	background-image: url(pic/background.png);
-	background-size: cover;
-	background-color: #d4fff3;
-}
-
-#baslik {font-size: large; text-align: center;}
-
-
-#kopyala {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
-
-@media only screen and (max-width: 768px) {
-	th {font-size: 14pt;}
-	#main {font-size: 15pt;}
-	#text, #sv {font-size: 16pt;}
-	#kopyala {font-size: 14pt; padding: 6px;}
-	textarea {font-size: 14pt;}
-	
-	#ayet{	width: 74px;	height: 36px;	box-sizing: border-box;
-		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;	font-size: 19px;
-		padding: 5px 5px 5px 5px;	font-size: 16px;	text-align: center;
-		letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
-	}
-
-	#sure{	width: 74px;	height: 36px;	box-sizing: border-box;
-		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
-		font-size: 19px;	padding: 5px 5px 5px 5px;	font-size: 16px;
-    		text-align: center;	letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
-	}
-
-	#buton{	width: 55px;	box-sizing: border-box;
-		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
-		font: 100 1.9rem 'Merriweather', serif;	padding: 5px 5px 5px 5px;
-	}
-	
-}
-
-@media only screen and (min-width: 425px) and (max-width: 768px) {
-	textarea {font-size: 14pt; width: 80%; margin-left: 10%;}
-	#text, #sv {margin-left: 10%;}	
-}
-
-@media only screen and (max-width: 425px) {
-	textarea {font-size: 15pt; width: 90%; margin-left: 5%;}
-	#text, #sv {margin-left: 5%;}
-}
-	
-#ayet{	width: 57px;	height: 32px;	box-sizing: border-box;
-	border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 4px;
-	font-size: 17px;	text-align: center;
-	letter-spacing: 1.7px;	padding: 0px 4px 0px 4px;
-}
-
-#sure{	width: 57px;	height: 32px;	box-sizing: border-box;
-	border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 4px;
-	font-size: 17px;	text-align: center;	letter-spacing: 1.7px;
-	padding: 0px 4px 0px 4px;	background: rgb(255, 255, 255);
-}
-
-#buton{	height: 31px;	box-sizing: border-box;
-	border: 1px solid rgba(17, 147, 153, 0.19);
-	border-radius: 4px;	font-size: 17px;	padding: 4px 4px 4px 4px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/ebced.css">
 <link rel="stylesheet" type="text/css" href="css/sweetalert.min.css">
 </head>
 
@@ -175,34 +81,105 @@ function maxsure(x){
 if (x.value > 114) {x.value = 114};
 if (x.value < "1" && x.value !== "") {x.value = 1}
 }
+function check(ltr) {
+	var mukatta = {ا:1, ل:1, م:1, ر:1, ك:1, ه:1, ي:1, ع:1, ص:1, ط:1, س:1, ق:1, ن:1, ح:1};
+	if (mukatta.hasOwnProperty(ltr)) {
+		if ($("input[id=" + ltr + "]").prop('checked') == true ) {
+			$("p[id=" + ltr + "]").removeClass("not-selected");
+			$("p[id=" + ltr + "]").addClass("hselected");
+		} else {
+			$("p[id=" + ltr + "]").removeClass("hselected");
+			$("p[id=" + ltr + "]").addClass("not-selected");
+		}
+	}else{
+		if ($("input[id=" + ltr + "]").prop('checked') == true ) {
+			$("p[id=" + ltr + "]").removeClass("not-selected");
+			$("p[id=" + ltr + "]").addClass("selected");
+		} else {
+			$("p[id=" + ltr + "]").removeClass("selected");
+			$("p[id=" + ltr + "]").addClass("not-selected");
+		}
+	}
+}
+
 </script>
 <script src="js/sonraki.js"></script>
-	
+<div id="text">
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
-<br>
 <div id="sv">
-<input class="intro" id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
-<input class="intro" id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no">
-<button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
+<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
+<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no">
+&nbsp; <button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
 </div>
-<br><br>
-<textarea class="intro" placeholder="...Yazmaya başlayın" id="ifade" rows="6" cols="75"></textarea>
+<textarea id="ifade" rows="6" cols="66" placeholder="...Yazmaya başlayın"></textarea>
 <br>
 <div id="back"><img id="book" src="pic/book arabic.png"></img></div>
-<div id="text">
-	<div id="main">
-		<p id="abjad"></p>
-		<p id="letters"></p>
-		<p id="words"></p>
-		<button id="kopyala"> Sonuçları Kopyala </button>
+	<div id="primary">
+			<p id="abjad"></p>
+			<p id="letters"></p>
+			<p id="words"></p>
 	</div>
-	<p id="ا" class="harf"></p><p id="ب" class="harf"></p><p id="ج" class="harf"></p><p id="د" class="harf"></p>
-	<p id="ه" class="harf"></p><p id="و" class="harf"></p><p id="ز" class="harf"></p><p id="ح" class="harf"></p>
-	<p id="ط" class="harf"></p><p id="ي" class="harf"></p><p id="ك" class="harf"></p><p id="ل" class="harf"></p>
-	<p id="م" class="harf"></p><p id="ن" class="harf"></p><p id="س" class="harf"></p><p id="ع" class="harf"></p>
-	<p id="ف" class="harf"></p><p id="ص" class="harf"></p><p id="ق" class="harf"></p><p id="ر" class="harf"></p>
-	<p id="ش" class="harf"></p><p id="ت" class="harf"></p><p id="ث" class="harf"></p><p id="خ" class="harf"></p>
-	<p id="ذ" class="harf"></p><p id="ض" class="harf"></p><p id="ظ" class="harf"></p><p id="غ" class="harf"></p>
+	<button id="kopyala"> Sonuçları Kopyala </button>
+
+	<input type="checkbox" id="ا" onclick="check('ا')">
+	<input type="checkbox" id="ب" onclick="check('ب')">
+	<input type="checkbox" id="ج" onclick="check('ج')">
+	<input type="checkbox" id="د" onclick="check('د')">
+	<input type="checkbox" id="ه" onclick="check('ه')">
+	<input type="checkbox" id="و" onclick="check('و')">
+	<input type="checkbox" id="ز" onclick="check('ز')">
+	<input type="checkbox" id="ح" onclick="check('ح')">
+	<input type="checkbox" id="ط" onclick="check('ط')">
+	<input type="checkbox" id="ي" onclick="check('ي')">
+	<input type="checkbox" id="ك" onclick="check('ك')">
+	<input type="checkbox" id="ل" onclick="check('ل')">
+	<input type="checkbox" id="م" onclick="check('م')">
+	<input type="checkbox" id="ن" onclick="check('ن')">
+	<input type="checkbox" id="س" onclick="check('س')">
+	<input type="checkbox" id="ع" onclick="check('ع')">
+	<input type="checkbox" id="ف" onclick="check('ف')">
+	<input type="checkbox" id="ص" onclick="check('ص')">
+	<input type="checkbox" id="ق" onclick="check('ق')">
+	<input type="checkbox" id="ر" onclick="check('ر')">
+	<input type="checkbox" id="ش" onclick="check('ش')">
+	<input type="checkbox" id="ت" onclick="check('ت')">
+	<input type="checkbox" id="ث" onclick="check('ث')">
+	<input type="checkbox" id="خ" onclick="check('خ')">
+	<input type="checkbox" id="ذ" onclick="check('ذ')">
+	<input type="checkbox" id="ض" onclick="check('ض')">
+	<input type="checkbox" id="ظ" onclick="check('ظ')">
+	<input type="checkbox" id="غ" onclick="check('غ')">
+
+	<div id="analiz">
+		<label for="ا"><p id="ا" class="huruf not-selected"></p></label>
+		<label for="ب"><p id="ب" class="harf not-selected"></p></label>
+		<label for="ج"><p id="ج" class="harf not-selected"></p></label>
+		<label for="د"><p id="د" class="harf not-selected"></p></label>
+		<label for="ه"><p id="ه" class="huruf not-selected"></p></label>
+		<label for="و"><p id="و" class="harf not-selected"></p></label>
+		<label for="ز"><p id="ز" class="harf not-selected"></p></label>
+		<label for="ح"><p id="ح" class="huruf not-selected"></p></label>
+		<label for="ط"><p id="ط" class="huruf not-selected"></p></label>
+		<label for="ي"><p id="ي" class="huruf not-selected"></p></label>
+		<label for="ك"><p id="ك" class="huruf not-selected"></p></label>
+		<label for="ل"><p id="ل" class="huruf not-selected"></p></label>
+		<label for="م"><p id="م" class="huruf not-selected"></p></label>
+		<label for="ن"><p id="ن" class="huruf not-selected"></p></label>
+		<label for="س"><p id="س" class="huruf not-selected"></p></label>
+		<label for="ع"><p id="ع" class="huruf not-selected"></p></label>
+		<label for="ف"><p id="ف" class="harf not-selected"></p></label>
+		<label for="ص"><p id="ص" class="huruf not-selected"></p></label>
+		<label for="ق"><p id="ق" class="huruf not-selected"></p></label>
+		<label for="ر"><p id="ر" class="huruf not-selected"></p></label>
+		<label for="ش"><p id="ش" class="harf not-selected"></p></label>
+		<label for="ت"><p id="ت" class="harf not-selected"></p></label>
+		<label for="ث"><p id="ث" class="harf not-selected"></p></label>
+		<label for="خ"><p id="خ" class="harf not-selected"></p></label>
+		<label for="ذ"><p id="ذ" class="harf not-selected"></p></label>
+		<label for="ض"><p id="ض" class="harf not-selected"></p></label>
+		<label for="ظ"><p id="ظ" class="harf not-selected"></p></label>
+		<label for="غ"><p id="غ" class="harf not-selected"></p></label>
+	</div>
 </div>	
 	
 <script type="text/javascript">
@@ -342,6 +319,10 @@ $(window).load( function(){
 $('#ifade').on('input', function (event) { 
     this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵ\n0-9:#]/igm, '');
 });
+	
+$(function() {
+	$("#ifade").keyup();
+});
 
 $("#ifade").keyup( function(){
 	var inputValue = $(this).val();
@@ -374,8 +355,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1){
 			sonuc = counts[h1]
 			if(sonuc == 0) {
-				return $("p[id=" + h1 + "]").html('')
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
 			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
@@ -391,8 +373,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2){
 			sonuc = counts[h1] + counts[h2]
 			if(sonuc == 0) {
-				return $("p[id=" + h1 + "]").html('')
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
 			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
@@ -408,8 +391,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2 || ch == h3){
 			sonuc = counts[h1] + counts[h2] + counts[h3]
 			if(sonuc == 0) {
-				return $("p[id=" + h1 + "]").html('')
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
 			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
@@ -425,8 +409,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4]
 			if(sonuc == 0) {
-				return $("p[id=" + h1 + "]").html('')
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
 			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
@@ -442,8 +427,9 @@ if( abjad(inputValue) ) {
 		if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
 			if(sonuc == 0) {
-				return $("p[id=" + h1 + "]").html('')
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
 			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
@@ -459,8 +445,9 @@ if( abjad(inputValue) ) {
 	if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
 		sonuc = counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
 		if(sonuc == 0) {
-			return $("p[id=" + h1 + "]").html('')
+			return document.querySelector("p[id=" + h1 + "]").style.display = "none";
 		}else{
+			document.querySelector("p[id=" + h1 + "]").style.display = "block";
 			if (sonuc % 19 === 0) {
 				harf = sonuc + " = 19 × " + sonuc/19;
 				return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
@@ -537,41 +524,42 @@ if( abjad(inputValue) ) {
 	if (counts.hasOwnProperty('ذ')) {}else{ $("p[id=ذ]").html("") }
 	if (counts.hasOwnProperty('ض')) {}else{ $("p[id=ض]").html("") }
 	if (counts.hasOwnProperty('ظ')) {}else{ $("p[id=ظ]").html("") }
-	if (counts.hasOwnProperty('غ')) {}else{ $("p[id=غ]").html("") }	
+	if (counts.hasOwnProperty('غ')) {}else{ $("p[id=غ]").html("") }
 }else{
 	$("#abjad").html("");
 	$("#letters").html("");
 	$("#words").html("");
 	mesaj = "";
 	document.querySelector("#kopyala").style.display = "none";
-	$("#ا").html("");
-	$("#ب").html("");
-	$("#ج").html("");
-	$("#د").html("");
-	$("#ه").html("");
-	$("#و").html("");
-	$("#ز").html("");
-	$("#ح").html("");
-	$("#ط").html("");
-	$("#ي").html("");
-	$("#ك").html("");
-	$("#ل").html("");
-	$("#م").html("");
-	$("#ن").html("");
-	$("#س").html("");
-	$("#ع").html("");
-	$("#ف").html("");
-	$("#ص").html("");
-	$("#ق").html("");
-	$("#ر").html("");
-	$("#ش").html("");
-	$("#ت").html("");
-	$("#ث").html("");
-	$("#خ").html("");
-	$("#ذ").html("");
-	$("#ض").html("");
-	$("#ظ").html("");
-	$("#غ").html("");
+	
+	document.querySelector("p[id='ا']").style.display = "none";
+	document.querySelector("p[id='ب']").style.display = "none";
+	document.querySelector("p[id='ج']").style.display = "none";
+	document.querySelector("p[id='د']").style.display = "none";
+	document.querySelector("p[id='ه']").style.display = "none";
+	document.querySelector("p[id='و']").style.display = "none";
+	document.querySelector("p[id='ز']").style.display = "none";
+	document.querySelector("p[id='ح']").style.display = "none";
+	document.querySelector("p[id='ط']").style.display = "none";
+	document.querySelector("p[id='ي']").style.display = "none";
+	document.querySelector("p[id='ك']").style.display = "none";
+	document.querySelector("p[id='ل']").style.display = "none";
+	document.querySelector("p[id='م']").style.display = "none";
+	document.querySelector("p[id='ن']").style.display = "none";
+	document.querySelector("p[id='س']").style.display = "none";
+	document.querySelector("p[id='ع']").style.display = "none";
+	document.querySelector("p[id='ف']").style.display = "none";
+	document.querySelector("p[id='ص']").style.display = "none";
+	document.querySelector("p[id='ق']").style.display = "none";
+	document.querySelector("p[id='ر']").style.display = "none";
+	document.querySelector("p[id='ش']").style.display = "none";
+	document.querySelector("p[id='ت']").style.display = "none";
+	document.querySelector("p[id='ث']").style.display = "none";
+	document.querySelector("p[id='خ']").style.display = "none";
+	document.querySelector("p[id='ذ']").style.display = "none";
+	document.querySelector("p[id='ض']").style.display = "none";
+	document.querySelector("p[id='ظ']").style.display = "none";
+	document.querySelector("p[id='غ']").style.display = "none";
 };
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
