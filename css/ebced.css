@@ -44,14 +44,14 @@ textarea {
 	border-radius: 2px;
 	font-size: 14pt;
 	direction: rtl;
-	background-image: url(pic/flower.png);
+	background-image: url(/pic/flower.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: 50% 0%;
 }
 
 textarea:focus {
-	background-image: url(pic/background.png);
+	background-image: url(/pic/background.png);
 	background-size: cover;
 	background-color: #d4fff3;
 }
