@@ -76,8 +76,8 @@ function bckgrndclrchanger(x) { document.getElementById(x).style.background = "#
 function bckgrndclrchangr(x) { document.getElementById(x).style.background = "#99ffff"; };
 function sonraki(event) {
 	var key = event.keyCode;
+	if (key == 13) { document.getElementById("ayet").focus(); }
 	if ( $("#sure").val().match(/[\d]/gim) ) {
-		if (key == 13) { document.getElementById("ayet").focus(); }
 		if ($("#sure").val().substr(0, 1) >= "1" && $("#sure").val().substr(1, 1) > "1"){ document.getElementById("ayet").focus() }
 		if ($("#sure").val().substr(0, 1) >= "2" && $("#sure").val().substr(1, 1) >= "0"){ document.getElementById("ayet").focus() }
 		if ($("#sure").val().length >= 3) { document.getElementById("ayet").focus() }
