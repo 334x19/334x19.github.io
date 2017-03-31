@@ -107,9 +107,125 @@ function check(ltr) {
 <div id="text">
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <div id="sv">
-<input id="sure" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
+<input id="sure" list="sureler" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
 <input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no">
 &nbsp; <button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
+  <datalist id="sureler">
+    <option value="1" label="Açılış - Fatiha">
+    <option value="2" label="İnek - Bakara">
+    <option value="3" label="İmran Ailesi - Al-i İmran">
+    <option value="4" label="Kadın - Nisa">
+    <option value="5" label="Ziyafet - Maide">
+    <option value="6" label="Çiftlik Hayvanları - Enam">
+    <option value="7" label="Orta Yer - Araf">
+    <option value="8" label="Ganimetler - Enfal">
+    <option value="9" label="Ültimatom - Berae">
+    <option value="10" label="Yunus - Yunus">
+    <option value="11" label="Hud - Hud">
+    <option value="12" label="Yusuf - Yusuf">
+    <option value="13" label="Gök Gürlemesi - Rad">
+    <option value="14" label="İbrahim - İbrahim">
+    <option value="15" label="Hicr Vadisi - Hicr">
+    <option value="16" label="Arı - Nahl">
+    <option value="17" label="İsrailoğulları - Beni İsrail">
+    <option value="18" label="Mağara - Kehf">
+    <option value="19" label="Meryem - Meryem">
+    <option value="20" label="T.H. - TaHa">
+    <option value="21" label="Peygamberler - Enbiya">
+    <option value="22" label="Hac - Hac">
+    <option value="23" label="İnananlar - Muminun">
+    <option value="24" label="Işık - Nur">
+    <option value="25" label="Yasalar Kitabı - Furkan">
+    <option value="26" label="Şairler - Şuara">
+    <option value="27" label="Karınca - Neml">
+    <option value="28" label="Tarih - Kasas">
+    <option value="29" label="Dişi Örümcek - Ankebut">
+    <option value="30" label="Romalılar - Rum">
+    <option value="31" label="Lokman- Lokman">
+    <option value="32" label="Secde - Secde">
+    <option value="33" label="Partiler - Ahzab">
+    <option value="34" label="Sebe - Sebe">
+    <option value="35" label="Yaratan - Fatır">
+    <option value="36" label="Y.S. - YaSin">
+    <option value="37" label="Dizenler - Saffat">
+	<option value="38" label="Ŝ. - Sad">
+	<option value="39" label="Yığınlar - Zümer">
+	<option value="40" label="Bağışlayan - Ğafir">
+	<option value="41" label="Açıklanmış - Fussilet">
+	<option value="42" label="Demokrasi - Şura">
+	<option value="43" label="Gösteriş - Zuhruf">
+	<option value="44" label="Duman - Duhan">
+	<option value="45" label="Diz Çöküş - Casiye">
+	<option value="46" label="Kum Tepecikleri - Ahkaf">
+	<option value="47" label="Muhammed - Muhammed">
+	<option value="48" label="Zafer - Fetih">
+	<option value="49" label="Odalar - Hucurat">
+	<option value="50" label="K. - Kaf">
+	<option value="51" label="Savuranlar - Zariyat">
+	<option value="52" label="Sina Dağı - Tur">
+	<option value="53" label="Yıldız - Necm">
+	<option value="54" label="Ay - Kamer">
+	<option value="55" label="Şefkatli - Rahman">
+	<option value="56" label="Olay - Vakıa">
+	<option value="57" label="Demir - Hadid">
+	<option value="58" label="Tartışma - Mücadele">
+	<option value="59" label="Sürgün - Haşr">
+	<option value="60" label="Sorgulanan - Mumtahine">
+	<option value="61" label="Düzenli Birlik - Saff">
+	<option value="62" label="Cuma - Cuma">
+	<option value="63" label="İkiyüzlüler - Münafikun">
+	<option value="64" label="Aldanma - Teğabun">
+	<option value="65" label="Boşanma - Talak">
+	<option value="66" label="Yasaklama - Tahrim">
+	<option value="67" label="Yönetim - Mülk">
+	<option value="68" label="Kalem - Kalem">
+	<option value="69" label="Gerçekleşen - Hakka">
+	<option value="70" label="Yükseliş Yolları - Mearic">
+	<option value="71" label="Nuh - Nuh">
+	<option value="72" label="Cin - Cin">
+	<option value="73" label="Arkadaş Olan - Müzemmil">
+	<option value="74" label="Gizlenen Sır - Müdessir">
+	<option value="75" label="Diriliş - Kıyame">
+	<option value="76" label="İnsan - İnsan">
+	<option value="77" label="Gönderilenler - Mürselat">
+	<option value="78" label="Haber - Nebe">
+	<option value="79" label="Söküp Çıkaranlar - Naziat">
+	<option value="80" label="Surat Astı - Abese">
+	<option value="81" label="Yuvarlama - Tekvir">
+	<option value="82" label="Yarılma - İnfitar">
+	<option value="83" label="Kandıranlar - Mutaffifin">
+	<option value="84" label="Çatlama - İnşikak">
+	<option value="85" label="Galaksiler - Büruc">
+	<option value="86" label="Atarca - Tarık">
+	<option value="87" label="Yüce - Ala">
+	<option value="88" label="Bunaltan - Ğaşiye">
+	<option value="89" label="Tan Vakti - Fecr">
+	<option value="90" label="Kent - Beled">
+	<option value="91" label="Güneş - Şems">
+	<option value="92" label="Gece - Leyl">
+	<option value="93" label="Kuşluk - Duha">
+	<option value="94" label="Sakinleştirme - Şarh">
+	<option value="95" label="İncir - Tin">
+	<option value="96" label="Duygusal Bağ - Alak">
+	<option value="97" label="Kader - Kadr">
+	<option value="98" label="Kanıt - Beyyine">
+	<option value="99" label="Deprem - Zilzal">
+	<option value="100" label="Aşanlar - Adiyat">
+	<option value="101" label="Şok - Karia">
+	<option value="102" label="Çoğaltma Yarışı - Tekasür">
+	<option value="103" label="Zaman - Asr">
+	<option value="104" label="Dedikoducu - Humeze">
+	<option value="105" label="Fil - Fil">
+	<option value="106" label="Kureyş - Kureyş">
+	<option value="107" label="Yardımlaşma - Maun">
+	<option value="108" label="Bolluk - Kevser">
+	<option value="109" label="Gerçeği Gizleyenler - Kafirun">
+	<option value="110" label="Yardım - Nasr">
+	<option value="111" label="Diken - Mesed">
+	<option value="112" label="Özgüleme - İhlas">
+	<option value="113" label="Şafak - Felak">
+	<option value="114" label="İnsanlar - Nas">
+  </datalist>
 </div>
 <textarea id="ifade" rows="6" cols="66" placeholder="...Yazmaya başlayın"></textarea>
 <br>

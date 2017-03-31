@@ -23,6 +23,10 @@
 	border-radius: 4%;
 }
 
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 #analiz {
 	width: 112%;
 	margin: 15px 0px 0px -10px;
