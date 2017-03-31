@@ -67,15 +67,21 @@ function myFunction(xml) {
 }
 
 function sonraki3(event){ var keys = event.keyCode;   if (keys == 13) { loadXMLDoc() };  if (keys == 9) { loadXMLDoc() }; };
-function maxuzunluk(x) { if (x.value.length > x.maxLength) { x.value = x.value.slice(0, x.maxLength) } };
+function maxuzunluk(x) {
+	if ( x.value.match(/[\d]/gim) ) {
+		if (x.value.length > 3) { x.value = x.value.slice(0, x.maxLength) }
+	}
+};
 function bckgrndclrchanger(x) { document.getElementById(x).style.background = "#ffffff"; };
 function bckgrndclrchangr(x) { document.getElementById(x).style.background = "#99ffff"; };
 function sonraki(event) {
 	var key = event.keyCode;
-	if (key == 13) { document.getElementById("ayet").focus(); }
-	if ($("#sure").val().substr(0, 1) >= "1" && $("#sure").val().substr(1, 1) > "1"){ document.getElementById("ayet").focus() }
-	if ($("#sure").val().substr(0, 1) >= "2" && $("#sure").val().substr(1, 1) >= "0"){ document.getElementById("ayet").focus() }
-	if ($("#sure").val().length >= 3) { document.getElementById("ayet").focus() }
+	if ( $("#sure").val().match(/[\d]/gim) ) {
+		if (key == 13) { document.getElementById("ayet").focus(); }
+		if ($("#sure").val().substr(0, 1) >= "1" && $("#sure").val().substr(1, 1) > "1"){ document.getElementById("ayet").focus() }
+		if ($("#sure").val().substr(0, 1) >= "2" && $("#sure").val().substr(1, 1) >= "0"){ document.getElementById("ayet").focus() }
+		if ($("#sure").val().length >= 3) { document.getElementById("ayet").focus() }
+	}
 }
 function maxsure(x){
 if (x.value > 114) {x.value = 114};
@@ -107,8 +113,8 @@ function check(ltr) {
 <div id="text">
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <div id="sv">
-<input id="sure" list="sureler" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
-<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" title="ayet no1-no2 || ayet no">
+<input id="sure" list="sureler" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeyup="maxsure(this); sonraki(event)" placeholder="Sure" size="3" title="Sure No" required> : 
+<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" type="number" title="ayet no1-no2 || ayet no">
 &nbsp; <button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
   <datalist id="sureler">
     <option value="1" label="Açılış - Fatiha">
