@@ -24,7 +24,6 @@ $('#ayet').on('input', function (event) {
 });
 
 function loadXMLDoc() {
-	//document.getElementById('ifade').value = '';
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -63,7 +62,7 @@ function myFunction(xml) {
       	      txt += x[i].childNodes[0].nodeValue + "\n";
   	      }
       }
-      document.getElementById("ifade").innerHTML = txt;
+      document.getElementById("ifade").value = txt;
       $('#ifade').keyup();
 }
 
