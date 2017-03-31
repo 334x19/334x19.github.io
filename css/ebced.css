@@ -1,3 +1,12 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 @media (hover:hover) {
     /* Primary Input responds to hover fully, such as a mouse or a Nintendo Wii controller */
 	.huruf:hover{background-color: coral;}
@@ -85,23 +94,11 @@ textarea:focus {
 	#kopyala {font-size: 14pt; padding: 6px;}
 	textarea {font-size: 14pt;}
 	
-	#ayet{	width: 74px;	height: 36px;	box-sizing: border-box;
-		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;	font-size: 19px;
-		padding: 5px 5px 5px 5px;	font-size: 16px;	text-align: center;
-		letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
+	.ayetbox {	width: 74px;	height: 36px;	border-radius: 3px;	font-size: 19px;
+		padding: 5px 5px 5px 5px;	font: 100 1.9rem 'Merriweather', serif;
 	}
 
-	#sure{	width: 74px;	height: 36px;	box-sizing: border-box;
-		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
-		font-size: 19px;	padding: 5px 5px 5px 5px;	font-size: 16px;
-    		text-align: center;	letter-spacing: 1.7px;	font: 100 1.9rem 'Merriweather', serif;
-	}
-
-	#buton{	box-sizing: border-box;
-		border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 3px;
-		font: 100 1.9rem 'Merriweather', serif;	padding: 5px 5px 5px 5px;
-	}
-	
+	#buton{	border-radius: 3px;	font: 100 1.9rem 'Merriweather', serif;	padding: 5px 5px 5px 5px;}
 }
 
 @media only screen and (min-width: 425px) and (max-width: 768px) {
@@ -116,19 +113,11 @@ textarea:focus {
 	#text{margin-left: 5%;}
 }
 	
-#ayet{	width: 57px;	height: 32px;	box-sizing: border-box;
-	border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 4px;
-	font-size: 17px;	text-align: center;
-	letter-spacing: 1.7px;	padding: 0px 4px 0px 4px;
+.ayetbox {	width: 57px;	height: 32px;	box-sizing: border-box;
+	border: 1px solid rgba(17, 147, 153, 0.19); border-radius: 4px;	font-size: 17px;
+	text-align: center;	letter-spacing: 1.7px;	padding: 0px 4px 0px 4px;
 }
 
-#sure{	width: 57px;	height: 32px;	box-sizing: border-box;
-	border: 1px solid rgba(17, 147, 153, 0.19);	border-radius: 4px;
-	font-size: 17px;	text-align: center;	letter-spacing: 1.7px;
-	padding: 0px 4px 0px 4px;	background: rgb(255, 255, 255);
-}
-
-#buton{	height: 31px;	box-sizing: border-box;
-	border: 1px solid rgba(17, 147, 153, 0.19);
+#buton{	height: 31px;	box-sizing: border-box;	border: 1px solid rgba(17, 147, 153, 0.19);
 	border-radius: 4px;	font-size: 17px;	padding: 4px 4px 4px 4px;
 }

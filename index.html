@@ -24,6 +24,7 @@ $('#ayet').on('input', function (event) {
 });
 
 function loadXMLDoc() {
+	//document.getElementById('ifade').value = '';
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -117,8 +118,8 @@ function check(ltr) {
 <div id="text">
 <p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
 <div id="sv">
-<input id="sure" list="sureler" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="sonraki(event); maxuzunluk(this);" onkeydown="maxsure(this);" onkeyup="entersure(event);" placeholder="Sure" size="3" title="Sure No" required> : 
-<input id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" type="number" title="ayet no1-no2 || ayet no">
+<input class="ayetbox" id="sure" list="sureler" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''" onfocus="bckgrndclrchangr(this.id)" oninput="sonraki(event); maxuzunluk(this);" onkeydown="maxsure(this);" onkeyup="entersure(event);" placeholder="Sure" size="3" title="Sure No" required> : 
+<input class="ayetbox" id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = '';" onfocus="bckgrndclrchangr(this.id)" oninput="maxuzunluk(this)" onkeydown="sonraki3(event)" onkeyup="maxayet(this); sonraki2()" placeholder="Ayet" size="3" type="number" title="ayet no1-no2 || ayet no">
 &nbsp; <button id="buton" onclick="loadXMLDoc()" title="Getir">Ayet Metnini Getir</button>
   <datalist id="sureler">
     <option value="1" label="Açılış - Fatiha">
@@ -435,11 +436,13 @@ function copyToClipboard(text) {
 
 $(window).load( function(){
 	var hashParams = window.location.hash.substr(1).replace(/[_]+/gim, " ").replace(/[-]+/gim, "\n").split('&');
-	for(var i = 0; i < hashParams.length; i++){
-		var p = hashParams[i].split('=');
-		document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+	if(hashParams){}else{
+		for(var i = 0; i < hashParams.length; i++){
+			var p = hashParams[i].split('=');
+			document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+		}
+		$('#ifade').keyup();
 	}
-	$('#ifade').keyup();
 });
 
 $('#ifade').on('input', function (event) { 
