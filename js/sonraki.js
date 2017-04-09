@@ -734,4 +734,4 @@ function tamamlayıcı() {
 		}
 	}
 }
-$('input').on('input', tamamlayıcı);
+$('input').on('blur', tamamlayıcı);
