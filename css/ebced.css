@@ -57,7 +57,7 @@ body {background-color: azure;}
 	font-size: 15pt;
 	width: 50%;
 }
-#sv {padding: 0px 0px 25px 0px;}
+#sv {padding: 0px 0px 4px 0px;}
 #book {padding-top: 38px;}
 #text{
 	width: 50%;
@@ -82,9 +82,15 @@ textarea:focus {
 }
 
 #baslik {font-size: large; text-align: center;}
-
-
 #kopyala {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
+
+@media only screen and (min-width: 425px) {
+	textarea:focus {height: 247px;}
+}
+
+@media only screen and (max-width: 1024px) {
+	textarea {background-position: 40%;}
+}
 
 @media only screen and (max-width: 768px) {
 	th {font-size: 14pt;}
@@ -92,25 +98,23 @@ textarea:focus {
 	#text {font-size: 16pt;}
 	#sv {font-size: 16pt;}
 	#kopyala {font-size: 14pt; padding: 6px;}
-	textarea {font-size: 14pt;}
+	textarea {font-size: 14pt;	background-position: 30%;}
 	
 	.ayetbox {	width: 74px;	height: 36px;	border-radius: 3px;	font-size: 19px;
 		padding: 5px 5px 5px 5px;	font: 100 1.9rem 'Merriweather', serif;
 	}
 
-	#buton{	border-radius: 3px;	font: 100 1.9rem 'Merriweather', serif;	padding: 5px 5px 5px 5px;}
+
 }
 
 @media only screen and (min-width: 425px) and (max-width: 768px) {
 	#text{width: 80%; margin-left: 10%;}
 	textarea {font-size: 14pt;}
-	#text{margin-left: 10%;}	
 }
 
 @media only screen and (max-width: 425px) {
 	#text{width: 90%; margin-left: 5%;}
-	textarea {font-size: 15pt;}
-	#text{margin-left: 5%;}
+	textarea {font-size: 15pt;	background-position: 20%;}
 }
 	
 .ayetbox {	width: 57px;	height: 32px;	box-sizing: border-box;
@@ -118,6 +122,6 @@ textarea:focus {
 	text-align: center;	letter-spacing: 1.7px;	padding: 0px 4px 0px 4px;
 }
 
-#buton{	height: 31px;	box-sizing: border-box;	border: 1px solid rgba(17, 147, 153, 0.19);
-	border-radius: 4px;	font-size: 17px;	padding: 4px 4px 4px 4px;
-}
+
+
+

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ebced Değeri Hesaplama Aracı</title>
+<meta name="viewport" content="width=device-width" />
+<meta content='http://ebced.kuran114.org/' property='og:url'/>
+<meta content='Ebced Değeri Hesaplayıcı' property='og:title'/>
+<meta content='Eş zamanlı Ebced/Sayı Değeri Hesaplayıcısı' property='og:description'/>
+<link href='pic/favicon.ico' rel='icon' type='image/x-icon'/>
+<link rel="stylesheet" type="text/css" href="css/ebced.css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.min.css">
+</head>
+<body>
+<div id="text">
+<p id="baslik">Ebced Değeri Hesaplama Aracı:</p>
+<div id="sv">
+
+<input class="ayetbox" id="sure" list="sureler" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet').value = ''; $('#sure').trigger('input');" onfocus="bckgrndclrchangr(this.id)" placeholder="Sure" size="3" title="Sure No"> :
+
+<input class="ayetbox" id="ayet" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; $('#ayet').trigger('input');" onfocus="bckgrndclrchangr(this.id)" placeholder="Ayet" size="3" title="Ayet No" type="number">
+-
+<input class="ayetbox" id="sure2" list="sureler" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; document.getElementById('ayet2').value = ''; $('#sure2').trigger('input');" onfocus="bckgrndclrchangr(this.id)" placeholder="Sure" size="3" title="Sure No"> :
+
+<input class="ayetbox" id="ayet2" maxlength="3" onblur="bckgrndclrchanger(this.id)" onclick="document.getElementById(this.id).value = ''; $('#ayet2').trigger('input');" onfocus="bckgrndclrchangr(this.id)" placeholder="Ayet" size="3" title="Ayet No" type="number">
+
+  <datalist id="sureler">
+    <option value="1" label="Açılış - Fatiha">
+    <option value="2" label="İnek - Bakara">
+    <option value="3" label="İmran Ailesi - Al-i İmran">
+    <option value="4" label="Kadın - Nisa">
+    <option value="5" label="Ziyafet - Maide">
+    <option value="6" label="Çiftlik Hayvanları - Enam">
+    <option value="7" label="Orta Yer - Araf">
+    <option value="8" label="Ganimetler - Enfal">
+    <option value="9" label="Ültimatom - Berae">
+    <option value="10" label="Yunus - Yunus">
+    <option value="11" label="Hud - Hud">
+    <option value="12" label="Yusuf - Yusuf">
+    <option value="13" label="Gök Gürlemesi - Rad">
+    <option value="14" label="İbrahim - İbrahim">
+    <option value="15" label="Hicr Vadisi - Hicr">
+    <option value="16" label="Arı - Nahl">
+    <option value="17" label="İsrailoğulları - Beni İsrail">
+    <option value="18" label="Mağara - Kehf">
+    <option value="19" label="Meryem - Meryem">
+    <option value="20" label="T.H. - TaHa">
+    <option value="21" label="Peygamberler - Enbiya">
+    <option value="22" label="Hac - Hac">
+    <option value="23" label="İnananlar - Muminun">
+    <option value="24" label="Işık - Nur">
+    <option value="25" label="Yasalar Kitabı - Furkan">
+    <option value="26" label="Şairler - Şuara">
+    <option value="27" label="Karınca - Neml">
+    <option value="28" label="Tarih - Kasas">
+    <option value="29" label="Dişi Örümcek - Ankebut">
+    <option value="30" label="Romalılar - Rum">
+    <option value="31" label="Lokman- Lokman">
+    <option value="32" label="Secde - Secde">
+    <option value="33" label="Partiler - Ahzab">
+    <option value="34" label="Sebe - Sebe">
+    <option value="35" label="Yaratan - Fatır">
+    <option value="36" label="Y.S. - YaSin">
+    <option value="37" label="Dizenler - Saffat">
+	<option value="38" label="Ŝ. - Sad">
+	<option value="39" label="Yığınlar - Zümer">
+	<option value="40" label="Bağışlayan - Ğafir">
+	<option value="41" label="Açıklanmış - Fussilet">
+	<option value="42" label="Demokrasi - Şura">
+	<option value="43" label="Gösteriş - Zuhruf">
+	<option value="44" label="Duman - Duhan">
+	<option value="45" label="Diz Çöküş - Casiye">
+	<option value="46" label="Kum Tepecikleri - Ahkaf">
+	<option value="47" label="Muhammed - Muhammed">
+	<option value="48" label="Zafer - Fetih">
+	<option value="49" label="Odalar - Hucurat">
+	<option value="50" label="K. - Kaf">
+	<option value="51" label="Savuranlar - Zariyat">
+	<option value="52" label="Sina Dağı - Tur">
+	<option value="53" label="Yıldız - Necm">
+	<option value="54" label="Ay - Kamer">
+	<option value="55" label="Şefkatli - Rahman">
+	<option value="56" label="Olay - Vakıa">
+	<option value="57" label="Demir - Hadid">
+	<option value="58" label="Tartışma - Mücadele">
+	<option value="59" label="Sürgün - Haşr">
+	<option value="60" label="Sorgulanan - Mumtahine">
+	<option value="61" label="Düzenli Birlik - Saff">
+	<option value="62" label="Cuma - Cuma">
+	<option value="63" label="İkiyüzlüler - Münafikun">
+	<option value="64" label="Aldanma - Teğabun">
+	<option value="65" label="Boşanma - Talak">
+	<option value="66" label="Yasaklama - Tahrim">
+	<option value="67" label="Yönetim - Mülk">
+	<option value="68" label="Kalem - Kalem">
+	<option value="69" label="Gerçekleşen - Hakka">
+	<option value="70" label="Yükseliş Yolları - Mearic">
+	<option value="71" label="Nuh - Nuh">
+	<option value="72" label="Cin - Cin">
+	<option value="73" label="Arkadaş Olan - Müzemmil">
+	<option value="74" label="Gizlenen Sır - Müdessir">
+	<option value="75" label="Diriliş - Kıyame">
+	<option value="76" label="İnsan - İnsan">
+	<option value="77" label="Gönderilenler - Mürselat">
+	<option value="78" label="Haber - Nebe">
+	<option value="79" label="Söküp Çıkaranlar - Naziat">
+	<option value="80" label="Surat Astı - Abese">
+	<option value="81" label="Yuvarlama - Tekvir">
+	<option value="82" label="Yarılma - İnfitar">
+	<option value="83" label="Kandıranlar - Mutaffifin">
+	<option value="84" label="Çatlama - İnşikak">
+	<option value="85" label="Galaksiler - Büruc">
+	<option value="86" label="Atarca - Tarık">
+	<option value="87" label="Yüce - Ala">
+	<option value="88" label="Bunaltan - Ğaşiye">
+	<option value="89" label="Tan Vakti - Fecr">
+	<option value="90" label="Kent - Beled">
+	<option value="91" label="Güneş - Şems">
+	<option value="92" label="Gece - Leyl">
+	<option value="93" label="Kuşluk - Duha">
+	<option value="94" label="Sakinleştirme - Şarh">
+	<option value="95" label="İncir - Tin">
+	<option value="96" label="Duygusal Bağ - Alak">
+	<option value="97" label="Kader - Kadr">
+	<option value="98" label="Kanıt - Beyyine">
+	<option value="99" label="Deprem - Zilzal">
+	<option value="100" label="Aşanlar - Adiyat">
+	<option value="101" label="Şok - Karia">
+	<option value="102" label="Çoğaltma Yarışı - Tekasür">
+	<option value="103" label="Zaman - Asr">
+	<option value="104" label="Dedikoducu - Humeze">
+	<option value="105" label="Fil - Fil">
+	<option value="106" label="Kureyş - Kureyş">
+	<option value="107" label="Yardımlaşma - Maun">
+	<option value="108" label="Bolluk - Kevser">
+	<option value="109" label="Gerçeği Gizleyenler - Kafirun">
+	<option value="110" label="Yardım - Nasr">
+	<option value="111" label="Diken - Mesed">
+	<option value="112" label="Özgüleme - İhlas">
+	<option value="113" label="Şafak - Felak">
+	<option value="114" label="İnsanlar - Nas">
+  </datalist>
+	<p id="açıklama"/>
+</div>
+<textarea id="ifade" rows="6" cols="66" placeholder="...Yazmaya başlayın"></textarea>
+<br>
+<div id="back"><img id="book" src="pic/book arabic.png"></img></div>
+	<div id="primary">
+			<p id="abjad"></p>
+			<p id="letters"></p>
+			<p id="words"></p>
+	</div>
+	<button id="kopyala"> Sonuçları Kopyala </button>
+
+	<input type="checkbox" id="ا" onclick="check('ا')">
+	<input type="checkbox" id="ب" onclick="check('ب')">
+	<input type="checkbox" id="ج" onclick="check('ج')">
+	<input type="checkbox" id="د" onclick="check('د')">
+	<input type="checkbox" id="ه" onclick="check('ه')">
+	<input type="checkbox" id="و" onclick="check('و')">
+	<input type="checkbox" id="ز" onclick="check('ز')">
+	<input type="checkbox" id="ح" onclick="check('ح')">
+	<input type="checkbox" id="ط" onclick="check('ط')">
+	<input type="checkbox" id="ي" onclick="check('ي')">
+	<input type="checkbox" id="ك" onclick="check('ك')">
+	<input type="checkbox" id="ل" onclick="check('ل')">
+	<input type="checkbox" id="م" onclick="check('م')">
+	<input type="checkbox" id="ن" onclick="check('ن')">
+	<input type="checkbox" id="س" onclick="check('س')">
+	<input type="checkbox" id="ع" onclick="check('ع')">
+	<input type="checkbox" id="ف" onclick="check('ف')">
+	<input type="checkbox" id="ص" onclick="check('ص')">
+	<input type="checkbox" id="ق" onclick="check('ق')">
+	<input type="checkbox" id="ر" onclick="check('ر')">
+	<input type="checkbox" id="ش" onclick="check('ش')">
+	<input type="checkbox" id="ت" onclick="check('ت')">
+	<input type="checkbox" id="ث" onclick="check('ث')">
+	<input type="checkbox" id="خ" onclick="check('خ')">
+	<input type="checkbox" id="ذ" onclick="check('ذ')">
+	<input type="checkbox" id="ض" onclick="check('ض')">
+	<input type="checkbox" id="ظ" onclick="check('ظ')">
+	<input type="checkbox" id="غ" onclick="check('غ')">
+
+	<div id="analiz">
+		<label onclick="" for="ا"><p id="ا" class="huruf not-selected"></p></label>
+		<label onclick="" for="ب"><p id="ب" class="harf not-selected"></p></label>
+		<label onclick="" for="ج"><p id="ج" class="harf not-selected"></p></label>
+		<label onclick="" for="د"><p id="د" class="harf not-selected"></p></label>
+		<label onclick="" for="ه"><p id="ه" class="huruf not-selected"></p></label>
+		<label onclick="" for="و"><p id="و" class="harf not-selected"></p></label>
+		<label onclick="" for="ز"><p id="ز" class="harf not-selected"></p></label>
+		<label onclick="" for="ح"><p id="ح" class="huruf not-selected"></p></label>
+		<label onclick="" for="ط"><p id="ط" class="huruf not-selected"></p></label>
+		<label onclick="" for="ي"><p id="ي" class="huruf not-selected"></p></label>
+		<label onclick="" for="ك"><p id="ك" class="huruf not-selected"></p></label>
+		<label onclick="" for="ل"><p id="ل" class="huruf not-selected"></p></label>
+		<label onclick="" for="م"><p id="م" class="huruf not-selected"></p></label>
+		<label onclick="" for="ن"><p id="ن" class="huruf not-selected"></p></label>
+		<label onclick="" for="س"><p id="س" class="huruf not-selected"></p></label>
+		<label onclick="" for="ع"><p id="ع" class="huruf not-selected"></p></label>
+		<label onclick="" for="ف"><p id="ف" class="harf not-selected"></p></label>
+		<label onclick="" for="ص"><p id="ص" class="huruf not-selected"></p></label>
+		<label onclick="" for="ق"><p id="ق" class="huruf not-selected"></p></label>
+		<label onclick="" for="ر"><p id="ر" class="huruf not-selected"></p></label>
+		<label onclick="" for="ش"><p id="ش" class="harf not-selected"></p></label>
+		<label onclick="" for="ت"><p id="ت" class="harf not-selected"></p></label>
+		<label onclick="" for="ث"><p id="ث" class="harf not-selected"></p></label>
+		<label onclick="" for="خ"><p id="خ" class="harf not-selected"></p></label>
+		<label onclick="" for="ذ"><p id="ذ" class="harf not-selected"></p></label>
+		<label onclick="" for="ض"><p id="ض" class="harf not-selected"></p></label>
+		<label onclick="" for="ظ"><p id="ظ" class="harf not-selected"></p></label>
+		<label onclick="" for="غ"><p id="غ" class="harf not-selected"></p></label>
+	</div>
+<<<<<<< HEAD
+</div>
+=======
+</div>	
+	
+<script type="text/javascript">
+
+function getSum(total,num){return total + num};
+
+function val(yazı,harf,değer){
+	rgxp = new RegExp(değer,'gim');
+	var text = yazı.replace(/[0-9]/igm, "");
+	if (text.indexOf(harf) > -1){
+		sonuc = text.split(harf).join(değer).match(rgxp).map(Number).reduce(getSum)
+	}else{
+		sonuc = 0
+	};
+	return sonuc;
+}
+
+function letters(str) {
+	var lamelif = str.match(/[ﻻﻹﻷﻵ]/igm);
+	var other = str.match(/[ء-ي]/igm);
+	if(other!==null && other.length!==0 && lamelif!==null && lamelif.length!==0){
+		var others = parseInt(other.length);
+		var lamelif_T = 2 * parseInt(lamelif.length);
+		return others + lamelif_T
+	}
+	else if(lamelif!==null && lamelif.length!==0){
+		var lamelif_T = 2 * parseInt(lamelif.length);
+		return lamelif_T
+	}
+	else if(other!==null && other.length!==0){
+		var others = parseInt(other.length);
+		return others
+	}
+}
+function words(string){
+	y = string.split(/\s+/).filter(
+		function(string){
+			word = string.match(/[ء-يﻻﻹﻷﻵ]+/igm);
+			return word && word[0].length > 0;
+		}
+	);
+	return y.length;
+}
+function abjad (string) {
+	ء = val(string,'ء','1');
+	ا = val(string,'ا','1');
+	آ = val(string,'آ','1');
+	ٱ = val(string,'ٱ','1');
+	أ = val(string,'أ','1');
+	إ = val(string,'إ','1');
+	ب = val(string,'ب','2');
+	پ = val(string,'پ','2');
+	ج = val(string,'ج','3');
+	چ = val(string,'چ','3');
+	د = val(string,'د','4');
+	ه = val(string,'ه','5');
+	ة = val(string,'ة','5');
+	و = val(string,'و','6');
+	ؤ = val(string,'ؤ','6');
+	ز = val(string,'ز','7');
+	ژ = val(string,'ژ','7');
+	ح = val(string,'ح','8');
+	ط = val(string,'ط','9');
+	ی = val(string,'ی','10');
+	ي = val(string,'ي','10');
+	ئ = val(string,'ئ','10');
+	ى = val(string,'ى','10');
+	ک = val(string,'ک','20');
+	ك = val(string,'ك','20');
+	گ = val(string,'گ','20');
+	ڭ = val(string,'ڭ','20');
+	ل = val(string,'ل','30');
+	م = val(string,'م','40');
+	ن = val(string,'ن','50');
+	س = val(string,'س','60');
+	ع = val(string,'ع','70');
+	ف = val(string,'ف','80');
+	ڢ = val(string,'ڢ','80');
+	ڤ = val(string,'ڤ','80');
+	ص = val(string,'ص','90');
+	ق = val(string,'ق','100');
+	ڨ = val(string,'ڨ','100');
+	ر = val(string,'ر','200');
+	ش = val(string,'ش','300');
+	ت = val(string,'ت','400');
+	ث = val(string,'ث','500');
+	خ = val(string,'خ','600');
+	ذ = val(string,'ذ','700');
+	ض = val(string,'ض','800');
+	ظ = val(string,'ظ','900');
+	غ = val(string,'غ','1000');
+	ﻻ = val(string,'ﻻ','31');
+	ﻹ = val(string,'ﻹ','31');
+	ﻷ = val(string,'ﻷ','31');
+	ﻵ = val(string,'ﻵ','31');
+	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
+}
+
+$(document).keypress( function() {
+	box = document.getElementById("ifade");
+	sure = document.getElementById("sure");
+    	ayet = document.getElementById("ayet");
+	var yazı = String.fromCharCode(event.keyCode)
+	if ( sure !== document.activeElement && ayet !== document.activeElement && box !== document.activeElement ){
+		if(yazı.match(/[\d]/gim)) {
+			sure.focus();
+		}else{
+			box.focus();
+		}
+	}
+});
+
+function copyToClipboard(text) {
+	if (window.clipboardData && window.clipboardData.setData) {
+		return clipboardData.setData("Text", text);
+	}
+	else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+		textarea = document.createElement("textarea");
+  		textarea.textContent = text;
+  		textarea.style.position = "fixed";
+  		document.body.appendChild(textarea); textarea.select();
+  		try {return document.execCommand("copy")}
+  		catch (ex) {console.warn("Copy to clipboard failed.", ex); return false;}
+		finally {document.body.removeChild(textarea)}
+	}
+}
+
+$(window).load( function(){
+	var hashParams = window.location.hash.substr(1).replace(/[_]+/gim, " ").replace(/[-]+/gim, "\n").split('&');
+	if(window.location.hash) {
+		for(var i = 0; i < hashParams.length; i++){
+			var p = hashParams[i].split('=');
+			document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+		}
+		$('#ifade').keyup();
+	}
+});
+
+$('#ifade').on('input', function (event) { 
+    this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵ\n0-9:#]/igm, '');
+});
+	
+$(function() {
+	$("#ifade").keyup();
+});
+
+$("#ifade").keyup( function(){
+	var inputValue = $(this).val();
+if( abjad(inputValue) ) {
+	document.querySelector("#kopyala").style.display = "block";
+	if (abjad(inputValue) % 19 === 0) {
+		ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;
+		$("#abjad").html("<span style=\"color: blue;\">" + "EBCED değeri: " + ebced + "</span>");
+	}else{
+		ebced = abjad(inputValue);
+		$("#abjad").html("EBCED değeri: " + ebced);
+	}
+	if (letters(inputValue) % 19 === 0) {
+		harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;
+		$("#letters").html("<span style=\"color: blue;\">" + "HARF sayısı: " + harf + "</span>");
+	}else{
+		harf = letters(inputValue);
+		$("#letters").html("HARF sayısı: " + harf);
+	}
+	if (words(inputValue) % 19 === 0) {
+		kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;
+		$("#words").html("<span style=\"color: blue;\">" + "KELİME sayısı: " + kelime + "</span>");
+	}else{
+		kelime = words(inputValue);
+		$("#words").html("KELİME sayısı: " + kelime);
+	}
+	mesaj = "ebced.kuran114.org/#ifade=" +  inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-") + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
+	
+	function harf1(h1){
+		if(ch == h1){
+			sonuc = counts[h1]
+			if(sonuc == 0) {
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
+			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
+				}
+			}
+		}
+	}
+  
+	function harf2(h1, h2){
+		if(ch == h1 || ch == h2){
+			sonuc = counts[h1] + counts[h2]
+			if(sonuc == 0) {
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
+			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
+				}
+			}
+		}
+	}
+
+	function harf3(h1, h2, h3){
+		if(ch == h1 || ch == h2 || ch == h3){
+			sonuc = counts[h1] + counts[h2] + counts[h3]
+			if(sonuc == 0) {
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
+			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
+				}
+			}
+		}
+	}
+
+	function harf4(h1, h2, h3, h4){
+		if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
+			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4]
+			if(sonuc == 0) {
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
+			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
+				}
+			}
+		}
+	}
+  
+	function harf5(h1, h2, h3, h4, h5){
+		if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
+			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
+			if(sonuc == 0) {
+				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
+			}else{
+				document.querySelector("p[id=" + h1 + "]").style.display = "block";
+				if (sonuc % 19 === 0) {
+					harf = sonuc + " = 19 × " + sonuc/19;
+					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+				}else{
+					harf = sonuc;
+					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
+				}
+			}
+		}
+	}
+	
+	function harf10(h1, h2, h3, h4, h5, h6, h7, h8, h9, h10){
+	if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
+		sonuc = counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
+		if(sonuc == 0) {
+			return document.querySelector("p[id=" + h1 + "]").style.display = "none";
+		}else{
+			document.querySelector("p[id=" + h1 + "]").style.display = "block";
+			if (sonuc % 19 === 0) {
+				harf = sonuc + " = 19 × " + sonuc/19;
+				return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
+			}else{
+				harf = sonuc;
+				return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
+			}
+		}
+	}
+	}
+	
+	var counts = {ء:0,ا:0,آ:0,ٱ:0,أ:0,إ:0,ب:0,پ:0,ج:0,چ:0,د:0,ه:0,ة:0,و:0,ؤ:0,ز:0,ژ:0,ح:0,ط:0,ی:0,ي:0,ئ:0,ى:0,ک:0,ك:0,گ:0,ڭ:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ڢ:0,ڤ:0,ص:0,ق:0,ڨ:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0,ﻻ:0,ﻹ:0,ﻷ:0,ﻵ:0};
+	var ch, index, len, count;
+	for (index = 0, len = inputValue.length; index < len; ++index) {
+		ch = inputValue.charAt(index);
+		count = counts[ch];
+		counts[ch] = count ? count + 1 : 1;
+	}
+	for (ch in counts) {
+		harf1('د');
+		harf1('ح');
+		harf1('ط');
+		harf1('م');
+		harf1('ن');
+		harf1('س');
+		harf1('ع');
+		harf1('ص');
+		harf1('ر');
+		harf1('ش');
+		harf1('ت');
+		harf1('ث');
+		harf1('خ');
+		harf1('ذ');
+		harf1('ض');
+		harf1('ظ');
+		harf1('غ');
+		harf2('ب','پ');
+		harf2('ج','چ');
+		harf2('ه','ة');
+		harf2('و','ؤ');
+		harf2('ز','ژ');
+		harf2('ق','ڨ');
+		harf3('ف','ڢ','ڤ');
+		harf4('ي','ی','ئ','ى');
+		harf4('ك','ک','گ','ڭ');
+		harf5('ل','ﻻ','ﻹ','ﻷ','ﻵ');
+		harf10('ا','ﻻ','ﻹ','ﻷ','ﻵ','ء','آ','ٱ','أ','إ');
+	}
+	
+	if (counts.hasOwnProperty('ا')) {}else{ $("p[id=ا]").html("") }
+	if (counts.hasOwnProperty('ب')) {}else{ $("p[id=ب]").html("") }
+	if (counts.hasOwnProperty('ج')) {}else{ $("p[id=ج]").html("") }
+	if (counts.hasOwnProperty('د')) {}else{ $("p[id=د]").html("") }
+	if (counts.hasOwnProperty('ه')) {}else{ $("p[id=ه]").html("") }
+	if (counts.hasOwnProperty('و')) {}else{ $("p[id=و]").html("") }
+	if (counts.hasOwnProperty('ز')) {}else{ $("p[id=ز]").html("") }
+	if (counts.hasOwnProperty('ح')) {}else{ $("p[id=ح]").html("") }
+	if (counts.hasOwnProperty('ط')) {}else{ $("p[id=ط]").html("") }
+	if (counts.hasOwnProperty('ي')) {}else{ $("p[id=ي]").html("") }
+	if (counts.hasOwnProperty('ك')) {}else{ $("p[id=ك]").html("") }
+	if (counts.hasOwnProperty('ل')) {}else{ $("p[id=ل]").html("") }
+	if (counts.hasOwnProperty('م')) {}else{ $("p[id=م]").html("") }
+	if (counts.hasOwnProperty('ن')) {}else{ $("p[id=ن]").html("") }
+	if (counts.hasOwnProperty('س')) {}else{ $("p[id=س]").html("") }
+	if (counts.hasOwnProperty('ع')) {}else{ $("p[id=ع]").html("") }
+	if (counts.hasOwnProperty('ف')) {}else{ $("p[id=ف]").html("") }
+	if (counts.hasOwnProperty('ص')) {}else{ $("p[id=ص]").html("") }
+	if (counts.hasOwnProperty('ق')) {}else{ $("p[id=ق]").html("") }
+	if (counts.hasOwnProperty('ر')) {}else{ $("p[id=ر]").html("") }
+	if (counts.hasOwnProperty('ش')) {}else{ $("p[id=ش]").html("") }
+	if (counts.hasOwnProperty('ت')) {}else{ $("p[id=ت]").html("") }
+	if (counts.hasOwnProperty('ث')) {}else{ $("p[id=ث]").html("") }
+	if (counts.hasOwnProperty('خ')) {}else{ $("p[id=خ]").html("") }
+	if (counts.hasOwnProperty('ذ')) {}else{ $("p[id=ذ]").html("") }
+	if (counts.hasOwnProperty('ض')) {}else{ $("p[id=ض]").html("") }
+	if (counts.hasOwnProperty('ظ')) {}else{ $("p[id=ظ]").html("") }
+	if (counts.hasOwnProperty('غ')) {}else{ $("p[id=غ]").html("") }
+}else{
+	$("#abjad").html("");
+	$("#letters").html("");
+	$("#words").html("");
+	mesaj = "";
+	document.querySelector("#kopyala").style.display = "none";
+	
+	document.querySelector("p[id='ا']").style.display = "none";
+	document.querySelector("p[id='ب']").style.display = "none";
+	document.querySelector("p[id='ج']").style.display = "none";
+	document.querySelector("p[id='د']").style.display = "none";
+	document.querySelector("p[id='ه']").style.display = "none";
+	document.querySelector("p[id='و']").style.display = "none";
+	document.querySelector("p[id='ز']").style.display = "none";
+	document.querySelector("p[id='ح']").style.display = "none";
+	document.querySelector("p[id='ط']").style.display = "none";
+	document.querySelector("p[id='ي']").style.display = "none";
+	document.querySelector("p[id='ك']").style.display = "none";
+	document.querySelector("p[id='ل']").style.display = "none";
+	document.querySelector("p[id='م']").style.display = "none";
+	document.querySelector("p[id='ن']").style.display = "none";
+	document.querySelector("p[id='س']").style.display = "none";
+	document.querySelector("p[id='ع']").style.display = "none";
+	document.querySelector("p[id='ف']").style.display = "none";
+	document.querySelector("p[id='ص']").style.display = "none";
+	document.querySelector("p[id='ق']").style.display = "none";
+	document.querySelector("p[id='ر']").style.display = "none";
+	document.querySelector("p[id='ش']").style.display = "none";
+	document.querySelector("p[id='ت']").style.display = "none";
+	document.querySelector("p[id='ث']").style.display = "none";
+	document.querySelector("p[id='خ']").style.display = "none";
+	document.querySelector("p[id='ذ']").style.display = "none";
+	document.querySelector("p[id='ض']").style.display = "none";
+	document.querySelector("p[id='ظ']").style.display = "none";
+	document.querySelector("p[id='غ']").style.display = "none";
+};
+	document.querySelector("#kopyala").onclick = function() {
+		var result = copyToClipboard(mesaj);
+		console.log("copied?", result);
+		swal({title: "Sonuçlar Kopyalandı!", text: "sorguladınmı.com - kuran114.org", timer: 1450, imageUrl: "pic/abjad.png", showConfirmButton: false});
+	};
+});
+
+</script>
+>>>>>>> origin/master
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src='js/sweetalert.min.js'></script>
+<script type="text/javascript" src="js/sonraki.js"></script>
+<script type="text/javascript" src='js/ebced.js'></script>
+</html>
