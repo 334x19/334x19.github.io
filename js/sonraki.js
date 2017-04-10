@@ -651,6 +651,18 @@ function maxsure(){
 $('#sure').on('input', maxsure);
 $('#sure2').on('input', maxsure);
 
+$('#sure').on('focus', function solubirleyen0() {
+	var sure1, ayet1, sureiki, ayetiki;
+	sure1 = document.getElementById("sure");
+	ayet1 = document.getElementById("ayet");
+	sureiki = document.getElementById("sure2");
+	ayetiki = document.getElementById("ayet2");
+	
+	
+	sure1.value = ''; ayet1.value = ''; sureiki.value = ''; ayetiki.value = '';
+	$('#sure2').trigger('input');
+});
+
 $('#ayet').on('focus', function solubirleyen1() {
 	var sure1, ayet1, sureiki, ayetiki;
 	sure1 = document.getElementById("sure");
@@ -659,6 +671,8 @@ $('#ayet').on('focus', function solubirleyen1() {
 	ayetiki = document.getElementById("ayet2");
 	
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
+	ayet1.value = ''; sureiki.value = ''; ayetiki.value = '';
+	$('#sure2').trigger('input');
 });
 
 $('#sure2').on('focus', function solubirleyen2() {
@@ -670,6 +684,8 @@ $('#sure2').on('focus', function solubirleyen2() {
 	
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
 	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
+	sureiki.value = ''; ayetiki.value = '';
+	$('#sure2').trigger('input');
 });
 
 $('#ayet2').on('focus', function solubirleyen3() {
@@ -682,6 +698,8 @@ $('#ayet2').on('focus', function solubirleyen3() {
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
 	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
 	if (!sureiki.value) { sureiki.value = 1; $('#sure2').trigger('input'); }
+	ayetiki.value = '';
+	$('#sure2').trigger('input');
 });
 
 $('#ayet2').on('blur', function solubirleyen4() {
@@ -728,7 +746,7 @@ function tamamlayıcı() {
 			else {
 
 				document.getElementById("ayet2").value = ayet1 + 1;
-
+				$('#ayet2').trigger('input');
 			}
 
 		}
