@@ -656,7 +656,7 @@ $('#sure2').on('input', maxsure);
 	var sureiki = document.getElementById("sure2");
 	var ayetiki = document.getElementById("ayet2");
 
-$('#sure').on('click', function sağıboşaltan() {
+$('#sure').on('click focus', function sağıboşaltan() {
 	sure1.value = ''; ayet1.value = ''; sureiki.value = ''; ayetiki.value = '';
 	$('#sure').trigger('input');
 });
