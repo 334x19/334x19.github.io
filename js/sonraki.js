@@ -651,64 +651,47 @@ function maxsure(){
 $('#sure').on('input', maxsure);
 $('#sure2').on('input', maxsure);
 
-$('#sure').on('focus', function solubirleyen0() {
-	var sure1, ayet1, sureiki, ayetiki;
-	sure1 = document.getElementById("sure");
-	ayet1 = document.getElementById("ayet");
-	sureiki = document.getElementById("sure2");
-	ayetiki = document.getElementById("ayet2");
-	
-	
+	var sure1 = document.getElementById("sure");
+	var ayet1 = document.getElementById("ayet");
+	var sureiki = document.getElementById("sure2");
+	var ayetiki = document.getElementById("ayet2");
+
+$('#sure').on('click', function sağıboşaltan() {
 	sure1.value = ''; ayet1.value = ''; sureiki.value = ''; ayetiki.value = '';
-	$('#sure2').trigger('input');
+	$('#sure').trigger('input');
 });
 
-$('#ayet').on('focus', function solubirleyen1() {
-	var sure1, ayet1, sureiki, ayetiki;
-	sure1 = document.getElementById("sure");
-	ayet1 = document.getElementById("ayet");
-	sureiki = document.getElementById("sure2");
-	ayetiki = document.getElementById("ayet2");
-	
-	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
+$('#ayet').on('click', function sağıboşaltan() {
 	ayet1.value = ''; sureiki.value = ''; ayetiki.value = '';
-	$('#sure2').trigger('input');
+	$('#ayet').trigger('input');
 });
 
-$('#sure2').on('focus', function solubirleyen2() {
-	var sure1, ayet1, sureiki, ayetiki;
-	sure1 = document.getElementById("sure");
-	ayet1 = document.getElementById("ayet");
-	sureiki = document.getElementById("sure2");
-	ayetiki = document.getElementById("ayet2");
-	
-	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
-	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
+$('#sure2').on('click', function sağıboşaltan() {
 	sureiki.value = ''; ayetiki.value = '';
 	$('#sure2').trigger('input');
 });
 
+$('#ayet2').on('click', function sağıboşaltan() {
+	ayetiki.value = '';
+	$('#ayet2').trigger('input');
+});
+
+$('#ayet').on('focus', function solubirleyen1() {
+	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
+});
+
+$('#sure2').on('focus', function solubirleyen2() {
+	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
+	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
+});
+
 $('#ayet2').on('focus', function solubirleyen3() {
-	var sure1, ayet1, sureiki, ayetiki;
-	sure1 = document.getElementById("sure");
-	ayet1 = document.getElementById("ayet");
-	sureiki = document.getElementById("sure2");
-	ayetiki = document.getElementById("ayet2");
-	
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
 	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
 	if (!sureiki.value) { sureiki.value = 1; $('#sure2').trigger('input'); }
-	ayetiki.value = '';
-	$('#sure2').trigger('input');
 });
 
 $('#ayet2').on('blur', function solubirleyen4() {
-	var sure1, ayet1, sureiki, ayetiki;
-	sure1 = document.getElementById("sure");
-	ayet1 = document.getElementById("ayet");
-	sureiki = document.getElementById("sure2");
-	ayetiki = document.getElementById("ayet2");
-	
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
 	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
 	if (!sureiki.value) { sureiki.value = 1; $('#sure2').trigger('input'); }
@@ -716,13 +699,13 @@ $('#ayet2').on('blur', function solubirleyen4() {
 });	
 
 function tamamlayıcı() {
-	var firstverses, lastverses, sure1, ayet1, sure2, ayet2;
+	var firstverses, lastverses, sura1, ayat1, sura2, ayat2;
 	firstverses=[0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	lastverses=[0,7,286,200,176,120,165,206,75,127,109,123,111,43,52,99,128,111,110,98,135,112,78,118,64,77,227,93,88,69,60,34,30,73,54,45,83,182,88,75,85,54,53,89,59,37,35,38,29,18,45,60,49,62,55,78,96,29,22,24,13,14,11,11,18,12,12,30,52,52,44,28,28,20,56,40,31,50,40,46,42,29,19,36,25,22,17,19,26,30,20,15,21,11,8,8,19,5,8,8,11,11,8,3,9,5,4,7,3,6,3,5,4,5,6];
-	sure1 = parseInt(document.getElementById("sure").value);
-	ayet1 = parseInt(document.getElementById("ayet").value);
-	sure2 = parseInt(document.getElementById("sure2").value);
-	ayet2 = parseInt(document.getElementById("ayet2").value);
+	sura1 = parseInt(sure1.value);
+	ayat1 = parseInt(ayet1.value);
+	sura2 = parseInt(sureiki.value);
+	ayat2 = parseInt(ayetiki.value);
 
 	if (sure2 < sure1) {
 		if( ayet1 == lastverses[sure1] ) {
