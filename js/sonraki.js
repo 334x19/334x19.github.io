@@ -707,32 +707,27 @@ function tamamlayıcı() {
 	sura2 = parseInt(sureiki.value);
 	ayat2 = parseInt(ayetiki.value);
 
-	if (sure2 < sure1) {
-		if( ayet1 == lastverses[sure1] ) {
-			document.getElementById("sure2").value = sure1+1;
+	if (sura2 < sura1) {
+		if( ayat1 == lastverses[sura1] ) {
+			document.getElementById("sure2").value = sura1+1;
 		}
 		else {
-			document.getElementById("sure2").value = sure1;
+			document.getElementById("sure2").value = sura1;
 		}
 	}
-	else if(sure1 == sure2) {
-
-		if(ayet2 <= ayet1) {
-
-			if( ayet1 == lastverses[sure1] ) {
-
-				var n = sure1 + 1;
+	else if(sura1 == sura2) {
+		if(ayat2 <= ayat1) {
+			if( ayat1 == lastverses[sura1] ) {
+				var n = sura1 + 1;
 				document.getElementById("ayet2").value = firstverses[n];
 				document.getElementById("sure2").value = n;
-
 			}
 			else {
-
-				document.getElementById("ayet2").value = ayet1 + 1;
+				document.getElementById("ayet2").value = ayat1 + 1;
 				$('#ayet2').trigger('input');
 			}
 
 		}
 	}
 }
-$('input').on('blur', tamamlayıcı);
+$('input').on('focus blur', tamamlayıcı);
