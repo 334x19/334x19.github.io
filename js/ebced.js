@@ -467,12 +467,18 @@ if( abjad(inputValue) ) {
 	if (counts.hasOwnProperty('ظ')) {}else{ $("p[id=ظ]").html("") }
 	if (counts.hasOwnProperty('غ')) {}else{ $("p[id=غ]").html("") }
 }else{
-	$("#abjad").html("");
-	$("#letters").html("");
-	$("#words").html("");
+	if (document.getElementById('ifade') === document.activeElement) {
+		document.getElementById('açıklama').innerHTML = '';
+		document.getElementById('sure').value = '';
+		document.getElementById('ayet').value = '';
+		document.getElementById('sure2').value = '';
+		document.getElementById('ayet2').value = '';
+	}
+	document.getElementById('abjad').innerHTML = '';
+	document.getElementById('letters').innerHTML = '';
+	document.getElementById('words').innerHTML = '';
 	mesaj = "";
 	document.querySelector("#kopyala").style.display = "none";
-	
 	document.querySelector("p[id='ا']").style.display = "none";
 	document.querySelector("p[id='ب']").style.display = "none";
 	document.querySelector("p[id='ج']").style.display = "none";
