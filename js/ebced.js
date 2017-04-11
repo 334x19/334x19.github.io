@@ -1,10 +1,3 @@
-/*$('#sure').on('input', function (event) { 
-    this.value = this.value.replace(/[^0-9]/igm, '');
-});
-
-$('#ayet').on('input', function (event) { 
-    this.value = this.value.replace(/[^0-9-]/igm, '');
-});*/
 $("input").on('input', function loadXMLDoc() {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -16,7 +9,6 @@ $("input").on('input', function loadXMLDoc() {
 	xmlhttp.send();
 });
 
-// body üzerinde .input( function(){ ....... }) olarak çalışmalı
 function myFunction(xml) {
 
 	var firstverses, lastverses, sure1, ayet1, sure2, ayetiki, ayet2, s, a, xmlDoc, txt, aralık;
