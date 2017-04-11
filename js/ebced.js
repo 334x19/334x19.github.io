@@ -25,9 +25,9 @@ function myFunction(xml) {
 	xmlDoc = xml.responseXML;
 	txt = "";
 	aralık = "";
-	sure1 = document.getElementById("sure").value;
+	sure1 = parseInt(document.getElementById("sure").value);
 	ayet1 = document.getElementById("ayet").value;
-	sure2 = document.getElementById("sure2").value;
+	sure2 = parseInt(document.getElementById("sure2").value);
 	ayetiki = document.getElementById("ayet2").value;
 	ayet2 = parseInt(ayetiki) + 1;
 
