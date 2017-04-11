@@ -682,20 +682,36 @@ $('#ayet').on('focus', function solubirleyen1() {
 
 $('#sure2').on('focus', function solubirleyen2() {
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
-	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
+	if (!ayet1.value) {
+		if (sure1.value == 1 || sure1.value == 9) { ayet1.value = 1; }
+		else { ayet1.value = 0; }
+		$('#ayet').trigger('input');
+	}
 });
 
 $('#ayet2').on('focus', function solubirleyen3() {
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
-	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
+	if (!ayet1.value) {
+		if (sure1.value == 1 || sure1.value == 9) { ayet1.value = 1; }
+		else { ayet1.value = 0; }
+		$('#ayet').trigger('input');
+	}
 	if (!sureiki.value) { sureiki.value = 1; $('#sure2').trigger('input'); }
 });
 
 $('#ayet2').on('blur', function solubirleyen4() {
 	if (!sure1.value) { sure1.value = 1; $('#sure').trigger('input'); }
-	if (!ayet1.value) { ayet1.value = 1; $('#ayet').trigger('input'); }
+	if (!ayet1.value) {
+		if (sure1.value == 1 || sure1.value == 9) { ayet1.value = 1; }
+		else { ayet1.value = 0; }
+		$('#ayet').trigger('input');
+	}
 	if (!sureiki.value) { sureiki.value = 1; $('#sure2').trigger('input'); }
-	if (!ayetiki.value) { ayetiki.value = 1; $('#ayet2').trigger('input'); }
+	if (!ayetiki.value) {
+		if (sureiki.value == 1 || sureiki.value == 9) { ayetiki.value = 1; }
+		else { ayetiki.value = 0; }
+		$('#ayet').trigger('input');
+	}
 });	
 
 function tamamlayıcı() {
@@ -710,17 +726,20 @@ function tamamlayıcı() {
 	if (sura2 < sura1) {
 		if( ayat1 == lastverses[sura1] ) {
 			document.getElementById("sure2").value = sura1+1;
+			$('#sure2').trigger('input');
 		}
 		else {
 			document.getElementById("sure2").value = sura1;
+			$('#sure2').trigger('input');
 		}
 	}
-	else if(sura1 == sura2) {
+	else if(sura2 == sura1) {
 		if(ayat2 <= ayat1) {
 			if( ayat1 == lastverses[sura1] ) {
 				var n = sura1 + 1;
 				document.getElementById("ayet2").value = firstverses[n];
 				document.getElementById("sure2").value = n;
+				$('#ayet2').trigger('input');
 			}
 			else {
 				document.getElementById("ayet2").value = ayat1 + 1;

@@ -25,18 +25,18 @@ function myFunction(xml) {
 	xmlDoc = xml.responseXML;
 	txt = "";
 	aralık = "";
-	sure1 = parseInt(document.getElementById("sure").value);
-	ayet1 = parseInt(document.getElementById("ayet").value);
-	sure2 = parseInt(document.getElementById("sure2").value);
-	ayetiki = parseInt(document.getElementById("ayet2").value);
-	ayet2 = ayetiki + 1;
+	sure1 = document.getElementById("sure").value;
+	ayet1 = document.getElementById("ayet").value;
+	sure2 = document.getElementById("sure2").value;
+	ayetiki = document.getElementById("ayet2").value;
+	ayet2 = parseInt(ayetiki) + 1;
 
 	
 if (sure1) {
 	if (ayet1) {
 		if (sure2) {
 			if (ayet2) {
-				//16
+				//16 - 4
 				txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
 				for(s=sure1; s<=sure2; s++) {
 					for(a=0; a<=lastverses[s]; a++) {
@@ -49,9 +49,11 @@ if (sure1) {
 				}
 			}
 			else {
-				//15
+				//15 - 3
 				var sura2 = parseInt(sure2)-1;
-				txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar. (Son('+lastverses[sura2]+'.) ayet dahil)';
+				if (sure2 < sure1) { }
+				else if (sure2 == sure1) { txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)'; }
+				else {txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar. (Son('+lastverses[sura2]+'.) ayet dahil)';}
 				for(s=sure1; s<sure2; s++) {
 					for(a=0; a<=lastverses[s]; a++) {
 						if (s == sure1 && a < ayet1) { continue; }
@@ -63,166 +65,29 @@ if (sure1) {
 			}
 		}
 		else {
-			if (ayet2) {
-				//14
-				txt = sure1+'. surenin '+ayet1+'. ayetinden, '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(a=0; a<=ayet2-1; a++) {
-					if (a < ayet1) { continue; }
-					if (sure1 == "1" && a == "0") { continue; }
-					if (sure1 == "9" && a == "0") { continue; }
-					aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
-				}
-			}
+			//13 - 2
+			txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+			if(sure1 == "1" && ayet1 == "0") {}
+			else if (sure1 == "9" && ayet1 == "0") {}
 			else {
-				//13
-				txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
-				if(sure1 == "1" && ayet1 == "0") {}
-				else if (sure1 == "9" && ayet1 == "0") {}
-				else {
-					aralık += xmlDoc.getElementById("s"+sure1+"a"+ayet1).childNodes[0].nodeValue + "\n";
-				}
+				aralık += xmlDoc.getElementById("s"+sure1+"a"+ayet1).childNodes[0].nodeValue + "\n";
 			}
 		}
 	}
 	else {
-		if (sure2) {
-			if (ayet2) {
-				//12
-				txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(s=sure1; s<=sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						if (s == sure2 && a == ayet2) { break; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
-			}
-			else {
-				//11
-				var sura2 = parseInt(sure2)-1;
-				txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar. (Son('+lastverses[sura2]+'.) ayet dahil)';
-				for(s=sure1; s<sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
-			}
-		}
-		else {
-			if (ayet2) {
-				//10
-				txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(a=0; a<=ayet2-1; a++) {
-					if (sure1 == "1" && a == "0") { continue; }
-					if (sure1 == "9" && a == "0") { continue; }
-					aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
-				}
-			}
-			else {
-				//9
-				txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, son('+lastverses[sure1]+'.) ayetine kadar. (Son('+lastverses[sure1]+'.) ayet dahil)';
-				for(a=0; a<=lastverses[sure1]; a++) {
-					if (sure1 == "1" && a == "0") { continue; }
-					if (sure1 == "9" && a == "0") { continue; }
-					aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
-				}
-			}
-		}
+		//9 - 1
+		txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, son('+lastverses[sure1]+'.) ayetine kadar. (Son('+lastverses[sure1]+'.) ayet dahil)';
+		for(a=0; a<=lastverses[sure1]; a++) {
+			if (sure1 == "1" && a == "0") { continue; }
+			if (sure1 == "9" && a == "0") { continue; }
+			aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
+		}	
 	}
 }
 else {
-	if (ayet1) {
-		if (sure2) {
-			if (ayet2) {
-				//8
-				txt = '1. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(s=1; s<=sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == "1" && a < ayet1) { continue; }
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						if (s == sure2 && a == ayet2) { break; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
-			}
-			else {
-				//7
-				var sura2 = parseInt(sure2)-1;
-				txt = '1. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar. (Son('+lastverses[sura2]+'.) ayet dahil)';
-				for(s=1; s<sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == "1" && a < ayet1) { continue; }
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
-			}
-		}
-		else {
-			if (ayet2) {
-				//6
-				txt = '1. surenin '+ayet1+'. ayetinden, '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(a=ayet1; a<=ayet2-1; a++) {
-					if (a == "0") { continue; }
-					aralık += xmlDoc.getElementById("s1a"+a).childNodes[0].nodeValue + "\n";
-				}
-			}
-			else {
-				//5
-				txt = 'Sadece 1. surenin '+ayet1+'. ayeti';
-				if(ayet1 !== "0") {
-					aralık += xmlDoc.getElementById("s1a"+ayet1).childNodes[0].nodeValue + "\n";
-				}
-			}
-		}
-	}
-	else {
-		if (sure2) {
-			if (ayet2) {
-				//4
-				txt = '1. surenin 1. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(s=1; s<=sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						if (s == sure2 && a == ayet2) { break; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
-			}
-			else {
-				//3
-				var sura2 = parseInt(sure2)-1;
-				txt = '1. surenin 1. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar. (Son('+lastverses[sura2]+'.) ayet dahil)';
-				for(s=1; s<sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
-			}
-		}
-		else {
-			if (ayet2) {
-				//2
-				txt = '1. surenin 1. ayetinden, '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(a=1; a<=ayet2-1; a++) {
-					aralık += xmlDoc.getElementById("s1a"+a).childNodes[0].nodeValue + "\n";	
-				}
-			}
-			else {
-				//1
-				txt = '';
-				aralık = '';
-			}
-		}
-	}
+	//1 - 0
+	txt = '';
+	aralık = '';
 }
 
 document.getElementById('açıklama').innerHTML = txt;
