@@ -417,30 +417,30 @@ $('#ayet2').keyup(sonraki4);
 function üçhaneli4(a,b) {
 	
 		 if (	$("#ayet2").val().substr(0, 1) >=  a  &&
-				$("#ayet2").val().substr(1, 1) >   b 	) 	{	document.getElementById('ayet2').blur();	}
+				$("#ayet2").val().substr(1, 1) >   b 	) 	{ document.getElementById('ayet2').blur(); }
 
 	else if (	$("#ayet2").val().substr(0, 1) >   a  &&
-		 		$("#ayet2").val().substr(1, 1) >= "0"	)	{	document.getElementById('ayet2').blur();	}
+		 		$("#ayet2").val().substr(1, 1) >= "0"	)	{ document.getElementById('ayet2').blur(); }
 
 	else if (	$("#ayet2").val().substr(0, 1) >= "1" &&
 		 		$("#ayet2").val().substr(1, 1) >= "0" &&
-		 		$("#ayet2").val().substr(2, 1) >= "0"	)	{	document.getElementById('ayet2').blur();	}
+		 		$("#ayet2").val().substr(2, 1) >= "0"	)	{ document.getElementById('ayet2').blur(); }
 
-	else if	(	$("#ayet2").val().substr(0, 1) == "0"	)	{	document.getElementById('ayet2').blur();	}
+	else if	(	$("#ayet2").val().substr(0, 1) == "0"	)	{ document.getElementById('ayet2').blur(); }
 }
 
 function ikihaneli4(a,b) {
 	
-	 	 if (	$("#ayet2").val().substr(0, 1) >   a 	)	{	document.getElementById('ayet2').blur();	}
+	 	 if (	$("#ayet2").val().substr(0, 1) >   a 	)	{ document.getElementById('ayet2').blur(); }
 
-	else if (	$("#ayet2").val().substr(0, 1) == "0"	)	{	document.getElementById('ayet2').blur();	}
+	else if (	$("#ayet2").val().substr(0, 1) == "0"	)	{ document.getElementById('ayet2').blur(); }
 
 	else if (	$("#ayet2").val().substr(0, 1) ==  a  &&
 		 		$("#ayet2").val().substr(1, 1) >= "0" &&
-		 		$("#ayet2").val().substr(1, 1) <=  b 	)	{	document.getElementById('ayet2').blur();	}
+		 		$("#ayet2").val().substr(1, 1) <=  b 	)	{ document.getElementById('ayet2').blur(); }
 
 	else if (	$("#ayet2").val().substr(0, 1) <   a  &&
-				$("#ayet2").val().substr(1, 1) >= "0" 	)	{	document.getElementById('ayet2').blur();	}
+				$("#ayet2").val().substr(1, 1) >= "0" 	)	{ document.getElementById('ayet2').blur(); }
 }
 
 function birhaneli4() {
@@ -453,14 +453,14 @@ function birhaneli41() {
 
 function üçhaneli49() {
 		 if (	$("#ayet2").val().substr(0, 1) >= "1" &&
-			 	$("#ayet2").val().substr(1, 1) >  "2") 	{	document.getElementById('ayet2').blur();	}
+			 	$("#ayet2").val().substr(1, 1) >  "2") 	{ document.getElementById('ayet2').blur(); }
 
 	else if (	$("#ayet2").val().substr(0, 1) >  "1" &&
-			 	$("#ayet2").val().substr(1, 1) >= "0")	{	document.getElementById('ayet2').blur();	}
+			 	$("#ayet2").val().substr(1, 1) >= "0")	{ document.getElementById('ayet2').blur(); }
 
 	else if (	$("#ayet2").val().substr(0, 1) >= "1" &&
 			 	$("#ayet2").val().substr(1, 1) >= "0" &&
-			 	$("#ayet2").val().substr(2, 1) >= "0")	{	document.getElementById('ayet2').blur();	}
+			 	$("#ayet2").val().substr(2, 1) >= "0")	{ document.getElementById('ayet2').blur(); }
 }
 
 function sonraki4() {
