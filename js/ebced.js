@@ -1,3 +1,8 @@
+$("input[type=checkbox]").on('change',function(){
+    if(this.checked) {console.log("checkbox  id ="+this.id+" is checked ")}
+    else {console.log("Id = "+this.id+" is Unchecked ")}
+});
+
 $("input").on('input', function loadXMLDoc() {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
