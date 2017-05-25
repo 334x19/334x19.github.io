@@ -1,121 +1,340 @@
-$("input[type=checkbox]").on('change',function(){
-    if(this.checked) {console.log("checkbox  id ="+this.id+" is checked ")}
-    else {console.log("Id = "+this.id+" is Unchecked ")}
-});
+var sadece_nolu = [0,7,293,493,669,789,954,1160,1235,1362,1471,1594,1705,1748,1800,1899,2027,2138,2248,2346,2481,2593,2671,2789,2853,2930,3157,3250,3338,3407,3467,3501,3531,3604,3658,3703,3786,3968,4056,4131,4216,4270,4323,4412,4471,4508,4543,4581,4610,4628,4673,4733,4782,4844,4899,4977,5073,5102,5124,5148,5161,5175,5186,5197,5215,5227,5239,5269,5321,5373,5417,5445,5473,5493,5549,5589,5620,5670,5710,5756,5798,5827,5846,5882,5907,5929,5946,5965,5991,6021,6041,6056,6077,6088,6096,6104,6123,6128,6136,6144,6155,6166,6174,6177,6186,6191,6195,6202,6205,6211,6214,6219,6223,6228,6234];
+var tümü = [0,7,294,495,672,793,959,1166,1242,1369,1479,1603,1715,1759,1812,1912,2041,2153,2264,2363,2499,2612,2691,2810,2875,2953,3181,3275,3364,3434,3495,3530,3561,3635,3690,3736,3820,4003,4092,4168,4254,4309,4363,4453,4513,4551,4587,4626,4656,4675,4721,4782,4832,4895,4951,5030,5127,5157,5180,5205,5219,5234,5246,5258,5277,5290,5303,5334,5387,5440,5485,5514,5543,5564,5621,5662,5694,5745,5786,5833,5876,5906,5926,5963,5989,6012,6030,6050,6077,6108,6129,6145,6167,6179,6188,6197,6217,6223,6232,6241,6253,6265,6274,6278,6288,6294,6299,6307,6311,6318,6322,6328,6333,6339,6346];
 
-$("input").on('input', function loadXMLDoc() {
+$('.inputs2').on('input blur', from_sırano1and2_to_sureayet);
+
+function from_sırano1and2_to_sureayet() {
+	
+	var divider1, divider2, ayetbir1, ayetiki2, surebir, sureiki, sırano1, sırano2;
+	surebir = document.getElementById('sure');
+	sureiki = document.getElementById('sure2');
+	ayetbir1 = document.getElementById("ayet");
+	ayetiki2 = document.getElementById("ayet2");
+	sırano1 = document.getElementById('sırano1');
+	sırano2 = document.getElementById('sırano2');
+	
+	if(document.getElementById('sn').checked) {
+		if(parseInt(sırano1.value)) {
+			divider1 = Math.max.apply(Math, sadece_nolu.filter(function(x){return x < sırano1.value}));
+			surebir.value = sadece_nolu.indexOf(divider1) + 1;
+			ayetbir1.value = sırano1.value - divider1;
+			//$('#sure').trigger('input');
+		}
+		else {
+			surebir.value = ''; ayetbir1.value = ''; sureiki.value = ''; ayetiki2.value = ''; sırano2.value = '';
+			//$('#sure').trigger('input');
+		}
+		if(parseInt(sırano2.value)) {
+			divider2 = Math.max.apply(Math, sadece_nolu.filter(function(x){return x < sırano2.value}));
+			sureiki.value = sadece_nolu.indexOf(divider2) + 1;
+			ayetiki2.value = sırano2.value - divider2;
+			$('#sure2').trigger('input');
+		}
+		else {
+			sureiki.value = ''; ayetiki2.value = '';
+			$('#sure2').trigger('input');
+		}
+	}
+	else {
+		if(parseInt(sırano1.value)) {
+			divider1 = Math.max.apply(Math, tümü.filter(function(x){return x < sırano1.value}));
+			surebir.value = tümü.indexOf(divider1) + 1;
+			if(surebir.value == 1 || surebir.value == 9) {
+				ayetbir1.value = sırano1.value - divider1;
+			}
+			else {
+				ayetbir1.value = sırano1.value - divider1 - 1;
+			}
+			//$('#sure').trigger('input');
+		}
+		else {
+			surebir.value = ''; ayetbir1.value = ''; sureiki.value = ''; ayetiki2.value = ''; sırano2.value = '';
+			//$('#sure').trigger('input');
+		}
+		if(parseInt(sırano2.value)) {
+			divider2 = Math.max.apply(Math, tümü.filter(function(x){return x < sırano2.value}));
+			sureiki.value = tümü.indexOf(divider2) + 1;
+			if(sureiki.value == 1 || sureiki.value == 9) {
+				ayetiki2.value = sırano2.value - divider2;
+			}
+			else {
+				ayetiki2.value = sırano2.value - divider2 - 1;
+			}
+			$('#sure2').trigger('input');
+		}
+		else {
+			sureiki.value = ''; ayetiki2.value = '';
+			$('#sure2').trigger('input');
+		}
+	}
+};
+
+$('#sn').on('change', loadXMLDoc);
+$(".inputs").on('input', loadXMLDoc);
+
+function loadXMLDoc() {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
     	if (this.readyState == 4 && this.status == 200) {
-			myFunction(this);
+			bölümaçıcı(this);
     	}
 	}
 	xmlhttp.open("GET", "sure/114.xml", true);
 	xmlhttp.send();
-});
+}
 
-function myFunction(xml) {
+function bölümaçıcı(xml) {
 
-	var firstverses, lastverses, sure1, ayet1, sure2, ayetiki, ayet2, s, a, xmlDoc, txt, aralık;
+	var ayetbir1, ayetiki2, surebir, sureiki, sırano1, sırano2, firstverses, lastverses, sure1, ayet1, sure2, ayetiki, ayet2, ayet1bir, ayet2iki, s, a, xmlDoc, txt, aralık;
 	firstverses=[0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	lastverses=[0,7,286,200,176,120,165,206,75,127,109,123,111,43,52,99,128,111,110,98,135,112,78,118,64,77,227,93,88,69,60,34,30,73,54,45,83,182,88,75,85,54,53,89,59,37,35,38,29,18,45,60,49,62,55,78,96,29,22,24,13,14,11,11,18,12,12,30,52,52,44,28,28,20,56,40,31,50,40,46,42,29,19,36,25,22,17,19,26,30,20,15,21,11,8,8,19,5,8,8,11,11,8,3,9,5,4,7,3,6,3,5,4,5,6];
 	xmlDoc = xml.responseXML;
 	txt = "";
 	aralık = "";
+	surebir = document.getElementById('sure');
+	sureiki = document.getElementById('sure2');
+	
 	sure1 = parseInt(document.getElementById("sure").value);
 	ayet1 = document.getElementById("ayet").value;
 	sure2 = parseInt(document.getElementById("sure2").value);
 	ayetiki = document.getElementById("ayet2").value;
 	ayet2 = parseInt(ayetiki) + 1;
-
 	
-if (sure1) {
-	if (ayet1) {
-		if (sure2) {
-			if (ayet2) {
-				//16 - 4
-				txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar. ('+ayetiki+'. ayet dahil)';
-				for(s=sure1; s<=sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == sure1 && a < ayet1) { continue; }
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						if (s == sure2 && a == ayet2) { break; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
+	ayetbir1 = document.getElementById("ayet");
+	ayetiki2 = document.getElementById("ayet2");
+	ayet1bir = parseInt(document.getElementById("ayet").value);
+	ayet2iki = parseInt(document.getElementById("ayet2").value);
+	sırano1 = document.getElementById('sırano1');
+	sırano2 = document.getElementById('sırano2');
+
+	// from sure_ayet, to sıra_no başlangıcı
+
+	if(document.getElementById('sn').checked) {
+		if(sure1 && ayet1) {
+			sırano1.value = sadece_nolu[sure1-1] + ayet1bir
+		}
+		else { sırano1.value = '' }
+		
+		if(sure2 && ayetiki) {
+			sırano2.value = sadece_nolu[sure2-1] + ayet2iki
+		}
+		else { sırano2.value = '' }
+	}
+	else {
+		if(sure1 && ayet1bir >= 0) {
+			if (sure1==1 || sure1==9) {
+				sırano1.value = tümü[sure1-1] + ayet1bir
 			}
 			else {
-				//15 - 3
-				var sura2 = parseInt(sure2)-1;
-				if (sure2 < sure1) { }
-				else if (sure2 == sure1) { txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)'; }
-				else {txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar. (Son('+lastverses[sura2]+'.) ayet dahil)';}
-				for(s=sure1; s<sure2; s++) {
-					for(a=0; a<=lastverses[s]; a++) {
-						if (s == sure1 && a < ayet1) { continue; }
-						if (s == "1" && a == "0") { continue; }
-						if (s == "9" && a == "0") { continue; }
-						aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
-					}
-				}
+				sırano1.value = tümü[sure1-1] + ayet1bir + 1
 			}
 		}
-		else {
-			//13 - 2
-			txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
-			if(sure1 == "1" && ayet1 == "0") {}
-			else if (sure1 == "9" && ayet1 == "0") {}
-			else {
-				aralık += xmlDoc.getElementById("s"+sure1+"a"+ayet1).childNodes[0].nodeValue + "\n";
+		else { sırano1.value = '' }
+		
+		if(sure2 && ayet2iki >= 0) {
+			if (sure2==1 || sure2==9) {
+				sırano2.value = tümü[sure2-1] + ayet2iki
 			}
+			else {
+				sırano2.value = tümü[sure2-1] + ayet2iki + 1
+			}
+		}
+		else { sırano2.value = '' }
+	}
+
+	// from sure_ayet, to sıra_no sonu
+	
+	if(document.getElementById('sn').checked) {
+		if (sure1) {
+			if (ayet1) {
+				if (sure2) {
+					if (ayet2) {
+						if(ayet1 == 0) {
+							if(ayetiki == 0){
+								var geçici = sure2-1;
+								txt = sure1+'. surenin 1. ayetinden, '+geçici+'. surenin son('+lastverses[geçici]+'.) ayetine kadar.';
+							}
+							else {
+								txt = sure1+'. surenin 1. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar.';
+							}
+						}
+						else if(ayetiki == 0) {
+							var geçici1 = sure2-1;
+							txt = sure1+'. surenin '+ayet1+'. ayetinden, '+geçici1+'. surenin son('+lastverses[geçici1]+'.) ayetine kadar.';
+						}
+						else {
+							txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar.';
+						}
+						if (sure1==sure2 && ayet2<=ayet1) {}
+						else {
+							for(s=sure1; s<=sure2; s++) {
+								for(a=0; a<=lastverses[s]; a++) {
+									if (s == sure1 && a < ayet1) { continue; }
+									if (a == "0") { continue; }
+									if (s == sure2 && a == ayet2) { break; }
+									aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
+								}
+							}
+						}
+					}
+					else {
+						var sura2 = parseInt(sure2)-1;
+						if (sure2 < sure1) { }
+						else if (sure2 == sure1) {
+							if(ayet1 == 0) {
+								txt = sure1+'. surenin 1. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)';
+							}
+							else {
+								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)';
+							}
+						}
+						else if (sure2 == sure1+1) {
+							if (ayet1 == lastverses[sure1]) {
+								txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+							}
+							else {
+								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure1+'. surenin son('+lastverses[sure1]+'.) ayetine kadar.';
+							}
+						}
+						else {
+							if(ayet1 == 0) {
+								txt = sure1+'. surenin 1. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';
+							}
+							else {
+								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';
+							}
+						}
+						for(s=sure1; s<sure2; s++) {
+							for(a=0; a<=lastverses[s]; a++) {
+								if (s == sure1 && a < ayet1) { continue; }
+								if (a == "0") { continue; }
+								aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
+							}
+						}
+					}
+				}
+				else {
+					if(ayet1 == 0) {
+						txt = ''
+					}
+					else {
+						txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+					}
+					if(ayet1 == "0") {}
+					else {
+						aralık += xmlDoc.getElementById("s"+sure1+"a"+ayet1).childNodes[0].nodeValue + "\n";
+					}
+				}
+			}
+			else {
+				txt = sure1+'. surenin 1. ayetinden, son('+lastverses[sure1]+'.) ayetine kadar.';
+				for(a=0; a<=lastverses[sure1]; a++) {
+					if (a == "0") { continue; }
+					aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
+				}
+			}
+			document.getElementById("ifade").value = aralık;
+		}
+		else {
+			txt = '';
 		}
 	}
 	else {
-		//9 - 1
-		txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, son('+lastverses[sure1]+'.) ayetine kadar. (Son('+lastverses[sure1]+'.) ayet dahil)';
-		for(a=0; a<=lastverses[sure1]; a++) {
-			if (sure1 == "1" && a == "0") { continue; }
-			if (sure1 == "9" && a == "0") { continue; }
-			aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
-		}	
+		if (sure1) {
+			if (ayet1) {
+				if (sure2) {
+					if (ayet2) {
+						txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar.';
+						if (sure1==sure2 && ayet2<=ayet1) {}
+						else {
+							for(s=sure1; s<=sure2; s++) {
+								for(a=0; a<=lastverses[s]; a++) {
+									if (s == sure1 && a < ayet1) { continue; }
+									if (s == "1" && a == "0") { continue; }
+									if (s == "9" && a == "0") { continue; }
+									if (s == sure2 && a == ayet2) { break; }
+									aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
+								}
+							}
+						}
+					}
+					else {
+						var sura2 = parseInt(sure2)-1;
+						if (sure2 < sure1) { }
+						else if (sure2 == sure1) { txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)'; }
+						else if (sure2 == sure1+1) {
+							if (ayet1 == lastverses[sure1]) {
+								txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+							}
+							else {
+								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure1+'. surenin son('+lastverses[sure1]+'.) ayetine kadar.';
+							}
+						}
+						else {txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';}
+						for(s=sure1; s<sure2; s++) {
+							for(a=0; a<=lastverses[s]; a++) {
+								if (s == sure1 && a < ayet1) { continue; }
+								if (s == "1" && a == "0") { continue; }
+								if (s == "9" && a == "0") { continue; }
+								aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
+							}
+						}
+					}
+				}
+				else {
+					txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+					if(sure1 == "1" && ayet1 == "0") {}
+					else if (sure1 == "9" && ayet1 == "0") {}
+					else {
+						aralık += xmlDoc.getElementById("s"+sure1+"a"+ayet1).childNodes[0].nodeValue + "\n";
+					}
+				}
+			}
+			else {
+				txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, son('+lastverses[sure1]+'.) ayetine kadar.';
+				for(a=0; a<=lastverses[sure1]; a++) {
+					if (sure1 == "1" && a == "0") { continue; }
+					if (sure1 == "9" && a == "0") { continue; }
+					aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
+				}
+			}
+			document.getElementById("ifade").value = aralık;
+		}
+		else {
+			txt = '';
+		}
 	}
+	document.getElementById('açıklama').innerHTML = txt;
+	$('#ifade').trigger('input');
 }
-else {
-	//1 - 0
-	txt = '';
-	aralık = '';
-}
-
-document.getElementById('açıklama').innerHTML = txt;
-
-document.getElementById("ifade").value = aralık;
-$('#ifade').keyup();
-
-};
 
 function bckgrndclrchanger(x) { document.getElementById(x).style.background = "#ffffff"; };
 function bckgrndclrchangr(x) { document.getElementById(x).style.background = "#99ffff"; };
 
 function check(ltr) {
+	$('#ifade').trigger('input');
 	var mukatta = {ا:1, ل:1, م:1, ر:1, ك:1, ه:1, ي:1, ع:1, ص:1, ط:1, س:1, ق:1, ن:1, ح:1};
 	if (mukatta.hasOwnProperty(ltr)) {
-		if ($("input[id=" + ltr + "]").prop('checked') == true ) {
+		if ($("input[id=" + ltr + "]").prop('checked') == true) {
 			$("p[id=" + ltr + "]").removeClass("not-selected");
 			$("p[id=" + ltr + "]").addClass("hselected");
-		} else {
+		}
+		else {
 			$("p[id=" + ltr + "]").removeClass("hselected");
 			$("p[id=" + ltr + "]").addClass("not-selected");
 		}
-	}else{
-		if ($("input[id=" + ltr + "]").prop('checked') == true ) {
+	}
+	else {
+		if ($("input[id=" + ltr + "]").prop('checked') == true) {
 			$("p[id=" + ltr + "]").removeClass("not-selected");
 			$("p[id=" + ltr + "]").addClass("selected");
-		} else {
+		}
+		else {
 			$("p[id=" + ltr + "]").removeClass("selected");
 			$("p[id=" + ltr + "]").addClass("not-selected");
 		}
 	}
+	$('#ifade').trigger('input');
 }
 
 function getSum(total,num){return total + num};
@@ -133,7 +352,7 @@ function val(yazı,harf,değer){
 
 function letters(str) {
 	var lamelif = str.match(/[ﻻﻹﻷﻵ]/igm);
-	var other = str.match(/[ء-ي]/igm);
+	var other = str.match(/[ء-يپچژڨڢڤیکگڭٱ]/igm);
 	if(other!==null && other.length!==0 && lamelif!==null && lamelif.length!==0){
 		var others = parseInt(other.length);
 		var lamelif_T = 2 * parseInt(lamelif.length);
@@ -151,7 +370,7 @@ function letters(str) {
 function words(string){
 	y = string.split(/\s+/).filter(
 		function(string){
-			word = string.match(/[ء-يﻻﻹﻷﻵ]+/igm);
+			word = string.match(/[ء-يﻻﻹﻷﻵپچژڨڢڤیکگڭٱ]+/igm);
 			return word && word[0].length > 0;
 		}
 	);
@@ -212,18 +431,22 @@ function abjad (string) {
 	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
 }
 
-$(document).keypress( function() {
-	box = document.getElementById("ifade");
+$(document).keypress( function otomatikyazıcı () {
+	ifade = document.getElementById("ifade");
 	sure = document.getElementById("sure");
     ayet = document.getElementById("ayet");
 	sure2 = document.getElementById("sure2");
     ayet2 = document.getElementById("ayet2");
+	sırano1 = document.getElementById('sırano1');
+	sırano2 = document.getElementById('sırano2');
 	var yazı = String.fromCharCode(event.keyCode)
-	if ( sure2 !== document.activeElement && ayet2 !== document.activeElement && sure !== document.activeElement && ayet !== document.activeElement && box !== document.activeElement ){
+	if ( sırano2 !== document.activeElement && sırano1 !== document.activeElement && sure2 !== document.activeElement && ayet2 !== document.activeElement && sure !== document.activeElement && ayet !== document.activeElement && ifade !== document.activeElement ){
 		if(yazı.match(/[\d]/gim)) {
+			ifade.value = '';
+			$('#ifade').trigger('input');
 			sure.focus();
 		}else{
-			box.focus();
+			ifade.focus();
 		}
 	}
 });
@@ -243,63 +466,233 @@ function copyToClipboard(text) {
 	}
 }
 
-$(window).load( function(){
+/*<input class="seçenekler" type="checkbox" id="ا" onclick="check('ا')">
+	<input class="seçenekler" type="checkbox" id="ب" onclick="check('ب')">
+	<input class="seçenekler" type="checkbox" id="ج" onclick="check('ج')">
+	<input class="seçenekler" type="checkbox" id="د" onclick="check('د')">
+	<input class="seçenekler" type="checkbox" id="ه" onclick="check('ه')">
+	<input class="seçenekler" type="checkbox" id="و" onclick="check('و')">
+	<input class="seçenekler" type="checkbox" id="ز" onclick="check('ز')">
+	<input class="seçenekler" type="checkbox" id="ح" onclick="check('ح')">
+	<input class="seçenekler" type="checkbox" id="ط" onclick="check('ط')">
+	<input class="seçenekler" type="checkbox" id="ي" onclick="check('ي')">
+	<input class="seçenekler" type="checkbox" id="ك" onclick="check('ك')">
+	<input class="seçenekler" type="checkbox" id="ل" onclick="check('ل')">
+	<input class="seçenekler" type="checkbox" id="م" onclick="check('م')">
+	<input class="seçenekler" type="checkbox" id="ن" onclick="check('ن')">
+	<input class="seçenekler" type="checkbox" id="س" onclick="check('س')">
+	<input class="seçenekler" type="checkbox" id="ع" onclick="check('ع')">
+	<input class="seçenekler" type="checkbox" id="ف" onclick="check('ف')">
+	<input class="seçenekler" type="checkbox" id="ص" onclick="check('ص')">
+	<input class="seçenekler" type="checkbox" id="ق" onclick="check('ق')">
+	<input class="seçenekler" type="checkbox" id="ر" onclick="check('ر')">
+	<input class="seçenekler" type="checkbox" id="ش" onclick="check('ش')">
+	<input class="seçenekler" type="checkbox" id="ت" onclick="check('ت')">
+	<input class="seçenekler" type="checkbox" id="ث" onclick="check('ث')">
+	<input class="seçenekler" type="checkbox" id="خ" onclick="check('خ')">
+	<input class="seçenekler" type="checkbox" id="ذ" onclick="check('ذ')">
+	<input class="seçenekler" type="checkbox" id="ض" onclick="check('ض')">
+	<input class="seçenekler" type="checkbox" id="ظ" onclick="check('ظ')">
+	<input class="seçenekler" type="checkbox" id="غ" onclick="check('غ')">*/
+
+$(window).load( function getfromlink() {
 	var hashParams = window.location.hash.substr(1).replace(/[_]+/gim, " ").replace(/[-]+/gim, "\n").split('&');
-	if(window.location.hash) {
+	if (window.location.hash) {
 		for(var i = 0; i < hashParams.length; i++){
 			var p = hashParams[i].split('=');
-			document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+			if (p[0] == 'ifade') {
+				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+				$("#ifade").trigger('input');
+				if(p[1] == '1') {
+					document.getElementById(p[0]).checked = true;
+					$("#"+p[0]).trigger('change');
+				}
+				else {
+					document.getElementById(p[0]).checked = false;
+					$("#"+p[0]).trigger('change');
+				}
+			}
+			else {
+				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+				$('#ayet2').trigger('input');
+				if(p[1] == '1') {
+					document.getElementById(p[0]).checked = true;
+					$("#"+p[0]).trigger('change');
+				}
+				else {
+					document.getElementById(p[0]).checked = false;
+					$("#"+p[0]).trigger('change');
+				}
+			}
 		}
-		$('#ifade').keyup();
 	}
 });
 
 $('#ifade').on('input', function (event) { 
-    this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵ\n0-9:#]/igm, '');
-});
-	
-$(function() {
-	$("#ifade").keyup();
+    this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵپچژڨڤڢیڭگکٱ\n0-9:#]/igm, '');
 });
 
-$("#ifade").keyup( function(){
-	var inputValue = $(this).val();
+$(function() {
+	$("#ifade").trigger('input');
+	$("#ifade").trigger('keyup');
+});
+
+var counts;
+
+$('.seçenekler').on('change', sayım);
+
+var say_toplam;
+var sayı;
+var metin;
+
+function sayım() {
+	
+	say_toplam = $("input[class=seçenekler]:checked").map(function() {
+		if (this.id === 'د' || this.id === 'ح' || this.id === 'ط' || this.id === 'م' || this.id === 'ن' || this.id === 'س' || this.id === 'ع' || this.id === 'ص' || this.id === 'ر' || this.id === 'ش' || this.id === 'ت' || this.id === 'ث' || this.id === 'خ' || this.id === 'ذ' || this.id === 'ض' || this.id === 'ظ' || this.id === 'غ') {
+			return counts[this.id];
+		}
+		else if (this.id === 'ب') {
+			return counts['ب'] + counts['پ']
+		}
+		else if (this.id === 'ج') {
+			return counts['ج'] + counts['چ']
+		}
+		else if (this.id === 'ه') {
+			return counts['ه'] + counts['ة']
+		}
+		else if (this.id === 'و') {
+			return counts['و'] + counts['ؤ']
+		}
+		else if (this.id === 'ز') {
+			return counts['ز'] + counts['ژ']
+		}
+		else if (this.id === 'ق') {
+			return counts['ق'] + counts['ڨ']
+		}
+		else if (this.id === 'ف') {
+			return counts['ف'] + counts['ڢ'] + counts['ڤ']
+		}
+		else if (this.id === 'ي') {
+			return counts['ي'] + counts['ی'] + counts['ئ'] + counts['ى']
+		}
+		else if (this.id === 'ك') {
+			return counts['ك'] + counts['ک'] + counts['گ'] + counts['ڭ']
+		}
+		else if (this.id === 'ل') {
+			return counts['ل'] + counts['ﻻ'] + counts['ﻹ'] + counts['ﻷ'] + counts['ﻵ']
+		}
+		else if (this.id === 'ا') {
+			return counts['ا'] + counts['ﻻ'] + counts['ﻹ'] + counts['ﻷ'] + counts['ﻵ'] + counts['ء'] + counts['آ'] + counts['ٱ'] + counts['أ'] + counts['إ']
+		}
+	}).get().reduce((pv, cv) => pv+cv, 0);
+
+	if (document.getElementById('say').innerHTML == '0') {
+		document.querySelector("p[id=say]").style.display = "none";
+	}
+	else {
+		if (say_toplam !== 0) {
+			if (say_toplam % 19 === 0) {
+				sayı = say_toplam + " = 19 × " + say_toplam/19;
+				$("#say").html("<span style=\"color: blue;\">" + sayı + "</span>");
+			}
+			else {
+				sayı = say_toplam;
+				document.getElementById('say').innerHTML = say_toplam;
+			}
+			document.querySelector("p[id=say]").style.display = "inline-block";
+		}
+		else {
+			sayı = ''
+			document.getElementById('say').innerHTML = sayı;
+			document.querySelector("p[id=say]").style.display = "inline";
+		}
+	}
+}
+
+$('.seçenekler').on('change', seçilen_harfler)
+
+var seçilmişler;
+
+function seçilen_harfler() {
+	var sclnhrf;
+	if($("input[class=seçenekler]:checked").length){
+		seçilmişler = $("input[class=seçenekler]:checked").map(function() {return this.id});
+		sclnhrf = seçilmişler.get().join('+');
+		metin = sclnhrf + ' sayısı: ';
+		if (say_toplam !== 0) {
+			if (say_toplam % 19 === 0) {
+				$("#str").html("<span style=\"color: blue;\">" + metin + "</span>");
+			}
+			else {
+				document.getElementById('str').innerHTML = metin;
+			}
+		}
+		else {
+			seçilmişler = '';
+			metin = '';
+			document.getElementById('str').innerHTML = metin;
+		}
+	}
+	else {
+		metin = '';
+		document.getElementById('str').innerHTML = metin;
+	}
+}
+
+var harf_sayisi;
+var mesaj;
+var ebced;
+var kelime;
+var inputValue;
+
+$("#ifade").on('input keyup', function(){
+	
+	inputValue = $(this).val();
+	
 if( abjad(inputValue) ) {
+	
 	document.querySelector("#kopyala").style.display = "block";
+	
 	if (abjad(inputValue) % 19 === 0) {
 		ebced = abjad(inputValue) + " = 19 × " + abjad(inputValue)/19;
 		$("#abjad").html("<span style=\"color: blue;\">" + "EBCED değeri: " + ebced + "</span>");
-	}else{
+	}
+	else {
 		ebced = abjad(inputValue);
 		$("#abjad").html("EBCED değeri: " + ebced);
 	}
+	
 	if (letters(inputValue) % 19 === 0) {
-		harf = letters(inputValue) + " = 19 × " + letters(inputValue)/19;
-		$("#letters").html("<span style=\"color: blue;\">" + "HARF sayısı: " + harf + "</span>");
-	}else{
-		harf = letters(inputValue);
-		$("#letters").html("HARF sayısı: " + harf);
+		harf_sayisi = letters(inputValue) + " = 19 × " + letters(inputValue)/19;
+		$("#letters").html("<span style=\"color: blue;\">" + "HARF sayısı: " + harf_sayisi + "</span>");
 	}
+	else {
+		harf_sayisi = letters(inputValue);
+		$("#letters").html("HARF sayısı: " + harf_sayisi);
+	}
+	
 	if (words(inputValue) % 19 === 0) {
 		kelime = words(inputValue) + " = 19 × " + words(inputValue)/19;
 		$("#words").html("<span style=\"color: blue;\">" + "KELİME sayısı: " + kelime + "</span>");
-	}else{
+	}
+	else {
 		kelime = words(inputValue);
 		$("#words").html("KELİME sayısı: " + kelime);
 	}
-	mesaj = "ebced.kuran114.org/#ifade=" +  inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-") + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf + "\n" + "KELİME sayısı: " + kelime;
 	
-	function harf1(h1){
-		if(ch == h1){
+	function harf1 (h1) {
+		if (ch == h1) {
 			sonuc = counts[h1]
-			if(sonuc == 0) {
+			if (sonuc == 0) {
 				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
-			}else{
+			}
+			else {
 				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
-				}else{
+				}
+				else {
 					harf = sonuc;
 					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
 				}
@@ -307,17 +700,19 @@ if( abjad(inputValue) ) {
 		}
 	}
   
-	function harf2(h1, h2){
-		if(ch == h1 || ch == h2){
+	function harf2 (h1, h2) {
+		if (ch == h1 || ch == h2) {
 			sonuc = counts[h1] + counts[h2]
-			if(sonuc == 0) {
+			if (sonuc == 0) {
 				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
-			}else{
+			}
+			else {
 				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
-				}else{
+				}
+				else {
 					harf = sonuc;
 					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
 				}
@@ -325,17 +720,19 @@ if( abjad(inputValue) ) {
 		}
 	}
 
-	function harf3(h1, h2, h3){
-		if(ch == h1 || ch == h2 || ch == h3){
+	function harf3 (h1, h2, h3) {
+		if (ch == h1 || ch == h2 || ch == h3) {
 			sonuc = counts[h1] + counts[h2] + counts[h3]
-			if(sonuc == 0) {
+			if (sonuc == 0) {
 				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
-			}else{
+			}
+			else {
 				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
-				}else{
+				}
+				else {
 					harf = sonuc;
 					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
 				}
@@ -343,17 +740,19 @@ if( abjad(inputValue) ) {
 		}
 	}
 
-	function harf4(h1, h2, h3, h4){
-		if(ch == h1 || ch == h2 || ch == h3 || ch == h4){
+	function harf4 (h1, h2, h3, h4) {
+		if (ch == h1 || ch == h2 || ch == h3 || ch == h4){
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4]
-			if(sonuc == 0) {
+			if (sonuc == 0) {
 				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
-			}else{
+			}
+			else {
 				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
-				}else{
+				}
+				else {
 					harf = sonuc;
 					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
 				}
@@ -361,17 +760,19 @@ if( abjad(inputValue) ) {
 		}
 	}
   
-	function harf5(h1, h2, h3, h4, h5){
-		if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5){
+	function harf5 (h1, h2, h3, h4, h5) {
+		if (ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5) {
 			sonuc = counts[h1] + counts[h2] + counts[h3] + counts[h4] + counts[h5]
-			if(sonuc == 0) {
+			if (sonuc == 0) {
 				return document.querySelector("p[id=" + h1 + "]").style.display = "none";
-			}else{
+			}
+			else {
 				document.querySelector("p[id=" + h1 + "]").style.display = "block";
 				if (sonuc % 19 === 0) {
 					harf = sonuc + " = 19 × " + sonuc/19;
 					return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
-				}else{
+				}
+				else {
 					harf = sonuc;
 					return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
 				}
@@ -379,17 +780,19 @@ if( abjad(inputValue) ) {
 		}
 	}
 	
-	function harf10(h1, h2, h3, h4, h5, h6, h7, h8, h9, h10){
-	if(ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10){
+	function harf10 (h1, h2, h3, h4, h5, h6, h7, h8, h9, h10) {
+	if (ch == h1 || ch == h2 || ch == h3 || ch == h4 || ch == h5 || ch == h6 || ch == h7 || ch == h8 || ch == h9 || ch == h10) {
 		sonuc = counts[h1]+counts[h2]+counts[h3]+counts[h4]+counts[h5]+counts[h6]+counts[h7]+counts[h8]+counts[h9]+counts[h10]
-		if(sonuc == 0) {
+		if (sonuc == 0) {
 			return document.querySelector("p[id=" + h1 + "]").style.display = "none";
-		}else{
+		}
+		else {
 			document.querySelector("p[id=" + h1 + "]").style.display = "block";
 			if (sonuc % 19 === 0) {
 				harf = sonuc + " = 19 × " + sonuc/19;
 				return $("p[id=" + h1 + "]").html("<span style=\"color: blue;\">" + h1 + ' sayısı: ' + harf + "</span>");
-			}else{
+			}
+			else {
 				harf = sonuc;
 				return $("p[id=" + h1 + "]").html(h1 + ' sayısı: ' + sonuc);
 			}
@@ -397,7 +800,7 @@ if( abjad(inputValue) ) {
 	}
 	}
 	
-	var counts = {ء:0,ا:0,آ:0,ٱ:0,أ:0,إ:0,ب:0,پ:0,ج:0,چ:0,د:0,ه:0,ة:0,و:0,ؤ:0,ز:0,ژ:0,ح:0,ط:0,ی:0,ي:0,ئ:0,ى:0,ک:0,ك:0,گ:0,ڭ:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ڢ:0,ڤ:0,ص:0,ق:0,ڨ:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0,ﻻ:0,ﻹ:0,ﻷ:0,ﻵ:0};
+	counts = {ء:0,ا:0,آ:0,ٱ:0,أ:0,إ:0,ب:0,پ:0,ج:0,چ:0,د:0,ه:0,ة:0,و:0,ؤ:0,ز:0,ژ:0,ح:0,ط:0,ی:0,ي:0,ئ:0,ى:0,ک:0,ك:0,گ:0,ڭ:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ڢ:0,ڤ:0,ص:0,ق:0,ڨ:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0,ﻻ:0,ﻹ:0,ﻷ:0,ﻵ:0};
 	var ch, index, len, count;
 	for (index = 0, len = inputValue.length; index < len; ++index) {
 		ch = inputValue.charAt(index);
@@ -463,6 +866,10 @@ if( abjad(inputValue) ) {
 	if (counts.hasOwnProperty('ض')) {}else{ $("p[id=ض]").html("") }
 	if (counts.hasOwnProperty('ظ')) {}else{ $("p[id=ظ]").html("") }
 	if (counts.hasOwnProperty('غ')) {}else{ $("p[id=غ]").html("") }
+
+	sayım();
+	seçilen_harfler();
+	
 }else{
 	if (document.getElementById('ifade') === document.activeElement) {
 		document.getElementById('açıklama').innerHTML = '';
@@ -470,11 +877,45 @@ if( abjad(inputValue) ) {
 		document.getElementById('ayet').value = '';
 		document.getElementById('sure2').value = '';
 		document.getElementById('ayet2').value = '';
+		document.getElementById('sırano1').value = '';
+		document.getElementById('sırano2').value = '';
 	}
 	document.getElementById('abjad').innerHTML = '';
 	document.getElementById('letters').innerHTML = '';
 	document.getElementById('words').innerHTML = '';
 	mesaj = "";
+	document.getElementById('say').innerHTML = '';
+	document.getElementById('str').innerHTML = '';
+	$('.seçenekler').prop("checked", false);
+	$("p[id='ا']").addClass("not-selected");
+	$("p[id='ب']").addClass("not-selected");
+	$("p[id='ج']").addClass("not-selected");
+	$("p[id='د']").addClass("not-selected");
+	$("p[id='ه']").addClass("not-selected");
+	$("p[id='و']").addClass("not-selected");
+	$("p[id='ز']").addClass("not-selected");
+	$("p[id='ح']").addClass("not-selected");
+	$("p[id='ط']").addClass("not-selected");
+	$("p[id='ي']").addClass("not-selected");
+	$("p[id='ك']").addClass("not-selected");
+	$("p[id='ل']").addClass("not-selected");
+	$("p[id='م']").addClass("not-selected");
+	$("p[id='ن']").addClass("not-selected");
+	$("p[id='س']").addClass("not-selected");
+	$("p[id='ع']").addClass("not-selected");
+	$("p[id='ف']").addClass("not-selected");
+	$("p[id='ص']").addClass("not-selected");
+	$("p[id='ق']").addClass("not-selected");
+	$("p[id='ر']").addClass("not-selected");
+	$("p[id='ش']").addClass("not-selected");
+	$("p[id='ت']").addClass("not-selected");
+	$("p[id='ث']").addClass("not-selected");
+	$("p[id='خ']").addClass("not-selected");
+	$("p[id='ذ']").addClass("not-selected");
+	$("p[id='ض']").addClass("not-selected");
+	$("p[id='ظ']").addClass("not-selected");
+	$("p[id='غ']").addClass("not-selected");
+	
 	document.querySelector("#kopyala").style.display = "none";
 	document.querySelector("p[id='ا']").style.display = "none";
 	document.querySelector("p[id='ب']").style.display = "none";
@@ -511,3 +952,114 @@ if( abjad(inputValue) ) {
 		swal({title: "Sonuçlar Kopyalandı!", text: "sorguladınmı.com - kuran114.org", timer: 1450, imageUrl: "pic/abjad.png", showConfirmButton: false});
 	};
 });
+
+$("#ifade").on('input keyup', message);
+$(".inputs").on('click focus', message);
+
+function message() {
+
+	var surebir = document.getElementById('sure').value;
+	var sureiki = document.getElementById('sure2').value;
+	var ayetbir1 = document.getElementById("ayet").value;
+	var ayetiki2 = document.getElementById("ayet2").value;
+	var sırano1 = document.getElementById('sırano1').value;
+	var sırano2 = document.getElementById('sırano2').value;
+	var sn = document.getElementById('sn');
+
+	if (surebir) {
+		if (ayetbir1) {
+			if (sureiki) {
+				if (ayetiki2) {
+					if (metin === '') {
+						if (sn.checked) {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&sn=1" + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+						else {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2 + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+					}
+					else {
+						if (sn.checked) {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+						else {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2 + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+					}
+				}
+				else {
+					if (metin === '') {
+						if (sn.checked) {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&sn=1" + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+						else {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+					}
+					else {
+						if (sn.checked) {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+						else {
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						}
+					}
+				}
+			}
+			else {
+				if (metin === '') {
+					if (sn.checked) {
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sn=1" + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					}
+					else {
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1 + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					}
+				}
+				else {
+					if (sn.checked) {
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					}
+					else{
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1 + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					}
+				}
+			}
+		}
+		else {
+			if (metin === '') {
+				if (sn.checked) {
+					mesaj = "ebced.kuran114.org/#sure="+surebir+"&sn=1" + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+				}
+				else{
+					mesaj = "ebced.kuran114.org/#sure="+surebir + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+				}
+			}
+			else {
+				if (sn.checked) {
+					mesaj = "ebced.kuran114.org/#sure="+surebir+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+				}
+				else {
+					mesaj = "ebced.kuran114.org/#sure="+surebir + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+				}
+			}
+		}
+	}
+	else {
+		if (metin === '') {
+			if (sn.checked) {
+				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&sn=1" + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+			}
+			else {
+				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-") + "\n\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+			}
+		}
+		else {
+			if (sn.checked) {
+				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+			}
+			else {
+				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-") + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+			}
+		}
+	}
+}

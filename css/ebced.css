@@ -1,3 +1,4 @@
+/** {box-sizing: border-box}*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -9,8 +10,8 @@ input[type=number] {
 
 @media (hover:hover) {
     /* Primary Input responds to hover fully, such as a mouse or a Nintendo Wii controller */
-	.huruf:hover{background-color: coral;}
-	.harf:hover{background-color: cornflowerblue;}
+	.huruf:hover{background-color: cornflowerblue;}
+	.harf:hover{background-color: coral;}
 }
 .harf {
 	float: left;
@@ -41,10 +42,10 @@ input::-webkit-calendar-picker-indicator {
 	margin: 15px 0px 0px -10px;
 }
 
-input[type=checkbox]{display:none}
+.seçenekler{display:none}
 
-.hselected{background-color: coral}
-.selected{background-color: cornflowerblue}
+.hselected{background-color: cornflowerblue}
+.selected{background-color: coral}
 .not-selected{background-color: rgba(255, 255, 255, 0.57)}
 
 body {background-color: azure;}
@@ -81,7 +82,7 @@ textarea:focus {
 	background-color: #d4fff3;
 }
 
-#baslik {font-size: large; text-align: center;}
+
 #kopyala {display: none; font-size: 14pt; padding: 4px 6px 4px 6px;}
 
 @media only screen and (min-width: 425px) {
@@ -125,3 +126,37 @@ textarea:focus {
 
 
 
+
+#sırano1 {
+	margin : 0px 1px 0px 0px;
+}
+
+#sırano2 {
+	margin : 0px 1px 0px 0px;
+}
+
+#baslik {font-size: large; text-align: center;}
+
+#sonradan {
+	display: block;
+}
+
+#sadeceno {
+	margin: -43px 0px 6px 0px;
+	float: right;
+}
+
+.checky {
+	height: 14.5px;
+	width: 14.5px;
+}
+
+#sadece_şifreli {
+	display: none;
+}
+
+.inline {
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 0em;
+	display: inline;
+}
