@@ -1,5 +1,5 @@
-var sadece_nolu = [0,7,293,493,669,789,954,1160,1235,1362,1471,1594,1705,1748,1800,1899,2027,2138,2248,2346,2481,2593,2671,2789,2853,2930,3157,3250,3338,3407,3467,3501,3531,3604,3658,3703,3786,3968,4056,4131,4216,4270,4323,4412,4471,4508,4543,4581,4610,4628,4673,4733,4782,4844,4899,4977,5073,5102,5124,5148,5161,5175,5186,5197,5215,5227,5239,5269,5321,5373,5417,5445,5473,5493,5549,5589,5620,5670,5710,5756,5798,5827,5846,5882,5907,5929,5946,5965,5991,6021,6041,6056,6077,6088,6096,6104,6123,6128,6136,6144,6155,6166,6174,6177,6186,6191,6195,6202,6205,6211,6214,6219,6223,6228,6234];
-var tümü = [0,7,294,495,672,793,959,1166,1242,1369,1479,1603,1715,1759,1812,1912,2041,2153,2264,2363,2499,2612,2691,2810,2875,2953,3181,3275,3364,3434,3495,3530,3561,3635,3690,3736,3820,4003,4092,4168,4254,4309,4363,4453,4513,4551,4587,4626,4656,4675,4721,4782,4832,4895,4951,5030,5127,5157,5180,5205,5219,5234,5246,5258,5277,5290,5303,5334,5387,5440,5485,5514,5543,5564,5621,5662,5694,5745,5786,5833,5876,5906,5926,5963,5989,6012,6030,6050,6077,6108,6129,6145,6167,6179,6188,6197,6217,6223,6232,6241,6253,6265,6274,6278,6288,6294,6299,6307,6311,6318,6322,6328,6333,6339,6346];
+var sadece_nolu = [0, 7, 293, 493, 669, 789, 954, 1160, 1235, 1362, 1471, 1594, 1705, 1748, 1800, 1899, 2027, 2138, 2248, 2346, 2481, 2593, 2671, 2789, 2853, 2930, 3157, 3250, 3338, 3407, 3467, 3501, 3531, 3604, 3658, 3703, 3786, 3968, 4056, 4131, 4216, 4270, 4323, 4412, 4471, 4508, 4543, 4581, 4610, 4628, 4673, 4733, 4782, 4844, 4899, 4977, 5073, 5102, 5124, 5148, 5161, 5175, 5186, 5197, 5215, 5227, 5239, 5269, 5321, 5373, 5417, 5445, 5473, 5493, 5549, 5589, 5620, 5670, 5710, 5756, 5798, 5827, 5846, 5882, 5907, 5929, 5946, 5965, 5991, 6021, 6041, 6056, 6077, 6088, 6096, 6104, 6123, 6128, 6136, 6144, 6155, 6166, 6174, 6177, 6186, 6191, 6195, 6202, 6205, 6211, 6214, 6219, 6223, 6228, 6234];
+var tümü = [0, 7, 294, 495, 672, 793, 959, 1166, 1242, 1369, 1479, 1603, 1715, 1759, 1812, 1912, 2041, 2153, 2264, 2363, 2499, 2612, 2691, 2810, 2875, 2953, 3181, 3275, 3364, 3434, 3495, 3530, 3561, 3635, 3690, 3736, 3820, 4003, 4092, 4168, 4254, 4309, 4363, 4453, 4513, 4551, 4587, 4626, 4656, 4675, 4721, 4782, 4832, 4895, 4951, 5030, 5127, 5157, 5180, 5205, 5219, 5234, 5246, 5258, 5277, 5290, 5303, 5334, 5387, 5440, 5485, 5514, 5543, 5564, 5621, 5662, 5694, 5745, 5786, 5833, 5876, 5906, 5926, 5963, 5989, 6012, 6030, 6050, 6077, 6108, 6129, 6145, 6167, 6179, 6188, 6197, 6217, 6223, 6232, 6241, 6253, 6265, 6274, 6278, 6288, 6294, 6299, 6307, 6311, 6318, 6322, 6328, 6333, 6339, 6346];
 
 $('.inputs2').on('input blur', from_sırano1and2_to_sureayet);
 
@@ -18,11 +18,9 @@ function from_sırano1and2_to_sureayet() {
 			divider1 = Math.max.apply(Math, sadece_nolu.filter(function(x){return x < sırano1.value}));
 			surebir.value = sadece_nolu.indexOf(divider1) + 1;
 			ayetbir1.value = sırano1.value - divider1;
-			//$('#sure').trigger('input');
 		}
 		else {
 			surebir.value = ''; ayetbir1.value = ''; sureiki.value = ''; ayetiki2.value = ''; sırano2.value = '';
-			//$('#sure').trigger('input');
 		}
 		if(parseInt(sırano2.value)) {
 			divider2 = Math.max.apply(Math, sadece_nolu.filter(function(x){return x < sırano2.value}));
@@ -45,11 +43,9 @@ function from_sırano1and2_to_sureayet() {
 			else {
 				ayetbir1.value = sırano1.value - divider1 - 1;
 			}
-			//$('#sure').trigger('input');
 		}
 		else {
 			surebir.value = ''; ayetbir1.value = ''; sureiki.value = ''; ayetiki2.value = ''; sırano2.value = '';
-			//$('#sure').trigger('input');
 		}
 		if(parseInt(sırano2.value)) {
 			divider2 = Math.max.apply(Math, tümü.filter(function(x){return x < sırano2.value}));
@@ -86,8 +82,8 @@ function loadXMLDoc() {
 function bölümaçıcı(xml) {
 
 	var ayetbir1, ayetiki2, surebir, sureiki, sırano1, sırano2, firstverses, lastverses, sure1, ayet1, sure2, ayetiki, ayet2, ayet1bir, ayet2iki, s, a, xmlDoc, txt, aralık;
-	firstverses=[0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-	lastverses=[0,7,286,200,176,120,165,206,75,127,109,123,111,43,52,99,128,111,110,98,135,112,78,118,64,77,227,93,88,69,60,34,30,73,54,45,83,182,88,75,85,54,53,89,59,37,35,38,29,18,45,60,49,62,55,78,96,29,22,24,13,14,11,11,18,12,12,30,52,52,44,28,28,20,56,40,31,50,40,46,42,29,19,36,25,22,17,19,26,30,20,15,21,11,8,8,19,5,8,8,11,11,8,3,9,5,4,7,3,6,3,5,4,5,6];
+	firstverses=[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	lastverses=[0, 7, 286, 200, 176, 120, 165, 206, 75, 127, 109, 123, 111, 43, 52, 99, 128, 111, 110, 98, 135, 112, 78, 118, 64, 77, 227, 93, 88, 69, 60, 34, 30, 73, 54, 45, 83, 182, 88, 75, 85, 54, 53, 89, 59, 37, 35, 38, 29, 18, 45, 60, 49, 62, 55, 78, 96, 29, 22, 24, 13, 14, 11, 11, 18, 12, 12, 30, 52, 52, 44, 28, 28, 20, 56, 40, 31, 50, 40, 46, 42, 29, 19, 36, 25, 22, 17, 19, 26, 30, 20, 15, 21, 11, 8, 8, 19, 5, 8, 8, 11, 11, 8, 3, 9, 5, 4, 7, 3, 6, 3, 5, 4, 5, 6];
 	xmlDoc = xml.responseXML;
 	txt = "";
 	aralık = "";
@@ -342,39 +338,40 @@ function getSum(total,num){return total + num};
 function val(yazı,harf,değer){
 	rgxp = new RegExp(değer,'gim');
 	var text = yazı.replace(/[0-9]/igm, "");
-	if (text.indexOf(harf) > -1){
+	if (text.indexOf(harf) > -1) {
 		sonuc = text.split(harf).join(değer).match(rgxp).map(Number).reduce(getSum)
-	}else{
+	}
+	else {
 		sonuc = 0
-	};
+	}
 	return sonuc;
 }
 
 function letters(str) {
 	var lamelif = str.match(/[ﻻﻹﻷﻵ]/igm);
 	var other = str.match(/[ء-يپچژڨڢڤیکگڭٱ]/igm);
-	if(other!==null && other.length!==0 && lamelif!==null && lamelif.length!==0){
-		var others = parseInt(other.length);
-		var lamelif_T = 2 * parseInt(lamelif.length);
+	if (other!==null && other.length!==0 && lamelif!==null && lamelif.length!==0) {
+		var others = parseInt(other.length)
+		var lamelif_T = 2 * parseInt(lamelif.length)
 		return others + lamelif_T
 	}
 	else if(lamelif!==null && lamelif.length!==0){
-		var lamelif_T = 2 * parseInt(lamelif.length);
+		var lamelif_T = 2 * parseInt(lamelif.length)
 		return lamelif_T
 	}
 	else if(other!==null && other.length!==0){
-		var others = parseInt(other.length);
+		var others = parseInt(other.length)
 		return others
 	}
 }
-function words(string){
+function words(string) {
 	y = string.split(/\s+/).filter(
-		function(string){
-			word = string.match(/[ء-يﻻﻹﻷﻵپچژڨڢڤیکگڭٱ]+/igm);
-			return word && word[0].length > 0;
+		function (string) {
+			word = string.match(/[ء-يﻻﻹﻷﻵپچژڨڢڤیکگڭٱ]+/igm)
+			return word && word[0].length > 0
 		}
-	);
-	return y.length;
+	)
+	return y.length
 }
 function abjad (string) {
 	ء = val(string,'ء','1');
@@ -432,24 +429,49 @@ function abjad (string) {
 }
 
 $(document).keypress( function otomatikyazıcı () {
-	ifade = document.getElementById("ifade");
-	sure = document.getElementById("sure");
-    ayet = document.getElementById("ayet");
-	sure2 = document.getElementById("sure2");
-    ayet2 = document.getElementById("ayet2");
-	sırano1 = document.getElementById('sırano1');
-	sırano2 = document.getElementById('sırano2');
+	ifade = document.getElementById("ifade")
+	sure = document.getElementById("sure")
+    ayet = document.getElementById("ayet")
+	sure2 = document.getElementById("sure2")
+    ayet2 = document.getElementById("ayet2")
+	sırano1 = document.getElementById('sırano1')
+	sırano2 = document.getElementById('sırano2')
 	var yazı = String.fromCharCode(event.keyCode)
-	if ( sırano2 !== document.activeElement && sırano1 !== document.activeElement && sure2 !== document.activeElement && ayet2 !== document.activeElement && sure !== document.activeElement && ayet !== document.activeElement && ifade !== document.activeElement ){
-		if(yazı.match(/[\d]/gim)) {
-			ifade.value = '';
-			$('#ifade').trigger('input');
-			sure.focus();
-		}else{
-			ifade.focus();
+	if (sırano2 !== document.activeElement && sırano1 !== document.activeElement && sure2 !== document.activeElement && ayet2 !== document.activeElement && sure !== document.activeElement && ayet !== document.activeElement && ifade !== document.activeElement) {
+		if (yazı.match(/[\d]/gim)) {
+			ifade.value = ''
+			$('#ifade').trigger('input')
+			sure.focus()
+		}
+		else { // ifadeye yazarken noları sil, paylaşma linkin düzgün üretilebilmesi için
+			ifade.focus()
+			$('#sure').val('');
+			$('#ayet').val('');
+			$('#sure2').val('');
+			$('#ayet2').val('');
+			$('#sırano1').val('');
+			$('#sırano2').val('');
+			document.getElementById('sn').checked = false
+			document.getElementById('açıklama').innerHTML = ''
 		}
 	}
 });
+
+$('#ifade').on('keypress keyup', function noları_sil() {
+	
+	var yazı = String.fromCharCode(event.keyCode)
+	
+	if (yazı.match(/[ء-يﻻﻹﻷﻵپچژڨڢڤیکگڭٱ \b\s]/igm)) {
+		$('#sure').val('');
+		$('#ayet').val('');
+		$('#sure2').val('');
+		$('#ayet2').val('');
+		$('#sırano1').val('');
+		$('#sırano2').val('');
+		document.getElementById('sn').checked = false
+		document.getElementById('açıklama').innerHTML = ''
+	}
+})
 
 function copyToClipboard(text) {
 	if (window.clipboardData && window.clipboardData.setData) {
@@ -466,68 +488,6 @@ function copyToClipboard(text) {
 	}
 }
 
-/*<input class="seçenekler" type="checkbox" id="ا" onclick="check('ا')">
-	<input class="seçenekler" type="checkbox" id="ب" onclick="check('ب')">
-	<input class="seçenekler" type="checkbox" id="ج" onclick="check('ج')">
-	<input class="seçenekler" type="checkbox" id="د" onclick="check('د')">
-	<input class="seçenekler" type="checkbox" id="ه" onclick="check('ه')">
-	<input class="seçenekler" type="checkbox" id="و" onclick="check('و')">
-	<input class="seçenekler" type="checkbox" id="ز" onclick="check('ز')">
-	<input class="seçenekler" type="checkbox" id="ح" onclick="check('ح')">
-	<input class="seçenekler" type="checkbox" id="ط" onclick="check('ط')">
-	<input class="seçenekler" type="checkbox" id="ي" onclick="check('ي')">
-	<input class="seçenekler" type="checkbox" id="ك" onclick="check('ك')">
-	<input class="seçenekler" type="checkbox" id="ل" onclick="check('ل')">
-	<input class="seçenekler" type="checkbox" id="م" onclick="check('م')">
-	<input class="seçenekler" type="checkbox" id="ن" onclick="check('ن')">
-	<input class="seçenekler" type="checkbox" id="س" onclick="check('س')">
-	<input class="seçenekler" type="checkbox" id="ع" onclick="check('ع')">
-	<input class="seçenekler" type="checkbox" id="ف" onclick="check('ف')">
-	<input class="seçenekler" type="checkbox" id="ص" onclick="check('ص')">
-	<input class="seçenekler" type="checkbox" id="ق" onclick="check('ق')">
-	<input class="seçenekler" type="checkbox" id="ر" onclick="check('ر')">
-	<input class="seçenekler" type="checkbox" id="ش" onclick="check('ش')">
-	<input class="seçenekler" type="checkbox" id="ت" onclick="check('ت')">
-	<input class="seçenekler" type="checkbox" id="ث" onclick="check('ث')">
-	<input class="seçenekler" type="checkbox" id="خ" onclick="check('خ')">
-	<input class="seçenekler" type="checkbox" id="ذ" onclick="check('ذ')">
-	<input class="seçenekler" type="checkbox" id="ض" onclick="check('ض')">
-	<input class="seçenekler" type="checkbox" id="ظ" onclick="check('ظ')">
-	<input class="seçenekler" type="checkbox" id="غ" onclick="check('غ')">*/
-
-$(window).load( function getfromlink() {
-	var hashParams = window.location.hash.substr(1).replace(/[_]+/gim, " ").replace(/[-]+/gim, "\n").split('&');
-	if (window.location.hash) {
-		for(var i = 0; i < hashParams.length; i++){
-			var p = hashParams[i].split('=');
-			if (p[0] == 'ifade') {
-				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
-				$("#ifade").trigger('input');
-				if(p[1] == '1') {
-					document.getElementById(p[0]).checked = true;
-					$("#"+p[0]).trigger('change');
-				}
-				else {
-					document.getElementById(p[0]).checked = false;
-					$("#"+p[0]).trigger('change');
-				}
-			}
-			else {
-				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
-				$('#ayet2').trigger('input');
-				if(p[1] == '1') {
-					document.getElementById(p[0]).checked = true;
-					$("#"+p[0]).trigger('change');
-				}
-				else {
-					document.getElementById(p[0]).checked = false;
-					$("#"+p[0]).trigger('change');
-				}
-			}
-		}
-	}
-});
-
 $('#ifade').on('input', function (event) { 
     this.value = this.value.replace(/[^ء-ي ﻻﻹﻷﻵپچژڨڤڢیڭگکٱ\n0-9:#]/igm, '');
 });
@@ -537,7 +497,7 @@ $(function() {
 	$("#ifade").trigger('keyup');
 });
 
-var counts;
+var counts = {ء:0,ا:0,آ:0,ٱ:0,أ:0,إ:0,ب:0,پ:0,ج:0,چ:0,د:0,ه:0,ة:0,و:0,ؤ:0,ز:0,ژ:0,ح:0,ط:0,ی:0,ي:0,ئ:0,ى:0,ک:0,ك:0,گ:0,ڭ:0,ل:0,م:0,ن:0,س:0,ع:0,ف:0,ڢ:0,ڤ:0,ص:0,ق:0,ڨ:0,ر:0,ش:0,ت:0,ث:0,خ:0,ذ:0,ض:0,ظ:0,غ:0,ﻻ:0,ﻹ:0,ﻷ:0,ﻵ:0};
 
 $('.seçenekler').on('change', sayım);
 
@@ -612,9 +572,9 @@ function sayım() {
 $('.seçenekler').on('change', seçilen_harfler)
 
 var seçilmişler;
+var sclnhrf;
 
 function seçilen_harfler() {
-	var sclnhrf;
 	if($("input[class=seçenekler]:checked").length){
 		seçilmişler = $("input[class=seçenekler]:checked").map(function() {return this.id});
 		sclnhrf = seçilmişler.get().join('+');
@@ -645,7 +605,7 @@ var ebced;
 var kelime;
 var inputValue;
 
-$("#ifade").on('input keyup', function(){
+$("#ifade").on('input keyup keypress', function() {
 	
 	inputValue = $(this).val();
 	
@@ -980,10 +940,10 @@ function message() {
 					}
 					else {
 						if (sn.checked) {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 						}
 						else {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2 + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 						}
 					}
 				}
@@ -998,10 +958,10 @@ function message() {
 					}
 					else {
 						if (sn.checked) {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 						}
 						else {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 						}
 					}
 				}
@@ -1017,10 +977,10 @@ function message() {
 				}
 				else {
 					if (sn.checked) {
-						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 					}
 					else{
-						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1 + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 					}
 				}
 			}
@@ -1036,10 +996,10 @@ function message() {
 			}
 			else {
 				if (sn.checked) {
-					mesaj = "ebced.kuran114.org/#sure="+surebir+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					mesaj = "ebced.kuran114.org/#sure="+surebir+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 				}
 				else {
-					mesaj = "ebced.kuran114.org/#sure="+surebir + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					mesaj = "ebced.kuran114.org/#sure="+surebir+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 				}
 			}
 		}
@@ -1055,11 +1015,70 @@ function message() {
 		}
 		else {
 			if (sn.checked) {
-				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 			}
 			else {
-				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-") + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+				mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 			}
 		}
 	}
 }
+
+function linkchecker(ltr) {
+	var mukatta = {ا:1, ل:1, م:1, ر:1, ك:1, ه:1, ي:1, ع:1, ص:1, ط:1, س:1, ق:1, ن:1, ح:1};
+	if (mukatta.hasOwnProperty(ltr)) {
+		if ($("input[id=" + ltr + "]").prop('checked') == true) {
+			$("p[id=" + ltr + "]").removeClass("not-selected");
+			$("p[id=" + ltr + "]").addClass("hselected");
+		}
+		else {
+			$("p[id=" + ltr + "]").removeClass("hselected");
+			$("p[id=" + ltr + "]").addClass("not-selected");
+		}
+	}
+	else {
+		if ($("input[id=" + ltr + "]").prop('checked') == true) {
+			$("p[id=" + ltr + "]").removeClass("not-selected");
+			$("p[id=" + ltr + "]").addClass("selected");
+		}
+		else {
+			$("p[id=" + ltr + "]").removeClass("selected");
+			$("p[id=" + ltr + "]").addClass("not-selected");
+		}
+	}
+}
+
+function getfromlink() {
+	var hashParams = window.location.hash.substr(1).replace(/[_]+/gim, " ").replace(/[-]+/gim, "\n").split('&');
+	if (window.location.hash) {
+		for (var i = 0; i < hashParams.length; i++) {
+			var p = hashParams[i].split('=');
+			if (p[0] === 'ifade') {
+				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+				$("#ifade").trigger('input');
+			}
+			else if (p[0] === 'sure' || p[0] === 'ayet' || p[0] === 'sure2' || p[0] === 'ayet2') {
+				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+				$("#"+p[0]).trigger('input');
+			}
+			else if (p[0] === 'seç') {
+				for (var j = 0; j < p[1].split('+').length; j++) {
+					document.getElementById(p[1].split('+')[j]).checked = true;
+					$("#"+p[1].split('+')[j]).trigger('change');
+					linkchecker(p[1].split('+')[j]);
+				}
+			}
+			else if (p[0] === 'sn') {
+				if (p[1] === '1') {
+					document.getElementById(p[0]).checked = true;
+				}
+				else {
+					document.getElementById(p[0]).checked = false;
+				}
+				$('#sn').trigger('change');
+			}
+		}
+	}
+}
+
+$(window).load(getfromlink);
