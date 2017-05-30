@@ -1063,9 +1063,9 @@ function getfromlink() {
 			}
 			else if (p[0] === 'seç') {
 				for (var j = 0; j < p[1].split('+').length; j++) {
-					document.getElementById(p[1].split('+')[j].checked = true;
-					$("#"+p[1].split('+')[j].trigger('change');
-					linkchecker(p[1].split('+')[j];
+					document.getElementById(p[1].split('+')[j]).checked = true;
+					$("#"+p[1].split('+')[j]).trigger('change');
+					linkchecker(p[1].split('+')[j]);
 				}
 			}
 			else if (p[0] === 'sn') {
