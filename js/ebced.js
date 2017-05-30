@@ -1053,27 +1053,27 @@ function getfromlink() {
 	if (window.location.hash) {
 		for (var i = 0; i < hashParams.length; i++) {
 			var p = hashParams[i].split('=');
-			if (p[0] === 'ifade') {
-				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+			if (decodeURIComponent(p[0]) === 'ifade') {
+				document.getElementById(decodeURIComponent(p[0])).value = decodeURIComponent(p[1]);
 				$("#ifade").trigger('input');
 			}
-			else if (p[0] === 'sure' || p[0] === 'ayet' || p[0] === 'sure2' || p[0] === 'ayet2') {
-				document.getElementById(p[0]).value = decodeURIComponent(p[1]);
-				$("#"+p[0]).trigger('input');
+			else if (decodeURIComponent(p[0]) === 'sure' || decodeURIComponent(p[0]) === 'ayet' || decodeURIComponent(p[0]) === 'sure2' || decodeURIComponent(p[0]) === 'ayet2') {
+				document.getElementById(decodeURIComponent(p[0])).value = decodeURIComponent(p[1]);
+				$("#"+decodeURIComponent(p[0])).trigger('input');
 			}
-			else if (p[0] === 'seç') {
-				for (var j = 0; j < p[1].split('+').length; j++) {
-					document.getElementById(p[1].split('+')[j]).checked = true;
-					$("#"+p[1].split('+')[j]).trigger('change');
-					linkchecker(p[1].split('+')[j]);
+			else if (decodeURIComponent(p[0]) === 'seç') {
+				for (var j = 0; j < decodeURIComponent(p[1]).split('+').length; j++) {
+					document.getElementById(decodeURIComponent(p[1]).split('+')[j]).checked = true;
+					$("#"+decodeURIComponent(p[1]).split('+')[j]).trigger('change');
+					linkchecker(decodeURIComponent(p[1]).split('+')[j]);
 				}
 			}
-			else if (p[0] === 'sn') {
-				if (p[1] === '1') {
-					document.getElementById(p[0]).checked = true;
+			else if (decodeURIComponent(p[0]) === 'sn') {
+				if (decodeURIComponent(p[1]) === '1') {
+					document.getElementById(decodeURIComponent(p[0])).checked = true;
 				}
 				else {
-					document.getElementById(p[0]).checked = false;
+					document.getElementById(decodeURIComponent(p[0])).checked = false;
 				}
 				$('#sn').trigger('change');
 			}
