@@ -1052,7 +1052,7 @@ function getfromlink() {
 	var hashParams = window.location.hash.substr(1).replace(/[_]+/gim, " ").replace(/[-]+/gim, "\n").split('&');
 	if (window.location.hash) {
 		for (var i = 0; i < hashParams.length; i++) {
-			var p = decodeURIComponent(hashParams[i].split('='));
+			var p = decodeURIComponent(hashParams[i]).split('=');
 			if (p[0] === 'ifade') {
 				document.getElementById(p[0]).value = p[1];
 				$("#ifade").trigger('input');
