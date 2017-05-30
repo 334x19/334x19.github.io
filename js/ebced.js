@@ -435,10 +435,10 @@ function abjad (string) {
 	ﻵ = val(string,'ﻵ','31');
 	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
 }
-
+/*
 $("#sure,#ayet,#sure2,#ayet2,#sırano1,#sırano2").on('focus', function sngerigetir() {
 	document.getElementById('sadeceno').style.display = 'block';
-})
+})*/
 $(document).keypress( function otomatikyazıcı () {
 	ifade = document.getElementById("ifade")
 	sure = document.getElementById("sure")
@@ -454,7 +454,7 @@ $(document).keypress( function otomatikyazıcı () {
 			$('#ifade').trigger('input')
 			sure.focus()
 		}
-		else { // ifadeye yazarken noları sil, paylaşma linkinin düzgün üretilebilmesi için
+		else { // ifadeye yazarken noları sil, paylaşım linkinin düzgün üretilebilmesi için
 			ifade.focus()
 			$('#sure').val('');
 			$('#ayet').val('');
@@ -462,8 +462,6 @@ $(document).keypress( function otomatikyazıcı () {
 			$('#ayet2').val('');
 			$('#sırano1').val('');
 			$('#sırano2').val('');
-			document.getElementById('sn').checked = false
-			document.getElementById('sadeceno').style.display = 'none'
 			document.getElementById('açıklama').innerHTML = ''
 		}
 	}
@@ -473,18 +471,37 @@ $('#ifade').on('keypress keyup', function noları_sil() {
 	
 	var yazı = String.fromCharCode(event.keyCode)
 	
-	if (yazı.match(/[ء-يﻻﻹﻷﻵپچژڨڢڤیکگڭٱ \b\s]/igm)) {
+	if (yazı.match(/[:ء-يﻻﻹﻷﻵپچژڨڢڤیکگڭٱ \b\s]/igm)) {
 		$('#sure').val('');
 		$('#ayet').val('');
 		$('#sure2').val('');
 		$('#ayet2').val('');
 		$('#sırano1').val('');
 		$('#sırano2').val('');
-		document.getElementById('sn').checked = false
-		document.getElementById('sadeceno').style.display = 'none'
 		document.getElementById('açıklama').innerHTML = ''
 	}
 })
+
+$('#sn').on('change', nosuzayetlerisil) // sure, ayet ve sıranolar boş olsa bile
+$('#ifade').on('input', yazarkennosuzayetlerisil) // numarasız ayet yazımına izin verme
+
+function nosuzayetlerisil() {
+	var str = document.getElementById('ifade').value;
+	if (document.getElementById('sn').checked) {
+		str = str.replace(/^.*(:0).*$\n/gm, ''); // 0 nolu ayetleri sil
+		// delete verses which doesn't begin with numbers
+		document.getElementById('ifade').value = str.replace(/^(?![1-9]).*$\n/gm, '')
+	}
+}
+function yazarkennosuzayetlerisil() {
+	var str = document.getElementById('ifade').value;
+	if (document.getElementById('sn').checked) {
+		str = str.replace(/^.*(:0).*$/gm, ''); // 0 nolu ayetleri sil
+		// delete verses which doesn't begin with numbers
+		document.getElementById('ifade').value = str.replace(/^(?![1-9]).*$/gm, '')
+	}
+}
+
 
 function copyToClipboard(text) {
 	if (window.clipboardData && window.clipboardData.setData) {
