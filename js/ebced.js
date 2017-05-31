@@ -3,63 +3,65 @@ var tümü = [0, 7, 294, 495, 672, 793, 959, 1166, 1242, 1369, 1479, 1603, 1715,
 
 $('.inputs2').on('input blur', from_sırano1and2_to_sureayet);
 
+var sure1 = document.getElementById('sure')
+var ayet1 = document.getElementById('ayet')
+var sure2 = document.getElementById('sure2')
+var ayet2 = document.getElementById('ayet2')
+var sırano1 = document.getElementById('sırano1')
+var sırano2 = document.getElementById('sırano2')
+var ifade = document.getElementById('ifade')
+
 function from_sırano1and2_to_sureayet() {
 	
-	var divider1, divider2, ayetbir1, ayetiki2, surebir, sureiki, sırano1, sırano2;
-	surebir = document.getElementById('sure');
-	sureiki = document.getElementById('sure2');
-	ayetbir1 = document.getElementById("ayet");
-	ayetiki2 = document.getElementById("ayet2");
-	sırano1 = document.getElementById('sırano1');
-	sırano2 = document.getElementById('sırano2');
+	var divider1, divider2;
 	
 	if(document.getElementById('sn').checked) {
 		if(parseInt(sırano1.value)) {
 			divider1 = Math.max.apply(Math, sadece_nolu.filter(function(x){return x < sırano1.value}));
-			surebir.value = sadece_nolu.indexOf(divider1) + 1;
-			ayetbir1.value = sırano1.value - divider1;
+			sure1.value = sadece_nolu.indexOf(divider1) + 1;
+			ayet1.value = sırano1.value - divider1;
 		}
 		else {
-			surebir.value = ''; ayetbir1.value = ''; sureiki.value = ''; ayetiki2.value = ''; sırano2.value = '';
+			sure1.value = ''; ayet1.value = ''; sure2.value = ''; ayet2.value = ''; sırano2.value = '';
 		}
 		if(parseInt(sırano2.value)) {
 			divider2 = Math.max.apply(Math, sadece_nolu.filter(function(x){return x < sırano2.value}));
-			sureiki.value = sadece_nolu.indexOf(divider2) + 1;
-			ayetiki2.value = sırano2.value - divider2;
+			sure2.value = sadece_nolu.indexOf(divider2) + 1;
+			ayet2.value = sırano2.value - divider2;
 			$('#sure2').trigger('input');
 		}
 		else {
-			sureiki.value = ''; ayetiki2.value = '';
+			sure2.value = ''; ayet2.value = '';
 			$('#sure2').trigger('input');
 		}
 	}
 	else {
 		if(parseInt(sırano1.value)) {
 			divider1 = Math.max.apply(Math, tümü.filter(function(x){return x < sırano1.value}));
-			surebir.value = tümü.indexOf(divider1) + 1;
-			if(surebir.value == 1 || surebir.value == 9) {
-				ayetbir1.value = sırano1.value - divider1;
+			sure1.value = tümü.indexOf(divider1) + 1;
+			if(sure1.value == 1 || sure1.value == 9) {
+				ayet1.value = sırano1.value - divider1;
 			}
 			else {
-				ayetbir1.value = sırano1.value - divider1 - 1;
+				ayet1.value = sırano1.value - divider1 - 1;
 			}
 		}
 		else {
-			surebir.value = ''; ayetbir1.value = ''; sureiki.value = ''; ayetiki2.value = ''; sırano2.value = '';
+			sure1.value = ''; ayet1.value = ''; sure2.value = ''; ayet2.value = ''; sırano2.value = '';
 		}
 		if(parseInt(sırano2.value)) {
 			divider2 = Math.max.apply(Math, tümü.filter(function(x){return x < sırano2.value}));
-			sureiki.value = tümü.indexOf(divider2) + 1;
-			if(sureiki.value == 1 || sureiki.value == 9) {
-				ayetiki2.value = sırano2.value - divider2;
+			sure2.value = tümü.indexOf(divider2) + 1;
+			if(sure2.value == 1 || sure2.value == 9) {
+				ayet2.value = sırano2.value - divider2;
 			}
 			else {
-				ayetiki2.value = sırano2.value - divider2 - 1;
+				ayet2.value = sırano2.value - divider2 - 1;
 			}
 			$('#sure2').trigger('input');
 		}
 		else {
-			sureiki.value = ''; ayetiki2.value = '';
+			sure2.value = ''; ayet2.value = '';
 			$('#sure2').trigger('input');
 		}
 	}
@@ -81,58 +83,53 @@ function loadXMLDoc() {
 
 function bölümaçıcı(xml) {
 
-	var ayetbir1, ayetiki2, surebir, sureiki, sırano1, sırano2, firstverses, lastverses, sure1, ayet1, sure2, ayetiki, ayet2, ayet1bir, ayet2iki, s, a, xmlDoc, txt, aralık;
-	firstverses=[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-	lastverses=[0, 7, 286, 200, 176, 120, 165, 206, 75, 127, 109, 123, 111, 43, 52, 99, 128, 111, 110, 98, 135, 112, 78, 118, 64, 77, 227, 93, 88, 69, 60, 34, 30, 73, 54, 45, 83, 182, 88, 75, 85, 54, 53, 89, 59, 37, 35, 38, 29, 18, 45, 60, 49, 62, 55, 78, 96, 29, 22, 24, 13, 14, 11, 11, 18, 12, 12, 30, 52, 52, 44, 28, 28, 20, 56, 40, 31, 50, 40, 46, 42, 29, 19, 36, 25, 22, 17, 19, 26, 30, 20, 15, 21, 11, 8, 8, 19, 5, 8, 8, 11, 11, 8, 3, 9, 5, 4, 7, 3, 6, 3, 5, 4, 5, 6];
+	var firstverses, lastverses, birsure, ayetbir, ikisure, ayetiki, ikiayet, ayet1bir, ayet2iki, s, a, xmlDoc, txt, aralık;
+	firstverses = [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	lastverses = [0, 7, 286, 200, 176, 120, 165, 206, 75, 127, 109, 123, 111, 43, 52, 99, 128, 111, 110, 98, 135, 112, 78, 118, 64, 77, 227, 93, 88, 69, 60, 34, 30, 73, 54, 45, 83, 182, 88, 75, 85, 54, 53, 89, 59, 37, 35, 38, 29, 18, 45, 60, 49, 62, 55, 78, 96, 29, 22, 24, 13, 14, 11, 11, 18, 12, 12, 30, 52, 52, 44, 28, 28, 20, 56, 40, 31, 50, 40, 46, 42, 29, 19, 36, 25, 22, 17, 19, 26, 30, 20, 15, 21, 11, 8, 8, 19, 5, 8, 8, 11, 11, 8, 3, 9, 5, 4, 7, 3, 6, 3, 5, 4, 5, 6];
 	xmlDoc = xml.responseXML;
 	txt = "";
 	aralık = "";
-	surebir = document.getElementById('sure');
-	sureiki = document.getElementById('sure2');
+
+	birsure = parseInt(sure1.value);
+	ayetbir = ayet1.value;
+	ikisure = parseInt(sure2.value);
+	ayetiki = ayet2.value;
 	
-	sure1 = parseInt(document.getElementById("sure").value);
-	ayet1 = document.getElementById("ayet").value;
-	sure2 = parseInt(document.getElementById("sure2").value);
-	ayetiki = document.getElementById("ayet2").value;
-	ayet2 = parseInt(ayetiki) + 1;
-	
-	ayetbir1 = document.getElementById("ayet");
-	ayetiki2 = document.getElementById("ayet2");
-	ayet1bir = parseInt(document.getElementById("ayet").value);
-	ayet2iki = parseInt(document.getElementById("ayet2").value);
-	sırano1 = document.getElementById('sırano1');
-	sırano2 = document.getElementById('sırano2');
+	ikiayet = parseInt(ayetiki) + 1;
+
+	ayet1bir = parseInt(ayet1.value);
+	ayet2iki = parseInt(ayet2.value);
 
 	// from sure_ayet, to sıra_no başlangıcı
 
 	if(document.getElementById('sn').checked) {
-		if(sure1 && ayet1) {
-			sırano1.value = sadece_nolu[sure1-1] + ayet1bir
+		if(birsure && ayetbir) {
+			sırano1.value = sadece_nolu[birsure-1] + ayet1bir
 		}
 		else { sırano1.value = '' }
 		
-		if(sure2 && ayetiki) {
-			sırano2.value = sadece_nolu[sure2-1] + ayet2iki
+		if(ikisure && ayetiki) {
+			sırano2.value = sadece_nolu[ikisure-1] + ayet2iki
 		}
 		else { sırano2.value = '' }
 	}
 	else {
-		if(sure1 && ayet1bir >= 0) {
-			if (sure1==1 || sure1==9) {
-				sırano1.value = tümü[sure1-1] + ayet1bir
+		if(birsure && ayet1bir >= 0) {
+			if (birsure==1 || birsure==9) {
+				sırano1.value = tümü[birsure-1] + ayet1bir
 			}
 			else {
-				sırano1.value = tümü[sure1-1] + ayet1bir + 1
+				sırano1.value = tümü[birsure-1] + ayet1bir + 1
 			}
 		}
 		else { sırano1.value = '' }
 		
-		if(sure2 && ayet2iki >= 0) {
-			if (sure2==1 || sure2==9) {
-				sırano2.value = tümü[sure2-1] + ayet2iki
+		if(ikisure && ayet2iki >= 0) {
+			if (ikisure==1 || ikisure==9) {
+				sırano2.value = tümü[ikisure-1] + ayet2iki
 			}
 			else {
-				sırano2.value = tümü[sure2-1] + ayet2iki + 1
+				sırano2.value = tümü[ikisure-1] + ayet2iki + 1
 			}
 		}
 		else { sırano2.value = '' }
@@ -141,68 +138,68 @@ function bölümaçıcı(xml) {
 	// from sure_ayet, to sıra_no sonu
 	
 	if(document.getElementById('sn').checked) {
-		if (sure1) {
-			if (ayet1) {
-				if (sure2) {
-					if (ayet2) {
-						if(ayet1 == 0) {
+		if (birsure) {
+			if (ayetbir) {
+				if (ikisure) {
+					if (ikiayet) {
+						if(ayetbir == 0) {
 							if(ayetiki == 0){
-								var geçici = sure2-1;
-								txt = sure1+'. surenin 1. ayetinden, '+geçici+'. surenin son('+lastverses[geçici]+'.) ayetine kadar.';
+								var geçici = ikisure-1;
+								txt = birsure+'. surenin 1. ayetinden, '+geçici+'. surenin son('+lastverses[geçici]+'.) ayetine kadar.';
 							}
 							else {
-								txt = sure1+'. surenin 1. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar.';
+								txt = birsure+'. surenin 1. ayetinden, '+ikisure+'. surenin '+ayetiki+'. ayetine kadar.';
 							}
 						}
 						else if(ayetiki == 0) {
-							var geçici1 = sure2-1;
-							txt = sure1+'. surenin '+ayet1+'. ayetinden, '+geçici1+'. surenin son('+lastverses[geçici1]+'.) ayetine kadar.';
+							var geçici1 = ikisure-1;
+							txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+geçici1+'. surenin son('+lastverses[geçici1]+'.) ayetine kadar.';
 						}
 						else {
-							txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar.';
+							txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+ikisure+'. surenin '+ayetiki+'. ayetine kadar.';
 						}
-						if (sure1==sure2 && ayet2<=ayet1) {}
+						if (birsure==ikisure && ikiayet<=ayetbir) {}
 						else {
-							for(s=sure1; s<=sure2; s++) {
+							for(s=birsure; s<=ikisure; s++) {
 								for(a=0; a<=lastverses[s]; a++) {
-									if (s == sure1 && a < ayet1) { continue; }
+									if (s == birsure && a < ayetbir) { continue; }
 									if (a == "0") { continue; }
-									if (s == sure2 && a == ayet2) { break; }
+									if (s == ikisure && a == ikiayet) { break; }
 									aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
 								}
 							}
 						}
 					}
 					else {
-						var sura2 = parseInt(sure2)-1;
-						if (sure2 < sure1) { }
-						else if (sure2 == sure1) {
-							if(ayet1 == 0) {
-								txt = sure1+'. surenin 1. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)';
+						var sura2 = parseInt(ikisure)-1;
+						if (ikisure < birsure) { }
+						else if (ikisure == birsure) {
+							if(ayetbir == 0) {
+								txt = birsure+'. surenin 1. ayetinden, '+ikisure+'. surenin ... (ayet numarasını belirtin)';
 							}
 							else {
-								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)';
+								txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+ikisure+'. surenin ... (ayet numarasını belirtin)';
 							}
 						}
-						else if (sure2 == sure1+1) {
-							if (ayet1 == lastverses[sure1]) {
-								txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+						else if (ikisure == birsure+1) {
+							if (ayetbir == lastverses[birsure]) {
+								txt = 'Sadece '+birsure+'. surenin '+ayetbir+'. ayeti';
 							}
 							else {
-								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure1+'. surenin son('+lastverses[sure1]+'.) ayetine kadar.';
+								txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+birsure+'. surenin son('+lastverses[birsure]+'.) ayetine kadar.';
 							}
 						}
 						else {
-							if(ayet1 == 0) {
-								txt = sure1+'. surenin 1. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';
+							if(ayetbir == 0) {
+								txt = birsure+'. surenin 1. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';
 							}
 							else {
-								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';
+								txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';
 							}
 						}
-						for(s=sure1; s<sure2; s++) {
+						for(s=birsure; s<ikisure; s++) {
 							for(a=0; a<=lastverses[s]; a++) {
-								if (s == sure1 && a < ayet1) { continue; }
+								if (s == birsure && a < ayetbir) { continue; }
 								if (a == "0") { continue; }
 								aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
 							}
@@ -210,66 +207,66 @@ function bölümaçıcı(xml) {
 					}
 				}
 				else {
-					if(ayet1 == 0) {
+					if(ayetbir == 0) {
 						txt = ''
 					}
 					else {
-						txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+						txt = 'Sadece '+birsure+'. surenin '+ayetbir+'. ayeti';
 					}
-					if(ayet1 == "0") {}
+					if(ayetbir == "0") {}
 					else {
-						aralık += xmlDoc.getElementById("s"+sure1+"a"+ayet1).childNodes[0].nodeValue + "\n";
+						aralık += xmlDoc.getElementById("s"+birsure+"a"+ayetbir).childNodes[0].nodeValue + "\n";
 					}
 				}
 			}
 			else {
-				txt = sure1+'. surenin 1. ayetinden, son('+lastverses[sure1]+'.) ayetine kadar.';
-				for(a=0; a<=lastverses[sure1]; a++) {
+				txt = birsure+'. surenin 1. ayetinden, son('+lastverses[birsure]+'.) ayetine kadar.';
+				for(a=0; a<=lastverses[birsure]; a++) {
 					if (a == "0") { continue; }
-					aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
+					aralık += xmlDoc.getElementById("s"+birsure+"a"+a).childNodes[0].nodeValue + "\n";
 				}
 			}
-			document.getElementById("ifade").value = aralık;
+			ifade.value = aralık;
 		}
 		else {
 			txt = '';
 		}
 	}
 	else {
-		if (sure1) {
-			if (ayet1) {
-				if (sure2) {
-					if (ayet2) {
-						txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin '+ayetiki+'. ayetine kadar.';
-						if (sure1==sure2 && ayet2<=ayet1) {}
+		if (birsure) {
+			if (ayetbir) {
+				if (ikisure) {
+					if (ikiayet) {
+						txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+ikisure+'. surenin '+ayetiki+'. ayetine kadar.';
+						if (birsure==ikisure && ikiayet<=ayetbir) {}
 						else {
-							for(s=sure1; s<=sure2; s++) {
+							for(s=birsure; s<=ikisure; s++) {
 								for(a=0; a<=lastverses[s]; a++) {
-									if (s == sure1 && a < ayet1) { continue; }
+									if (s == birsure && a < ayetbir) { continue; }
 									if (s == "1" && a == "0") { continue; }
 									if (s == "9" && a == "0") { continue; }
-									if (s == sure2 && a == ayet2) { break; }
+									if (s == ikisure && a == ikiayet) { break; }
 									aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
 								}
 							}
 						}
 					}
 					else {
-						var sura2 = parseInt(sure2)-1;
-						if (sure2 < sure1) { }
-						else if (sure2 == sure1) { txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure2+'. surenin ... (ayet numarasını belirtin)'; }
-						else if (sure2 == sure1+1) {
-							if (ayet1 == lastverses[sure1]) {
-								txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
+						var sura2 = parseInt(ikisure)-1;
+						if (ikisure < birsure) { }
+						else if (ikisure == birsure) { txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+ikisure+'. surenin ... (ayet numarasını belirtin)'; }
+						else if (ikisure == birsure+1) {
+							if (ayetbir == lastverses[birsure]) {
+								txt = 'Sadece '+birsure+'. surenin '+ayetbir+'. ayeti';
 							}
 							else {
-								txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sure1+'. surenin son('+lastverses[sure1]+'.) ayetine kadar.';
+								txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+birsure+'. surenin son('+lastverses[birsure]+'.) ayetine kadar.';
 							}
 						}
-						else {txt = sure1+'. surenin '+ayet1+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';}
-						for(s=sure1; s<sure2; s++) {
+						else {txt = birsure+'. surenin '+ayetbir+'. ayetinden, '+sura2+'. surenin son('+lastverses[sura2]+'.) ayetine kadar.';}
+						for(s=birsure; s<ikisure; s++) {
 							for(a=0; a<=lastverses[s]; a++) {
-								if (s == sure1 && a < ayet1) { continue; }
+								if (s == birsure && a < ayetbir) { continue; }
 								if (s == "1" && a == "0") { continue; }
 								if (s == "9" && a == "0") { continue; }
 								aralık += xmlDoc.getElementById("s"+s+"a"+a).childNodes[0].nodeValue + "\n";
@@ -278,23 +275,23 @@ function bölümaçıcı(xml) {
 					}
 				}
 				else {
-					txt = 'Sadece '+sure1+'. surenin '+ayet1+'. ayeti';
-					if(sure1 == "1" && ayet1 == "0") {}
-					else if (sure1 == "9" && ayet1 == "0") {}
+					txt = 'Sadece '+birsure+'. surenin '+ayetbir+'. ayeti';
+					if(birsure == "1" && ayetbir == "0") {}
+					else if (birsure == "9" && ayetbir == "0") {}
 					else {
-						aralık += xmlDoc.getElementById("s"+sure1+"a"+ayet1).childNodes[0].nodeValue + "\n";
+						aralık += xmlDoc.getElementById("s"+birsure+"a"+ayetbir).childNodes[0].nodeValue + "\n";
 					}
 				}
 			}
 			else {
-				txt = sure1+'. surenin '+firstverses[sure1]+'. ayetinden, son('+lastverses[sure1]+'.) ayetine kadar.';
-				for(a=0; a<=lastverses[sure1]; a++) {
-					if (sure1 == "1" && a == "0") { continue; }
-					if (sure1 == "9" && a == "0") { continue; }
-					aralık += xmlDoc.getElementById("s"+sure1+"a"+a).childNodes[0].nodeValue + "\n";
+				txt = birsure+'. surenin '+firstverses[birsure]+'. ayetinden, son('+lastverses[birsure]+'.) ayetine kadar.';
+				for(a=0; a<=lastverses[birsure]; a++) {
+					if (birsure == "1" && a == "0") { continue; }
+					if (birsure == "9" && a == "0") { continue; }
+					aralık += xmlDoc.getElementById("s"+birsure+"a"+a).childNodes[0].nodeValue + "\n";
 				}
 			}
-			document.getElementById("ifade").value = aralık;
+			ifade.value = aralık;
 		}
 		else {
 			txt = '';
@@ -435,33 +432,24 @@ function abjad (string) {
 	ﻵ = val(string,'ﻵ','31');
 	return ء+ا+آ+ٱ+أ+إ+ب+پ+ج+چ+د+ه+ة+و+ؤ+ز+ژ+ح+ط+ی+ي+ئ+ى+ک+ك+گ+ڭ+ل+م+ن+س+ع+ف+ڢ+ڤ+ص+ق+ڨ+ر+ش+ت+ث+خ+ذ+ض+ظ+غ+ﻻ+ﻹ+ﻷ+ﻵ
 }
-/*
-$("#sure,#ayet,#sure2,#ayet2,#sırano1,#sırano2").on('focus', function sngerigetir() {
-	document.getElementById('sadeceno').style.display = 'block';
-})*/
+
 $(document).keypress( function otomatikyazıcı () {
-	ifade = document.getElementById("ifade")
-	sure = document.getElementById("sure")
-    ayet = document.getElementById("ayet")
-	sure2 = document.getElementById("sure2")
-    ayet2 = document.getElementById("ayet2")
-	sırano1 = document.getElementById('sırano1')
-	sırano2 = document.getElementById('sırano2')
+
 	var yazı = String.fromCharCode(event.keyCode)
-	if (sırano2 !== document.activeElement && sırano1 !== document.activeElement && sure2 !== document.activeElement && ayet2 !== document.activeElement && sure !== document.activeElement && ayet !== document.activeElement && ifade !== document.activeElement) {
+	if (sırano2 !== document.activeElement && sırano1 !== document.activeElement && sure2 !== document.activeElement && ayet2 !== document.activeElement && sure1 !== document.activeElement && ayet1 !== document.activeElement && ifade !== document.activeElement) {
 		if (yazı.match(/[\d]/gim)) {
 			ifade.value = ''
 			$('#ifade').trigger('input')
-			sure.focus()
+			sure1.focus()
 		}
 		else { // ifadeye yazarken noları sil, paylaşım linkinin düzgün üretilebilmesi için
 			ifade.focus()
-			$('#sure').val('');
-			$('#ayet').val('');
-			$('#sure2').val('');
-			$('#ayet2').val('');
-			$('#sırano1').val('');
-			$('#sırano2').val('');
+			sure1.value = ''
+			ayet1.value = ''
+			sure2.value = ''
+			ayet2.value = ''
+			sırano1.value = ''
+			sırano2.value = ''
 			document.getElementById('açıklama').innerHTML = ''
 		}
 	}
@@ -472,12 +460,12 @@ $('#ifade').on('keypress keyup', function noları_sil() {
 	var yazı = String.fromCharCode(event.keyCode)
 	
 	if (yazı.match(/[:ء-يﻻﻹﻷﻵپچژڨڢڤیکگڭٱ \b\s]/igm)) {
-		$('#sure').val('');
-		$('#ayet').val('');
-		$('#sure2').val('');
-		$('#ayet2').val('');
-		$('#sırano1').val('');
-		$('#sırano2').val('');
+		sure1.value = ''
+		ayet1.value = ''
+		sure2.value = ''
+		ayet2.value = ''
+		sırano1.value = ''
+		sırano2.value = ''
 		document.getElementById('açıklama').innerHTML = ''
 	}
 })
@@ -486,22 +474,21 @@ $('#sn').on('change', nosuzayetlerisil) // sure, ayet ve sıranolar boş olsa bi
 $('#ifade').on('input', yazarkennosuzayetlerisil) // numarasız ayet yazımına izin verme
 
 function nosuzayetlerisil() {
-	var str = document.getElementById('ifade').value;
+	var str = ifade.value;
 	if (document.getElementById('sn').checked) {
 		str = str.replace(/^.*(:0).*$\n/gm, ''); // 0 nolu ayetleri sil
 		// delete verses which doesn't begin with numbers
-		document.getElementById('ifade').value = str.replace(/^(?![1-9]).*$\n/gm, '')
+		ifade.value = str.replace(/^(?![1-9]).*$\n/gm, '')
 	}
 }
 function yazarkennosuzayetlerisil() {
-	var str = document.getElementById('ifade').value;
+	var str = ifade.value;
 	if (document.getElementById('sn').checked) {
 		str = str.replace(/^.*(:0).*$/gm, ''); // 0 nolu ayetleri sil
 		// delete verses which doesn't begin with numbers
-		document.getElementById('ifade').value = str.replace(/^(?![1-9]).*$/gm, '')
+		ifade.value = str.replace(/^(?![1-9]).*$/gm, '')
 	}
 }
-
 
 function copyToClipboard(text) {
 	if (window.clipboardData && window.clipboardData.setData) {
@@ -876,14 +863,14 @@ if( abjad(inputValue) ) {
 	seçilen_harfler();
 	
 }else{
-	if (document.getElementById('ifade') === document.activeElement) {
+	if (ifade === document.activeElement) {
 		document.getElementById('açıklama').innerHTML = '';
-		document.getElementById('sure').value = '';
-		document.getElementById('ayet').value = '';
-		document.getElementById('sure2').value = '';
-		document.getElementById('ayet2').value = '';
-		document.getElementById('sırano1').value = '';
-		document.getElementById('sırano2').value = '';
+		sure1.value = '';
+		ayet1.value = '';
+		sure2.value = '';
+		ayet2.value = '';
+		sırano1.value = '';
+		sırano2.value = '';
 	}
 	document.getElementById('abjad').innerHTML = '';
 	document.getElementById('letters').innerHTML = '';
@@ -964,12 +951,10 @@ $(".inputs").on('click focus', message);
 
 function message() {
 
-	var surebir = document.getElementById('sure').value;
-	var sureiki = document.getElementById('sure2').value;
-	var ayetbir1 = document.getElementById("ayet").value;
-	var ayetiki2 = document.getElementById("ayet2").value;
-	var sırano1 = document.getElementById('sırano1').value;
-	var sırano2 = document.getElementById('sırano2').value;
+	var surebir = sure1.value;
+	var sureiki = sure2.value;
+	var ayetbir1 = ayet1.value;
+	var ayetiki2 = ayet2.value;
 	var sn = document.getElementById('sn');
 
 	if (surebir) {
