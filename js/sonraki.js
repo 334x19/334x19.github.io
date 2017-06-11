@@ -561,7 +561,7 @@ function max_sırano2() {
 
 function maxsure(){
 	if (this.value > 114) {this.value = 114};
-	if (this.value < "1" && this.value !== "") {this.value = 1}
+	if (this.value < 1 && this.value !== "") {this.value = 1}
 }
 $('#sure').on('input', maxsure);
 $('#sure2').on('input', maxsure);
