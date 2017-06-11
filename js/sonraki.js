@@ -10,7 +10,7 @@ function maxayet() {
 		else if (verse.value > lastverses[surenumber]) {verse.value = lastverses[surenumber]}
 	}
 	else {
-		if (surenumber == 1 || surenumber == 9){
+		if (surenumber == 1 || surenumber == 9) {
 			if (verse.value < "1" && verse.value !== "") {verse.value = 1}
 			else if (verse.value > lastverses[surenumber]) {verse.value = lastverses[surenumber]}
 		}
