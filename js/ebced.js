@@ -977,10 +977,10 @@ function message() {
 					}
 					else {
 						if (sn.checked) {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&say="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 						}
 						else {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&ayet2="+ayetiki2+"&say="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 						}
 					}
 				}
@@ -995,10 +995,10 @@ function message() {
 					}
 					else {
 						if (sn.checked) {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&say="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 						}
 						else {
-							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+							mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&sure2="+sureiki+"&say="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 						}
 					}
 				}
@@ -1014,10 +1014,10 @@ function message() {
 				}
 				else {
 					if (sn.checked) {
-						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&say="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 					}
 					else{
-						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+						mesaj = "ebced.kuran114.org/#sure="+surebir+"&ayet="+ayetbir1+"&say="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 					}
 				}
 			}
@@ -1033,10 +1033,10 @@ function message() {
 			}
 			else {
 				if (sn.checked) {
-					mesaj = "ebced.kuran114.org/#sure="+surebir+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+					mesaj = "ebced.kuran114.org/#sure="+surebir+"&say="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 				}
 				else {
-					mesaj = "ebced.kuran114.org/#sure="+surebir+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+					mesaj = "ebced.kuran114.org/#sure="+surebir+"&say="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 				}
 			}
 		}
@@ -1063,18 +1063,18 @@ function message() {
 		else {
 			if (ayet_sayisi) {
 				if (sn.checked) {
-					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&say="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 				}
 				else {
-					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
+					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&say="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime + "\n" + "AYET sayısı: " + ayet_sayisi;
 				}
 			}
 			else {
 				if (sn.checked) {
-					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&seç="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&say="+sclnhrf+"&sn=1" + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 				}
 				else {
-					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&seç="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
+					mesaj = "ebced.kuran114.org/#ifade=" + inputValue.replace(/[ ]+/gim, "_").replace(/[\n]+/gim, "-")+"&say="+sclnhrf + "\n\n" + "Toplam " + metin + sayı + "\n" + "EBCED değeri: " + ebced + "\n" + "HARF sayısı: " + harf_sayisi + "\n" + "KELİME sayısı: " + kelime;
 				}
 			}
 		}
@@ -1118,7 +1118,7 @@ function getfromlink() {
 				document.getElementById(p[0]).value = p[1];
 				$("#"+p[0]).trigger('input');
 			}
-			else if (p[0] === 'seç') {
+			else if (p[0] === 'say') {
 				for (var j = 0; j < p[1].split('+').length; j++) {
 					document.getElementById(p[1].split('+')[j]).checked = true;
 					$("#"+p[1].split('+')[j]).trigger('change');
