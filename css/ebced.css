@@ -97,7 +97,7 @@ textarea:focus {
 	th {font-size: 14pt;}
 	#primary {font-size: 15pt;}
 	#text {font-size: 16pt;}
-	#sv {font-size: 16pt;}
+	#sv {font-size: 16pt; margin-left: auto; margin-right: auto; width: 277px;}
 	#kopyala {font-size: 14pt; padding: 6px;}
 	textarea {font-size: 14pt;	background-position: 30%;}
 	
