@@ -58,7 +58,7 @@ body {background-color: azure;}
 	font-size: 15pt;
 	width: 50%;
 }
-#sv {padding: 0px 0px 4px 0px;}
+#sv {padding: 0px 0px 4px 0px; margin-left: auto; margin-right: auto; width: 277px;}
 #book {padding-top: 19px;}
 #text{
 	width: 50%;
