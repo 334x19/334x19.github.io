@@ -65,6 +65,7 @@ body {background-color: azure;}
 	margin-left: 25%;
 }
 textarea {
+	resize: none;
 	width: 100%;
 	background-color: rgba(0, 255, 255, 0.38);
 	border-radius: 2px;
