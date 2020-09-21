@@ -83,7 +83,7 @@ function loadXMLDoc() {
 			bölümaçıcı(this);
     	}
 	}
-	xmlhttp.open("GET", "sure/114.xml", true);
+	xmlhttp.open("GET", "114.xml", true);
 	xmlhttp.send();
 }
 
