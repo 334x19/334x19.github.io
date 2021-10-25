@@ -532,11 +532,11 @@ $('#sırano2').on('input', max_sırano2);
 function max_sırano1() {
 	var sırano1 = document.getElementById('sırano1');
 	if (document.getElementById('sn').checked) {
-		if (sırano1.value > 6234) { sırano1.value = 6234; }
+		if (sırano1.value > 6236) { sırano1.value = 6236; }
 		else if (sırano1.value < "1" && sırano1.value !== "") {sırano1.value = 1}
 	}
 	else {
-		if (sırano1.value > 6346) { sırano1.value = 6346; }
+		if (sırano1.value > 6348) { sırano1.value = 6348; }
 		else if (sırano1.value < "1" && sırano1.value !== "") {sırano1.value = 1}
 	}
 }
@@ -546,13 +546,13 @@ function max_sırano2() {
 	var sırano2 = document.getElementById('sırano2');
 	var sure1 = document.getElementById('sure');
 	if (document.getElementById('sn').checked) {
-		if (sırano2.value > 6234) { sırano2.value = 6234; }
+		if (sırano2.value > 6236) { sırano2.value = 6236; }
 		else if (sırano2.value < "1" && sırano2.value !== "") {
 			sırano2.value = parseInt(sırano1.value) + 1;
 		}
 	}
 	else {
-		if (sırano2.value > 6346) { sırano2.value = 6346; }
+		if (sırano2.value > 6348) { sırano2.value = 6348; }
 		else if (sırano2.value < "1" && sırano2.value !== "") {
 			sırano2.value = parseInt(sırano1.value) + 1;
 		}
