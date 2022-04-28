@@ -119,7 +119,7 @@ textarea:focus {
 	textarea {font-size: 15pt;	background-position: 20%;}
 }
 	
-.ayetbox {	width: 57px;	height: 32px;	box-sizing: border-box;
+.ayetbox {	width: 73px;	height: 32px;	box-sizing: border-box;
 	border: 1px solid rgba(17, 147, 153, 0.19); border-radius: 4px;	font-size: 17px;
 	text-align: center;	letter-spacing: 1.7px;	padding: 0px 4px 0px 4px;
 }
