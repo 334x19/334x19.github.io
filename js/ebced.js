@@ -964,8 +964,8 @@ function message() {
 	var ayetiki2 = ayet2.value;
 	var sn = document.getElementById('sn');
 
-    var kopyalamaLinki = "ebcedhesaplayicisi.github.io/#sure="
-    var kopyalamaLinkMetni = "ebcedhesaplayicisi.github.io/#ifade="
+    var kopyalamaLinki = "mukattasayaci.github.io/#sure="
+    var kopyalamaLinkMetni = "mukattasayaci.github.io/#ifade="
     
     if (surebir) {
 		if (ayetbir1) {
