@@ -949,7 +949,7 @@ if( abjad(inputValue) ) {
 	document.querySelector("#kopyala").onclick = function() {
 		var result = copyToClipboard(mesaj);
 		console.log("copied?", result);
-		swal({title: "Sonuçlar Kopyalandı!", text: "sorguladınmı.com - kuran114.org", timer: 1450, imageUrl: "pic/abjad.png", showConfirmButton: false});
+		swal({title: "Sonuçlar Kopyalandı!", text: "OnurluKuran.blogspot.com", timer: 1450, imageUrl: "pic/abjad.png", showConfirmButton: false});
 	};
 });
 
